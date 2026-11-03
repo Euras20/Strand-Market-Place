@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Strand - Catégorie</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {"tertiary-fixed": "#b9efcb", "secondary-fixed-dim": "#c3c7cb", "surface-container-lowest": "#ffffff", "inverse-on-surface": "#f2f1ee", "on-primary-fixed-variant": "#7b2f00", "on-tertiary-fixed-variant": "#1e5036", "on-secondary-fixed": "#171c1f", "primary-fixed": "#ffdbcc", "on-surface-variant": "#594238", "primary": "#9d3e00", "surface-variant": "#e3e2e0", "on-secondary": "#ffffff", "on-error": "#ffffff", "on-surface": "#1a1c1a", "on-error-container": "#93000a", "tertiary": "#35664a", "error": "#ba1a1a", "on-tertiary-fixed": "#002111", "surface-container": "#efeeeb", "on-secondary-container": "#5e6367", "secondary": "#5a5f62", "surface-tint": "#a14000", "on-secondary-fixed-variant": "#42474b", "outline-variant": "#e0c0b2", "surface-dim": "#dbdad7", "inverse-surface": "#2f312f", "secondary-fixed": "#dfe3e7", "on-primary": "#ffffff", "surface-container-highest": "#e3e2e0", "surface-bright": "#faf9f6", "background": "#faf9f6", "surface": "#faf9f6", "primary-container": "#c55000", "tertiary-container": "#4e7f61", "error-container": "#ffdad6", "on-primary-fixed": "#351000", "on-background": "#1a1c1a", "outline": "#8c7166", "surface-container-high": "#e9e8e5", "on-primary-container": "#fffbff", "tertiary-fixed-dim": "#9ed2b0", "secondary-container": "#dce0e4", "primary-fixed-dim": "#ffb694", "surface-container-low": "#f4f3f1", "on-tertiary-container": "#f6fff5", "on-tertiary": "#ffffff", "inverse-primary": "#ffb694"},
+          "borderRadius": {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          "spacing": {"gutter": "1.5rem", "space-lg": "1.5rem", "space-xl": "2.5rem", "margin": "2rem", "space-sm": "0.5rem", "space-md": "1rem", "space-xs": "0.25rem"},
+          "fontFamily": {"headline-xl-mobile": ["Manrope"], "display-hero": ["Manrope"], "label-lg": ["Inter"], "label-caps": ["Inter"], "body-sm": ["Inter"], "headline-xl": ["Manrope"], "label-md": ["Inter"], "headline-md": ["Manrope"], "title-md": ["Inter"], "headline-lg": ["Manrope"], "body-md": ["Inter"], "numeric-data": ["Inter"], "headline-sm": ["Manrope"], "body-lg": ["Inter"]},
+          "fontSize": {"headline-xl-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "700"}], "display-hero": ["44px", {"lineHeight": "52px", "letterSpacing": "-0.025em", "fontWeight": "700"}], "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}], "label-caps": ["11px", {"lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700"}], "body-sm": ["13px", {"lineHeight": "18px", "letterSpacing": "0.005em", "fontWeight": "400"}], "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}], "headline-md": ["22px", {"lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "title-md": ["16px", {"lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600"}], "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600"}], "body-md": ["14px", {"lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400"}], "numeric-data": ["14px", {"lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "500"}], "headline-sm": ["18px", {"lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600"}], "body-lg": ["16px", {"lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400"}]}
+        }
+      }
+    }</script>
+</head>
+
+<body class="bg-background font-body-md text-body-md text-on-surface antialiased">
+
+  <header
+    class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+    <div class="bg-surface-container-low text-on-surface-variant text-label-md font-label-md py-space-xs">
+      <div class="w-full max-w-[1600px] mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
+        <div class="flex items-center gap-space-sm"><span
+            class="material-symbols-outlined text-[16px] text-tertiary">local_shipping</span><span>Livraison spécialisée
+            sur chantier ou atelier en France et en Europe</span></div>
+        <div class="flex items-center gap-space-md">
+          <div class="flex items-center gap-space-xs cursor-pointer hover:text-on-surface"><span
+              class="material-symbols-outlined text-[16px]">language</span><span>France / FR (€)</span></div><span
+            class="text-outline-variant">|</span>
+          <a class="flex items-center gap-space-xs hover:text-on-surface" href="tel:0189402210"><span
+              class="material-symbols-outlined text-[16px] text-secondary">support_agent</span><span>Support: <strong>01
+                89 40 22 10</strong></span></a>
+        </div>
+      </div>
+    </div>
+    <div class="w-full max-w-[1600px] mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3 shrink-0"><a class="flex items-center gap-2" href="strand.html">
+          <div
+            class="w-9 h-9 rounded-lg bg-primary text-on-primary font-headline-md font-bold flex items-center justify-center shadow-sm">
+            S</div>
+          <div class="flex flex-col"><span
+              class="font-headline-sm text-on-surface font-bold tracking-tight leading-none">STRAND</span><span
+              class="font-label-caps text-[10px] text-on-surface-variant uppercase">Marketplace Pro</span></div>
+        </a></div>
+      <div class="relative flex-1 mx-2 max-w-xl">
+        <div
+          class="flex items-center w-full bg-surface-container-low/70 border border-surface-container-highest/60 rounded-xl focus-within:border-primary transition-colors">
+          <input class="w-full bg-transparent px-4 py-2.5 font-body-md placeholder:text-secondary focus:outline-none"
+            placeholder="Rechercher un matériel..." type="search" />
+          <button class="m-1 px-4 py-2 bg-primary hover:bg-primary-container text-on-primary rounded-lg shadow-sm"
+            type="button"><span class="material-symbols-outlined text-[20px]">search</span></button>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 shrink-0">
+        <a class="hidden sm:flex flex-col items-center px-2 py-1 rounded-lg text-on-surface-variant hover:text-on-surface"
+          href="#"><span class="material-symbols-outlined text-[22px]">favorite</span><span
+            class="font-label-md text-[11px] mt-0.5">Favoris</span></a>
+        <a class="flex items-center px-2 py-1 text-on-surface-variant hover:text-on-surface" href="#"><span
+            class="material-symbols-outlined text-[22px]">account_circle</span></a>
+        <a class="flex items-center gap-space-sm pl-space-sm pr-space-md py-2 rounded-xl bg-primary/10 hover:bg-primary/20 transition-colors"
+          href="#" onclick="toggleCartDrawer(true); return false;">
+          <div class="relative"><span
+              class="material-symbols-outlined text-primary text-[24px]">shopping_bag</span><span data-cart-count
+              class="absolute -top-1.5 -right-2 bg-primary text-on-primary font-label-caps text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+          </div>
+          <div class="text-left leading-tight"><span data-cart-total
+              class="font-numeric-data text-primary font-bold">0,00 €</span></div>
+        </a>
+      </div>
+    </div>
+     <div class="bg-surface-container-lowest border-t border-surface-container-highest/40">
+      <div class="w-full max-w-[1600px] mx-auto px-4 sm:px-6 flex items-center gap-2 py-2 overflow-x-auto scrollbar-none">
+        <button class="flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md font-semibold transition-colors shrink-0" onclick="toggleCategoryDrawer(true)" type="button">
+          <span class="material-symbols-outlined text-[20px]">menu</span>
+          <span>Toutes les catégories</span>
+        </button>
+        <a class="px-3 py-2 text-primary font-label-md text-label-md font-semibold hover:bg-surface-container-low rounded-lg transition-colors whitespace-nowrap" href="#">Promotions</a>
+        <a class="px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors whitespace-nowrap font-label-md" href="#">Nouveautés</a>
+        <a class="px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors whitespace-nowrap font-label-md" href="#">À propos</a>
+        <a class="px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors whitespace-nowrap font-label-md" href="#">Guide</a>
+        <a class="px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors whitespace-nowrap font-label-md" href="#">Plus</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="w-full pt-[148px] bg-background min-h-screen">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 py-6">
+      <div class="text-secondary font-label-md mb-4">Accueil / BTP & Manutention</div>
+      <h1 class="font-headline-lg text-headline-lg font-bold text-on-surface mb-6">Mini-dumpers & Brouettes à moteur
+      </h1>
+      <div class="flex gap-6">
+        <aside class="w-64 shrink-0 hidden lg:block space-y-6">
+          <div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm">
+            <h3 class="font-title-md font-semibold mb-3">Prix (€ HT)</h3>
+            <div class="space-y-2 font-body-sm"><label class="flex items-center gap-2"><input type="checkbox"
+                  class="accent-primary" /> Moins de 1 000 €</label><label class="flex items-center gap-2"><input
+                  type="checkbox" class="accent-primary" /> 1 000 – 3 000 €</label><label
+                class="flex items-center gap-2"><input type="checkbox" class="accent-primary" /> 3 000 – 5 000 €</label>
+            </div>
+          </div>
+          <div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm">
+            <h3 class="font-title-md font-semibold mb-3">Marque</h3>
+            <div class="space-y-2 font-body-sm"><label class="flex items-center gap-2"><input type="checkbox"
+                  class="accent-primary" /> Honda</label><label class="flex items-center gap-2"><input type="checkbox"
+                  class="accent-primary" /> Volkman</label><label class="flex items-center gap-2"><input type="checkbox"
+                  class="accent-primary" /> Oleo-Power</label></div>
+          </div>
+        </aside>
+        <div class="flex-1">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-secondary font-body-sm">3 produits</span>
+            <select class="border border-outline rounded-lg px-3 py-2 bg-surface-container-lowest text-sm">
+              <option>Pertinence</option>
+              <option>Prix croissant</option>
+              <option>Prix décroissant</option>
+            </select>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-md">
+
+            <div
+              class="bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col p-space-md justify-between group"
+              onclick="window.location.href='product.html'" style="cursor:pointer">
+              <div>
+                <div class="relative w-full aspect-[16/10] bg-surface-container-low rounded-lg overflow-hidden">
+                  <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy40BBo-IXy0CG6oxBq3o7e_LigB5is6UjBiPJD-WzaH_0KoBHFTHz32hKdDRzu0X3NLdZ1GGS5xP0mqd87E7ZdSUHSv0FPO8T2F8Pb7LWllMF6cHvFBKuS1Nx1IwqH3tix8PFdMs-ZuyA8thHibiWgpxFj4A9RxFABNAaEvObOnwmeBSsUskq4xV59mFTT0Lh6Ps5Sbsw46xoxM1l5mwzh5sM2mnt0xB9u1cHMYAh" />
+                  <button aria-label="Favoris"
+                    class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/90 text-secondary flex items-center justify-center shadow-sm"
+                    onclick="event.stopPropagation(); toggleWishlist(this,'Mini-dumper')" type="button"><span
+                      class="material-symbols-outlined text-[18px]">favorite</span></button>
+                </div>
+                <div class="mt-space-sm">
+                  <div
+                    class="flex items-center justify-between text-secondary font-label-caps text-label-caps uppercase">
+                    <span>VOLKMAN</span><span class="text-tertiary flex items-center gap-0.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> 48-72h</span></div>
+                  <h3 class="font-headline-sm text-on-surface font-semibold mt-1 leading-snug">Mini-dumper sur chenilles
+                    500 kg Honda GX200</h3>
+                </div>
+              </div>
+              <div class="mt-space-md space-y-space-sm">
+                <div class="flex items-baseline gap-space-sm"><span class="font-headline-md font-bold text-on-surface">3
+                    650,00 €</span><span class="font-label-caps text-on-surface-variant font-bold">HT</span></div>
+                <div class="flex items-center gap-2">
+                  <button
+                    class="flex-1 py-2.5 bg-primary hover:bg-primary-container text-on-primary font-label-md rounded-lg transition-colors flex items-center justify-center shadow-sm"
+                    onclick="event.stopPropagation(); buyNow({id:'vpk-500-hd',name:'Mini-dumper sur chenilles 500 kg Honda GX200',brand:'VOLKMAN',ref:'VPK-500-HD',priceHT:3650,image:this.closest('.group').querySelector('img').src})"
+                    type="button"><span class="font-semibold">Acheter</span></button>
+                  <button
+                    class="w-10 h-10 bg-primary/10 hover:bg-primary/20 text-primary border border-primary/20 rounded-lg flex items-center justify-center shadow-sm shrink-0"
+                    onclick="event.stopPropagation(); addToCart({id:'vpk-500-hd',name:'Mini-dumper sur chenilles 500 kg Honda GX200',brand:'VOLKMAN',ref:'VPK-500-HD',priceHT:3650,qty:1,image:this.closest('.group').querySelector('img').src}); showCartToast('Ajouté au panier','Mini-dumper 500 kg');"
+                    type="button"><span class="material-symbols-outlined text-[20px]">shopping_bag</span></button>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col p-space-md justify-between group"
+              onclick="window.location.href='product.html'" style="cursor:pointer">
+              <div>
+                <div class="relative w-full aspect-[16/10] bg-surface-container-low rounded-lg overflow-hidden">
+                  <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7be9ztOR0UZ54Dqq8V22WccXzJ61AnNUQlS-1g7bNlgrru2ARdWBtqueCxFSTXvEciG7StMsGMME7UjVFASTD3kUSIQr2Fzf11EDbMiTjRDWV_OC_uoZFbeWpi9tTwOa5rdyNuL5cQybXrpa_xjVk4mDVOpbcojO1qzsWfmIdNM_rfBSCL6kquzEr6Sf-fZfEi8hgWg0IqNZp3IZ0Xd8jUal8t-4pI2GGKD3W0tgw" />
+                  <button aria-label="Favoris"
+                    class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/90 text-secondary flex items-center justify-center shadow-sm"
+                    onclick="event.stopPropagation(); toggleWishlist(this,'Fendeuse')" type="button"><span
+                      class="material-symbols-outlined text-[18px]">favorite</span></button>
+                </div>
+                <div class="mt-space-sm">
+                  <div
+                    class="flex items-center justify-between text-secondary font-label-caps text-label-caps uppercase">
+                    <span>OLEO-POWER</span><span class="text-tertiary flex items-center gap-0.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> 48-72h</span></div>
+                  <h3 class="font-headline-sm text-on-surface font-semibold mt-1 leading-snug">Fendeuse de bûches
+                    hydraulique 22T thermique</h3>
+                </div>
+              </div>
+              <div class="mt-space-md space-y-space-sm">
+                <div class="flex items-baseline gap-space-sm"><span class="font-headline-md font-bold text-on-surface">1
+                    490,00 €</span><span class="font-label-caps text-on-surface-variant font-bold">HT</span></div>
+                <div class="flex items-center gap-2">
+                  <button
+                    class="flex-1 py-2.5 bg-primary hover:bg-primary-container text-on-primary font-label-md rounded-lg transition-colors flex items-center justify-center shadow-sm"
+                    onclick="event.stopPropagation(); buyNow({id:'fendeuse-22t',name:'Fendeuse de bûches hydraulique 22T',brand:'OLEO-POWER',ref:'OP-22T',priceHT:1490,image:this.closest('.group').querySelector('img').src})"
+                    type="button"><span class="font-semibold">Acheter</span></button>
+                  <button
+                    class="w-10 h-10 bg-primary/10 hover:bg-primary/20 text-primary border border-primary/20 rounded-lg flex items-center justify-center shadow-sm shrink-0"
+                    onclick="event.stopPropagation(); addToCart({id:'fendeuse-22t',name:'Fendeuse de bûches hydraulique 22T',brand:'OLEO-POWER',ref:'OP-22T',priceHT:1490,qty:1,image:this.closest('.group').querySelector('img').src}); showCartToast('Ajouté au panier','Fendeuse 22T');"
+                    type="button"><span class="material-symbols-outlined text-[20px]">shopping_bag</span></button>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col p-space-md justify-between group"
+              onclick="window.location.href='product.html'" style="cursor:pointer">
+              <div>
+                <div class="relative w-full aspect-[16/10] bg-surface-container-low rounded-lg overflow-hidden">
+                  <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZNv7X8EA_iP6mYVxXgALDgtYOZw3vVbQt6572POC9Y6AQd2_98neq3BQs5uB4HvuuLGPQZmcSGIbssgEWAnvbTGOfmzNVQkWM1qxkdyVExuSRCoHQ26Bqo2NP_NjqhdEWQfNGxv9aEKSgTUg3ah4AdavX7Kur36rQ562fVAIZtcHPkQ0hqblKJdRqsOSmrs37wUI-negwCkjlCl2xicWjP7EFoOQh4YccbIP2Nyjs" />
+                  <button aria-label="Favoris"
+                    class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/90 text-secondary flex items-center justify-center shadow-sm"
+                    onclick="event.stopPropagation(); toggleWishlist(this,'Générateur')" type="button"><span
+                      class="material-symbols-outlined text-[18px]">favorite</span></button>
+                </div>
+                <div class="mt-space-sm">
+                  <div
+                    class="flex items-center justify-between text-secondary font-label-caps text-label-caps uppercase">
+                    <span>MASTER</span><span class="text-tertiary flex items-center gap-0.5"><span
+                        class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> 48-72h</span></div>
+                  <h3 class="font-headline-sm text-on-surface font-semibold mt-1 leading-snug">Générateur d'air chaud
+                    fioul mobile 30 kW</h3>
+                </div>
+              </div>
+              <div class="mt-space-md space-y-space-sm">
+                <div class="flex items-baseline gap-space-sm"><span
+                    class="font-headline-md font-bold text-on-surface">890,00 €</span><span
+                    class="font-label-caps text-on-surface-variant font-bold">HT</span></div>
+                <div class="flex items-center gap-2">
+                  <button
+                    class="flex-1 py-2.5 bg-primary hover:bg-primary-container text-on-primary font-label-md rounded-lg transition-colors flex items-center justify-center shadow-sm"
+                    onclick="event.stopPropagation(); buyNow({id:'gen-air-30kw',name:'Générateur d\'air chaud fioul 30 kW',brand:'MASTER',ref:'MS-30KW',priceHT:890,image:this.closest('.group').querySelector('img').src})"
+                    type="button"><span class="font-semibold">Acheter</span></button>
+                  <button
+                    class="w-10 h-10 bg-primary/10 hover:bg-primary/20 text-primary border border-primary/20 rounded-lg flex items-center justify-center shadow-sm shrink-0"
+                    onclick="event.stopPropagation(); addToCart({id:'gen-air-30kw',name:'Générateur d\'air chaud fioul 30 kW',brand:'MASTER',ref:'MS-30KW',priceHT:890,qty:1,image:this.closest('.group').querySelector('img').src}); showCartToast('Ajouté au panier','Générateur 30kW');"
+                    type="button"><span class="material-symbols-outlined text-[20px]">shopping_bag</span></button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+<!-- CATEGORY SLIDE-IN DRAWER & BACKDROP -->
+      <div class="fixed inset-0 bg-on-surface/50 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"
+        id="category-drawer-backdrop" onclick="toggleCategoryDrawer(false)"></div>
+      <div
+        class="fixed top-0 bottom-0 left-0 w-full max-w-md bg-surface-container-lowest z-50 shadow-2xl flex flex-col -translate-x-full transition-transform duration-300 ease-in-out"
+        id="category-drawer">
+        <div
+          class="p-space-md bg-surface-container-low border-b border-surface-container-highest/60 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <div
+              class="w-8 h-8 rounded bg-primary text-on-primary font-bold flex items-center justify-center font-headline-sm">
+              S</div>
+            <div><span class="font-headline-sm text-headline-sm font-bold text-on-surface block leading-tight">Rayons
+                &amp; Univers</span><span
+                class="font-label-caps text-[10px] text-secondary tracking-wider uppercase">Catalogue Strand</span>
+            </div>
+          </div><button aria-label="Fermer le menu des catégories"
+            class="w-8 h-8 rounded-full hover:bg-surface-container flex items-center justify-center text-secondary transition-colors cursor-pointer"
+            onclick="toggleCategoryDrawer(false)" type="button"><span
+              class="material-symbols-outlined text-[20px]">close</span></button>
+        </div>
+        
+        <div class="flex-1 overflow-y-auto p-space-md space-y-1" id="category-accordion">
+          <!-- Agricole -->
+          <div class="border-b border-surface-container-highest/40">
+            <button class="w-full flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low transition-colors text-left" onclick="toggleAccordion(this)" type="button">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary text-[22px]">agriculture</span>
+                <span class="font-label-md text-label-md font-semibold text-on-surface">Agricole & Élevage</span>
+              </div>
+              <span class="material-symbols-outlined text-[20px] text-secondary accordion-icon">expand_more</span>
+            </button>
+            <div class="hidden pl-10 pb-2 space-y-1 accordion-content">
+              <a class="block py-2 px-3 rounded hover:bg-surface-container-low text-on-surface-variant hover:text-primary font-body-sm" href="category.html?cat=tracteurs">Tracteurs & Micro-tracteurs</a>
+              <a class="block py-2 px-3 rounded hover:bg-surface-container-low text-on-surface-variant hover:text-primary font-body-sm" href="category.html?cat=broyeurs">Broyeurs & Débroussailleuses</a>
+              <a class="block py-2 px-3 rounded hover:bg-surface-container-low text-on-surface-variant hover:text-primary font-body-sm" href="category.html?cat=travail-sol">Travail du sol</a>
+            </div>
+          </div>
+          <!-- Jardin -->
+          <div class="border-b border-surface-container-highest/40">
+            <button class="w-full flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low transition-colors text-left" onclick="toggleAccordion(this)" type="button">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-tertiary text-[22px]">yard</span>
+                <span class="font-label-md text-label-md font-semibold text-on-surface">Jardin & Espaces Verts</span>
+              </div>
+              <span class="material-symbols-outlined text-[20px] text-secondary accordion-icon">expand_more</span>
+            </button>
+            <div class="hidden pl-10 pb-2 space-y-1 accordion-content">
+              <a class="block py-2 px-3 rounded hover:bg-surface-container-low text-on-surface-variant hover:text-primary font-body-sm" href="category.html?cat=tondeuses">Tondeuses autoportées</a>
+              <a class="block py-2 px-3 rounded hover:bg-surface-container-low text-on-surface-variant hover:text-primary font-body-sm" href="category.html?cat=debrosseuses">Débroussailleuses pro</a>
+            </div>
+          </div>
+          <!-- Chauffage -->
+          <div class="border-b border-surface-container-highest/40">
+            <button class="w-full flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low transition-colors text-left" onclick="toggleAccordion(this)" type="button">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary text-[22px]">thermostat</span>
+                <span class="font-label-md text-label-md font-semibold text-on-surface">Chauffage & Énergie</span>
+              </div>
+              <span class="material-symbols-outlined text-[20px] text-secondary accordion-icon">expand_more</span>
+            </button>
+            <div class="hidden pl-10 pb-2 space-y-1 accordion-content">
+              <a class="block py-2 px-3 rounded hover:bg-surface-container-low text-on-surface-variant hover:text-primary font-body-sm" href="category.html?cat=canons">Canons air chaud</a>
+              <a class="block py-2 px-3 rounded hover:bg-surface-container-low text-on-surface-variant hover:text-primary font-body-sm" href="category.html?cat=groupes">Groupes électrogènes</a>
+              <a class="block py-2 px-3 rounded hover:bg-surface-container-low text-on-surface-variant hover:text-primary font-body-sm" href="category.html?cat=fendeuses">Fendeuses de bois</a>
+            </div>
+          </div>
+          <!-- BTP - no subcats example -->
+          <div class="border-b border-surface-container-highest/40">
+            <a class="w-full flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low transition-colors" href="category.html?cat=btp">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-secondary text-[22px]">construction</span>
+                <span class="font-label-md text-label-md font-semibold text-on-surface">BTP & Manutention</span>
+              </div>
+              <span class="material-symbols-outlined text-[18px] text-secondary">chevron_right</span>
+            </a>
+          </div>
+          <!-- Atelier -->
+          <div class="border-b border-surface-container-highest/40">
+            <button class="w-full flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low transition-colors text-left" onclick="toggleAccordion(this)" type="button">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary text-[22px]">handyman</span>
+                <span class="font-label-md text-label-md font-semibold text-on-surface">Atelier & Outillage</span>
+              </div>
+              <span class="material-symbols-outlined text-[20px] text-secondary accordion-icon">expand_more</span>
+            </button>
+            <div class="hidden pl-10 pb-2 space-y-1 accordion-content">
+              <a class="block py-2 px-3 rounded hover:bg-surface-container-low text-on-surface-variant hover:text-primary font-body-sm" href="category.html?cat=soudure">Poste à souder</a>
+              <a class="block py-2 px-3 rounded hover:bg-surface-container-low text-on-surface-variant hover:text-primary font-body-sm" href="category.html?cat=compresseurs">Compresseurs</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+  <!-- ============ CART DRAWER ============ -->
+  <div class="fixed inset-0 bg-on-surface/50 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"
+    id="cart-drawer-backdrop" onclick="toggleCartDrawer(false)"></div>
+  <div
+    class="fixed top-0 bottom-0 right-0 w-full max-w-md bg-surface-container-lowest z-50 shadow-2xl flex flex-col translate-x-full transition-transform duration-300"
+    id="cart-drawer">
+    <div
+      class="p-space-md bg-surface-container-low border-b border-surface-container-highest/60 flex items-center justify-between">
+      <span class="font-headline-sm font-bold">Votre panier</span>
+      <button class="w-8 h-8 rounded-full hover:bg-surface-container flex items-center justify-center text-secondary"
+        onclick="toggleCartDrawer(false)" type="button"><span
+          class="material-symbols-outlined text-[20px]">close</span></button>
+    </div>
+    <div class="flex-1 overflow-y-auto p-space-md space-y-4" id="cart-items"></div>
+    <div class="p-space-md border-t border-surface-container-highest/60">
+      <div class="flex justify-between mb-3 font-title-md"><span>Total HT</span><span id="cart-total"
+          class="font-bold text-primary">0,00 €</span></div>
+      <a href="checkout.html"
+        class="block w-full py-3 bg-primary text-on-primary text-center font-label-lg rounded-lg hover:bg-primary-container">Finaliser
+        la commande</a>
+    </div>
+  </div>
+
+   <footer class="w-full bg-[#252A2D] text-inverse-on-surface pt-space-xl pb-space-lg">
+    <div class="w-full max-w-[1600px] mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl pb-space-xl">
+        <div class="space-y-space-md">
+          <div class="flex items-center gap-space-sm">
+            <div
+              class="w-8 h-8 rounded bg-primary flex items-center justify-center text-on-primary font-bold text-headline-sm">
+              S</div><span
+              class="font-headline-sm text-headline-sm text-surface-container-lowest font-bold tracking-tight">STRAND</span>
+          </div>
+          <p class="font-body-sm text-body-sm text-secondary-fixed-dim leading-relaxed">La marketplace de référence pour
+            l'équipement professionnel, machines agricoles, BTP et outillage d'atelier en France et en Europe.</p>
+          <div class="space-y-2 pt-space-xs font-body-sm text-body-sm">
+            <div class="flex items-center gap-2 text-surface-container-lowest"><span
+                class="material-symbols-outlined text-primary text-[18px]">phone</span><span class="font-semibold">01 89
+                40 22 10</span><span class="text-[11px] text-secondary-fixed-dim">(Lun-Ven 8h-18h)</span></div>
+            <div class="flex items-center gap-2 text-secondary-fixed-dim"><span
+                class="material-symbols-outlined text-[18px]">mail</span><a
+                class="hover:text-surface-container-lowest transition-colors"
+                href="mailto:pro@strand-marketplace.fr">pro@strand-marketplace.fr</a></div>
+            <div class="flex items-center gap-2 text-secondary-fixed-dim"><span
+                class="material-symbols-outlined text-tertiary text-[18px]">verified_user</span><span>TVA
+                Intracommunautaire vérifiée</span></div>
+          </div>
+        </div>
+        <div>
+          <h4
+            class="font-label-caps text-label-caps text-surface-container-lowest uppercase tracking-wider pb-space-sm mb-space-sm">
+            Nos Univers</h4>
+          <ul class="space-y-2 font-body-sm text-body-sm text-secondary-fixed-dim">
+            <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
+                data-path="catalogue-materiel" href="#">Toutes les catégories</a></li>
+            <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
+                data-path="catalogue-materiel" href="#">Matériel Agricole &amp; Espaces verts</a></li>
+            <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
+                data-path="catalogue-materiel" href="#">Chauffage Pro &amp; Énergie</a></li>
+            <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
+                data-path="catalogue-materiel" href="#">BTP &amp; Manutention industrielle</a></li>
+            <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
+                data-path="catalogue-materiel" href="#">Atelier &amp; Outillage mécanique</a></li>
+            <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a data-path="nouveautes"
+                href="#">Nouveautés machines 2025</a></li>
+            <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a data-path="promotions"
+                href="#">Déstockage &amp; Flottes récentes</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4
+            class="font-label-caps text-label-caps text-surface-container-lowest uppercase tracking-wider pb-space-sm mb-space-sm">
+            Service Client &amp; Pro</h4>
+          <ul class="space-y-2 font-body-sm text-body-sm text-secondary-fixed-dim">
+            <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
+                data-path="demande-devis" href="#">Demande de cotation grand compte</a></li>
+            <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
+                data-path="experts-techniques" href="#">Parler à un conseiller technique</a></li>
+            <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
+                data-path="livraison-dechargement" href="#">Conditions de livraison &amp; déchargement hayon</a></li>
+            <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
+                data-path="espace-client" href="#">Suivi de commande &amp; BL numérique</a></li>
+            <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
+                data-path="espace-client" href="#">Retours professionnels &amp; SAV fabricant</a></li>
+            <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
+                data-path="guide-achat-financement" href="#">FAQ &amp; Guides de financement leasing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4
+            class="font-label-caps text-label-caps text-surface-container-lowest uppercase tracking-wider pb-space-sm mb-space-sm">
+            Entreprise &amp; Légal</h4>
+          <ul class="space-y-2 font-body-sm text-body-sm text-secondary-fixed-dim">
+            <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a data-path="a-propos"
+                href="#">À propos de Strand SAS</a></li>
+            <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
+                data-path="mentions-legales" href="#">Mentions légales</a></li>
+            <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
+                data-path="conditions-generales-vente" href="#">CGV Professionnels &amp; Particuliers</a></li>
+            <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
+                data-path="politique-confidentialite" href="#">Politique de confidentialité RGPD</a></li>
+            <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
+                data-path="gestion-cookies" href="#">Gestion des cookies de traçage</a></li>
+            <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a data-path="recrutement"
+                href="#">Recrutement ingénieurs &amp; commerce</a></li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md text-secondary-fixed-dim font-body-sm text-[12px]">
+        <div class="flex flex-col sm:flex-row items-center gap-space-sm text-center sm:text-left"><span>© 2025 Strand
+            SAS — Tous droits réservés.</span><span class="hidden sm:inline text-secondary">•</span><span>Facturation
+            conforme réglementation française &amp; TVA intracommunautaire.</span></div>
+        <div
+          class="flex items-center flex-wrap justify-center gap-space-sm font-label-caps text-[10px] text-surface-container-lowest">
+          <span class="px-2 py-1 bg-surface-container-highest/10 rounded">CB SÉCURISÉE</span><span
+            class="px-2 py-1 bg-surface-container-highest/10 rounded">VISA PRO</span><span
+            class="px-2 py-1 bg-surface-container-highest/10 rounded">MASTERCARD</span><span
+            class="px-2 py-1 bg-surface-container-highest/10 rounded">VIREMENT SEPA PRO</span><span
+            class="px-2 py-1 bg-surface-container-highest/10 rounded text-tertiary-fixed">CHORUS PRO 30J</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const CART_KEY = 'strand_cart_v1';
+    function getCart() {try {return JSON.parse(localStorage.getItem(CART_KEY)) || [];} catch (e) {return [];} }
+    function saveCart(c) {localStorage.setItem(CART_KEY, JSON.stringify(c)); renderCartBadge(); renderCartDrawer();}
+    function cartCount() {return getCart().reduce((s, i) => s + (i.qty || 1), 0);}
+    function cartTotalHT() {return getCart().reduce((s, i) => s + (i.priceHT * (i.qty || 1)), 0);}
+    function addToCart(p) {const c = getCart(); const e = c.find(i => i.id === p.id); if (e) {e.qty = (e.qty || 1) + (p.qty || 1);} else {c.push({...p, qty: p.qty || 1});} saveCart(c);}
+    function removeFromCart(id) {saveCart(getCart().filter(i => i.id !== id));}
+    function updateQty(id, d) {const c = getCart(); const it = c.find(i => i.id === id); if (!it) return; it.qty = Math.max(1, (it.qty || 1) + d); saveCart(c);}
+    function fmtEUR(n) {return new Intl.NumberFormat('fr-FR', {minimumFractionDigits: 2, maximumFractionDigits: 2}).format(n) + ' €';}
+    function renderCartBadge() {
+      const n = cartCount(), t = cartTotalHT();
+      document.querySelectorAll('[data-cart-count]').forEach(el => el.textContent = n);
+      document.querySelectorAll('[data-cart-total]').forEach(el => el.textContent = fmtEUR(t));
+    }
+    function renderCartDrawer() {
+      const itemsEl = document.getElementById('cart-items'); const totalEl = document.getElementById('cart-total');
+      if (!itemsEl) return;
+      const cart = getCart();
+      if (cart.length === 0) {
+        itemsEl.innerHTML = `<div class="text-center text-secondary py-12 flex flex-col items-center gap-3"><span class="material-symbols-outlined text-[48px] text-outline-variant">shopping_bag</span><p class="font-body-md">Votre panier est vide</p><a href="strand.html" class="text-primary font-label-md font-semibold hover:underline">Découvrir le catalogue</a></div>`;
+      } else {
+        itemsEl.innerHTML = cart.map(it => `
+      <div class="flex gap-3 p-3 bg-surface-container-low rounded-lg">
+        <div class="w-16 h-16 rounded-lg overflow-hidden bg-surface-container shrink-0">${it.image ? `<img src="${it.image}" alt="" class="w-full h-full object-cover"/>` : ''}</div>
+        <div class="flex-1 min-w-0">
+          <div class="font-label-caps text-[10px] text-secondary uppercase">${it.brand || ''}</div>
+          <div class="font-title-md text-on-surface leading-tight">${it.name}</div>
+          <div class="text-[11px] text-secondary mt-0.5">Réf. ${it.ref || '—'}</div>
+          <div class="flex items-center justify-between mt-2">
+            <div class="flex items-center bg-surface-container-lowest rounded-lg">
+              <button class="w-7 h-7 flex items-center justify-center hover:bg-surface-container rounded-l-lg" onclick="updateQty('${it.id}',-1)" type="button">−</button>
+              <span class="w-8 text-center font-numeric-data text-[13px] font-bold">${it.qty}</span>
+              <button class="w-7 h-7 flex items-center justify-center hover:bg-surface-container rounded-r-lg" onclick="updateQty('${it.id}',1)" type="button">+</button>
+            </div>
+            <div class="text-right"><div class="font-title-md font-bold">${fmtEUR(it.priceHT * it.qty)}</div><div class="text-[10px] text-secondary">HT</div></div>
+          </div>
+        </div>
+        <button class="text-secondary hover:text-error self-start" onclick="removeFromCart('${it.id}')" type="button"><span class="material-symbols-outlined text-[18px]">close</span></button>
+      </div>`).join('');
+      }
+      if (totalEl) totalEl.textContent = fmtEUR(cartTotalHT());
+    }
+    function toggleCartDrawer(open) {
+      const dr = document.getElementById('cart-drawer'), bd = document.getElementById('cart-drawer-backdrop');
+      if (!dr || !bd) return;
+      if (open) {renderCartDrawer(); bd.classList.remove('hidden'); requestAnimationFrame(() => {bd.classList.remove('opacity-0'); dr.classList.remove('translate-x-full');}); document.body.style.overflow = 'hidden';}
+      else {dr.classList.add('translate-x-full'); bd.classList.add('opacity-0'); setTimeout(() => bd.classList.add('hidden'), 300); document.body.style.overflow = '';}
+    }
+    function toggleCategoryDrawer(open) {
+      const dr = document.getElementById('category-drawer'), bd = document.getElementById('category-drawer-backdrop');
+      if (!dr || !bd) return;
+      if (open) {bd.classList.remove('hidden'); requestAnimationFrame(() => {bd.classList.remove('opacity-0'); dr.classList.remove('-translate-x-full');}); document.body.style.overflow = 'hidden';}
+      else {dr.classList.add('-translate-x-full'); bd.classList.add('opacity-0'); setTimeout(() => bd.classList.add('hidden'), 300); document.body.style.overflow = '';}
+    }
+    function buyNow(p) {addToCart({...p, qty: p.qty || 1}); window.location.href = 'checkout.html';}
+    function showCartToast(title, message) {
+      let t = document.getElementById('global-toast');
+      if (!t) {
+        t = document.createElement('div'); t.id = 'global-toast';
+        t.className = 'fixed bottom-6 right-6 z-[100] transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none';
+        t.innerHTML = `<div class="bg-[#252A2D] text-white px-4 py-3 rounded-xl shadow-xl flex items-center gap-3 max-w-md"><span class="material-symbols-outlined text-primary text-[24px]">check_circle</span><div><p class="font-title-md font-semibold" data-tt></p><p class="font-body-sm text-secondary-fixed-dim" data-tm></p></div></div>`;
+        document.body.appendChild(t);
+      }
+      t.querySelector('[data-tt]').textContent = title; t.querySelector('[data-tm]').textContent = message;
+      t.classList.remove('translate-y-24', 'opacity-0'); t.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {t.classList.add('translate-y-24', 'opacity-0'); t.classList.remove('translate-y-0', 'opacity-100');}, 3200);
+    }
+    function toggleWishlist(btn, name) {
+      const icon = btn.querySelector('.material-symbols-outlined');
+      const saved = icon.style.fontVariationSettings && icon.style.fontVariationSettings.includes('FILL 1');
+      if (saved) {icon.style.fontVariationSettings = "'FILL' 0"; icon.classList.remove('text-primary'); icon.classList.add('text-secondary'); showCartToast('Favoris', name + ' retiré');}
+      else {icon.style.fontVariationSettings = "'FILL' 1"; icon.classList.remove('text-secondary'); icon.classList.add('text-primary'); showCartToast('Favoris', name + ' ajouté');}
+    }
+    document.addEventListener('DOMContentLoaded', () => {renderCartBadge(); renderCartDrawer();});
+  </script>
+</body>
+
+</html>

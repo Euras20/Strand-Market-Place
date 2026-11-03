@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_standard" name="shell-type" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        @layer base {
+
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                overscroll-behavior: none;
+            }
+
+            main>:first-child {
+                margin-top: 0 !important;
+            }
+
+            main>:last-child {
+                margin-bottom: 0 !important;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+        id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"inverse-surface": "#2f312f", "inverse-on-surface": "#f2f1ee", "on-tertiary-fixed": "#002111", "on-primary-fixed-variant": "#7b2f00", "surface-container-low": "#f4f3f1", "secondary-fixed": "#dfe3e7", "primary-fixed-dim": "#ffb694", "on-primary-container": "#fffbff", "on-secondary-container": "#5e6367", "surface-container-high": "#e9e8e5", "primary": "#9d3e00", "secondary-fixed-dim": "#c3c7cb", "on-tertiary-container": "#f6fff5", "outline-variant": "#e0c0b2", "on-error-container": "#93000a", "surface-container": "#efeeeb", "on-primary": "#ffffff", "surface-bright": "#faf9f6", "on-primary-fixed": "#351000", "tertiary-fixed": "#b9efcb", "surface-container-highest": "#e3e2e0", "tertiary-fixed-dim": "#9ed2b0", "error": "#ba1a1a", "on-surface": "#1a1c1a", "inverse-primary": "#ffb694", "on-surface-variant": "#594238", "surface-container-lowest": "#ffffff", "on-secondary-fixed-variant": "#42474b", "on-tertiary-fixed-variant": "#1e5036", "on-secondary-fixed": "#171c1f", "background": "#faf9f6", "primary-fixed": "#ffdbcc", "outline": "#8c7166", "tertiary-container": "#4e7f61", "surface-variant": "#e3e2e0", "error-container": "#ffdad6", "tertiary": "#35664a", "surface-tint": "#a14000", "on-secondary": "#ffffff", "secondary": "#5a5f62", "on-tertiary": "#ffffff", "on-error": "#ffffff", "on-background": "#1a1c1a", "surface-dim": "#dbdad7", "surface": "#faf9f6", "primary-container": "#c55000", "secondary-container": "#dce0e4"}, borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"}, spacing: {"space-lg": "1.5rem", "space-md": "1rem", "space-xs": "0.25rem", "space-xl": "2.5rem", "margin": "2rem", "space-sm": "0.5rem", "gutter": "1.5rem"}, fontFamily: {"label-caps": ["Inter"], "label-lg": ["Inter"], "body-lg": ["Inter"], "body-md": ["Inter"], "title-md": ["Inter"], "headline-lg": ["Manrope"], "headline-md": ["Manrope"], "numeric-data": ["Inter"], "display-hero": ["Manrope"], "headline-sm": ["Manrope"], "headline-xl": ["Manrope"], "label-md": ["Inter"], "body-sm": ["Inter"], "headline-xl-mobile": ["Manrope"]}, fontSize: {"label-caps": ["11px", {"lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700"}], "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}], "body-lg": ["16px", {"lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400"}], "body-md": ["14px", {"lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400"}], "title-md": ["16px", {"lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600"}], "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600"}], "headline-md": ["22px", {"lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "numeric-data": ["14px", {"lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "500"}], "display-hero": ["44px", {"lineHeight": "52px", "letterSpacing": "-0.025em", "fontWeight": "700"}], "headline-sm": ["18px", {"lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600"}], "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}], "body-sm": ["13px", {"lineHeight": "18px", "letterSpacing": "0.005em", "fontWeight": "400"}], "headline-xl-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "700"}]}}}};</script>
+</head>
+
+<body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col justify-between">
+    <header class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+        <div class="h-20 max-w-7xl mx-auto px-margin flex items-center justify-between">
+            <div class="flex items-center gap-space-lg"><a class="flex items-baseline gap-space-xs"
+                    data-path="cart-review" href="#"><span
+                        class="font-headline-lg text-headline-lg tracking-tight text-on-surface uppercase font-bold">Strand</span><span
+                        class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Pro</span></a>
+                <div class="hidden sm:flex items-center gap-space-xs px-space-sm py-1 bg-surface-container rounded-lg">
+                    <span class="material-symbols-outlined text-tertiary text-[18px]">verified_user</span><span
+                        class="font-label-caps text-label-caps text-on-surface uppercase">Commande 100% Sécurisée</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-space-lg">
+                <div class="hidden md:flex flex-col text-right"><span
+                        class="font-label-caps text-label-caps text-secondary uppercase">Assistance Pro &amp;
+                        Facturation</span><a
+                        class="font-title-md text-title-md text-primary hover:text-on-surface transition-colors"
+                        href="tel:+33189480020">+33 (0)1 89 48 00 20</a></div>
+                <div class="flex items-center gap-space-md"><a
+                        class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg bg-surface-container-high text-on-surface"
+                        href="tel:+33189480020"><span class="material-symbols-outlined text-[20px]">call</span></a>
+                    <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-sm"><span
+                            class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="w-full pt-20 bg-surface flex-1">
+        <div class="flex flex-col w-full">
+            <!-- MOBILE SUMMARY ACCORDION TRIGGER -->
+            <aside aria-label="Aperçu mobile de la commande"
+                class="lg:hidden w-full bg-surface-container-low px-margin py-3 shadow-sm z-30">
+                <button aria-controls="mobileSummaryDrawer" aria-expanded="false"
+                    class="w-full flex items-center justify-between text-left focus:outline-none focus:ring-2 focus:ring-primary/20 rounded-lg py-1"
+                    id="mobileSummaryToggle" type="button">
+                    <div class="flex items-center gap-space-sm min-w-0">
+                        <span class="material-symbols-outlined text-primary text-[20px] shrink-0">shopping_cart</span>
+                        <span class="font-label-lg text-label-lg text-on-surface truncate">Afficher le
+                            récapitulatif</span>
+                        <span
+                            class="material-symbols-outlined text-secondary text-[20px] transition-transform duration-200"
+                            id="mobileSummaryIcon">expand_more</span>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <span class="font-headline-sm text-headline-sm text-on-surface">4 380,00 € TTC</span>
+                    </div>
+                </button>
+                <div class="hidden pt-space-md space-y-space-md" id="mobileSummaryDrawer">
+                    <div
+                        class="flex items-start gap-space-md bg-surface-container-lowest p-space-md rounded-lg shadow-sm">
+                        <div class="relative w-16 h-16 shrink-0 bg-surface-container rounded-lg overflow-hidden">
+                            <img class="w-full h-full object-cover"
+                                data-alt="High quality professional photograph of an industrial tracked mini-dumper mini brouette a chenilles with Honda GX200 engine, yellow chassis, parked on a construction depot concrete surface with soft directional studio light"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOLJ9eMWJ33BeCpNKk3Xzea8cArKu6Z-SX-ygin6diZSXjRSTMr66WMa3bGdx6TgKudIbSAjvhzUmF3vbUWeFBY-eOAVlM-Pn5fpWiBa3fRv3QnKjwB4dpm6be-b2vch98lqMlJ9t7sHi5DpTUcbflawOiXDOGKcPVAtW5cVnzPUNAqJJ48boYHfPtXjm0xoUgdPFhJv2kWOOIQQinhT1bfNjmmKqX0Rc3BLmAevNo" />
+                            <span
+                                class="absolute top-1 right-1 bg-inverse-surface text-inverse-on-surface font-label-caps text-[10px] px-1.5 py-0.5 rounded-full">1</span>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h2 class="font-title-md text-title-md text-on-surface truncate">Mini-dumper sur chenilles
+                                500 kg</h2>
+                            <p class="font-body-sm text-body-sm text-secondary">Réf. VPK-500-HD · Moteur Honda GX200</p>
+                            <p class="font-label-lg text-label-lg text-on-surface mt-1">3 650,00 € HT</p>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-surface-container-lowest p-space-md rounded-lg space-y-2 text-on-surface shadow-sm font-body-sm text-body-sm">
+                        <div class="flex justify-between">
+                            <span class="text-secondary">Sous-total HT</span>
+                            <span class="font-numeric-data">3 650,00 €</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-secondary">TVA standard (20%)</span>
+                            <span class="font-numeric-data">730,00 €</span>
+                        </div>
+                        <div class="flex justify-between items-center text-tertiary">
+                            <span class="flex items-center gap-1 font-label-md"><span
+                                    class="material-symbols-outlined text-[16px]">local_shipping</span> Livraison hayon
+                                sur RDV</span>
+                            <span class="font-label-md uppercase">Offerte</span>
+                        </div>
+                        <div
+                            class="pt-2 flex justify-between items-baseline font-title-md text-title-md text-on-surface">
+                            <span>Total TTC</span>
+                            <span class="font-headline-sm text-headline-sm text-primary">4 380,00 € TTC</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <!-- MAIN CHECKOUT SHELL -->
+            <div class="max-w-7xl mx-auto w-full px-margin py-space-xl">
+                <!-- STEPPER NAVIGATION -->
+                <nav aria-label="Progression du tunnel de commande" class="w-full max-w-3xl mx-auto mb-space-xl">
+                    <div class="relative flex items-center justify-between">
+                        <!-- Connecting Line Background -->
+                        <div
+                            class="absolute left-6 right-6 top-1/2 -translate-y-1/2 h-0.5 bg-surface-container-highest z-0">
+                        </div>
+                        <!-- Progress Active Line -->
+                        <div class="absolute left-6 top-1/2 -translate-y-1/2 h-0.5 bg-primary transition-all duration-300 z-0 w-0"
+                            id="stepProgressBar"></div>
+                        <!-- Step 1 Button -->
+                        <button class="relative z-10 flex flex-col items-center group focus:outline-none" id="stepTab1"
+                            onclick="goToStep(1)" type="button">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center font-label-lg text-label-lg transition-colors bg-primary text-on-primary shadow-sm ring-4 ring-surface"
+                                id="stepBadge1">
+                                1
+                            </div>
+                            <span
+                                class="mt-2 font-label-caps text-label-caps uppercase text-primary font-bold tracking-wider"
+                                id="stepLabel1">1. Informations</span>
+                        </button>
+                        <!-- Step 2 Button -->
+                        <button class="relative z-10 flex flex-col items-center group focus:outline-none" id="stepTab2"
+                            onclick="goToStep(2)" type="button">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center font-label-lg text-label-lg transition-colors bg-surface-container-high text-secondary shadow-sm ring-4 ring-surface"
+                                id="stepBadge2">
+                                2
+                            </div>
+                            <span class="mt-2 font-label-caps text-label-caps uppercase text-secondary tracking-wider"
+                                id="stepLabel2">2. Vérification</span>
+                        </button>
+                        <!-- Step 3 Button -->
+                        <button class="relative z-10 flex flex-col items-center group focus:outline-none" id="stepTab3"
+                            onclick="goToStep(3)" type="button">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center font-label-lg text-label-lg transition-colors bg-surface-container-high text-secondary shadow-sm ring-4 ring-surface"
+                                id="stepBadge3">
+                                3
+                            </div>
+                            <span class="mt-2 font-label-caps text-label-caps uppercase text-secondary tracking-wider"
+                                id="stepLabel3">3. Paiement</span>
+                        </button>
+                    </div>
+                </nav>
+                <!-- TWO-COLUMN WORKFLOW -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+                    <!-- LEFT COLUMN: MAIN FLOW (approx ~65% -> 8 cols) -->
+                    <section class="lg:col-span-7 xl:col-span-8 flex flex-col space-y-space-lg">
+                        <!-- STEP 1 CONTAINER: INFORMATIONS -->
+                        <div class="flex flex-col space-y-space-lg" id="sectionStep1">
+                            <!-- Contact Information Form Block -->
+                            <div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm space-y-space-md">
+                                <div class="flex items-center gap-space-xs text-on-surface">
+                                    <span class="material-symbols-outlined text-primary text-[22px]">contact_mail</span>
+                                    <h2 class="font-headline-sm text-headline-sm">1. Coordonnées de contact</h2>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-2">
+                                    <div class="flex flex-col space-y-1">
+                                        <label class="font-label-md text-label-md text-on-surface"
+                                            for="contactEmail">Email professionnel *</label>
+                                        <div class="relative">
+                                            <input
+                                                class="w-full h-11 px-3.5 bg-white border border-outline text-on-surface rounded-lg placeholder-secondary font-body-md text-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
+                                                id="contactEmail" placeholder="exemple@entreprise.fr" required=""
+                                                type="email" value="direction.travaux@batitp-france.fr" />
+                                            <span
+                                                class="material-symbols-outlined absolute right-3 top-3 text-tertiary text-[18px]">check_circle</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col space-y-1">
+                                        <label class="font-label-md text-label-md text-on-surface"
+                                            for="contactPhone">Téléphone mobile direct *</label>
+                                        <div class="relative">
+                                            <input
+                                                class="w-full h-11 px-3.5 bg-white border border-outline text-on-surface rounded-lg placeholder-secondary font-body-md text-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
+                                                id="contactPhone" placeholder="+33 6 00 00 00 00" required="" type="tel"
+                                                value="+33 6 42 89 12 04" />
+                                            <span
+                                                class="material-symbols-outlined absolute right-3 top-3 text-secondary text-[18px]">sms</span>
+                                        </div>
+                                </div>
+                            </div>
+                            <!-- Shipping Address Form Block -->
+                            <div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm space-y-space-md">
+                                <div class="flex items-center gap-space-xs text-on-surface">
+                                    <span class="material-symbols-outlined text-primary text-[22px]">location_on</span>
+                                    <h2 class="font-headline-sm text-headline-sm">2. Destination de livraison &amp;
+                                        Société</h2>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-2">
+                                    <div class="flex flex-col space-y-1">
+                                        <label class="font-label-md text-label-md text-on-surface"
+                                            for="companyName">Raison sociale / Entreprise *</label>
+                                        <input
+                                            class="w-full h-11 px-3.5 bg-white border border-outline text-on-surface rounded-lg placeholder-secondary font-body-md text-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
+                                            id="companyName" required="" type="text" value="BATI TP AQUITAINE SAS" />
+                                    </div>
+                                    <div class="flex flex-col space-y-1">
+                                        <label class="font-label-md text-label-md text-on-surface" for="companySiret">N°
+                                            SIRET ou TVA intracommunautaire <span
+                                                class="text-secondary font-normal">(Recommandé)</span></label>
+                                        <input
+                                            class="w-full h-11 px-3.5 bg-white border border-outline text-on-surface rounded-lg placeholder-secondary font-body-md text-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
+                                            id="companySiret" placeholder="Ex: 84290132400018 ou FR..." type="text"
+                                            value="842 901 324 00018" />
+                                    </div>
+                                    <div class="flex flex-col space-y-1">
+                                        <label class="font-label-md text-label-md text-on-surface"
+                                            for="contactFullName">Nom &amp; Prénom du réceptionnaire *</label>
+                                        <input
+                                            class="w-full h-11 px-3.5 bg-white border border-outline text-on-surface rounded-lg placeholder-secondary font-body-md text-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
+                                            id="contactFullName" required="" type="text" value="Laurent Mercier" />
+                                    </div>
+                                    <div class="flex flex-col space-y-1">
+                                        <label class="font-label-md text-label-md text-on-surface"
+                                            for="countrySelect">Pays de destination</label>
+                                        <div class="relative">
+                                            <select
+                                                class="w-full h-11 px-3.5 bg-white border border-outline text-on-surface rounded-lg font-body-md text-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary appearance-none transition"
+                                                id="countrySelect">
+                                                <option selected="" value="FR">France Métropolitaine</option>
+                                                <option value="BE">Belgique</option>
+                                                <option value="LU">Luxembourg</option>
+                                                <option value="CH">Suisse</option>
+                                            </select>
+                                            <span
+                                                class="material-symbols-outlined absolute right-3 top-3 text-secondary text-[20px] pointer-events-none">expand_more</span>
+                                        </div>
+                                    </div>
+                                    <div class="md:col-span-2 flex flex-col space-y-1">
+                                        <label class="font-label-md text-label-md text-on-surface"
+                                            for="streetAddress">Adresse de livraison (Rue, ZA, Chantier) *</label>
+                                        <input
+                                            class="w-full h-11 px-3.5 bg-white border border-outline text-on-surface rounded-lg placeholder-secondary font-body-md text-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
+                                            id="streetAddress" required="" type="text"
+                                            value="44 Avenue des Artisans — Parc d'Activités Nord" />
+                                    </div>
+                                    <div class="md:col-span-2 flex flex-col space-y-1">
+                                        <label class="font-label-md text-label-md text-on-surface"
+                                            for="streetAddress2">Complément d'accès / Dépôt <span
+                                                class="text-secondary font-normal">(Optionnel)</span></label>
+                                        <input
+                                            class="w-full h-11 px-3.5 bg-white border border-outline text-on-surface rounded-lg placeholder-secondary font-body-md text-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
+                                            id="streetAddress2"
+                                            placeholder="Ex: Hangar 4, accès semi-remorque dégagé..." type="text"
+                                            value="Bâtiment D, Quai de déchargement engins B2" />
+                                    </div>
+                                    <div class="flex flex-col space-y-1">
+                                        <label class="font-label-md text-label-md text-on-surface" for="postalCode">Code
+                                            postal *</label>
+                                        <input
+                                            class="w-full h-11 px-3.5 bg-white border border-outline text-on-surface rounded-lg placeholder-secondary font-body-md text-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
+                                            id="postalCode" required="" type="text" value="33700" />
+                                    </div>
+                                    <div class="flex flex-col space-y-1">
+                                        <label class="font-label-md text-label-md text-on-surface" for="cityName">Ville
+                                            *</label>
+                                        <input
+                                            class="w-full h-11 px-3.5 bg-white border border-outline text-on-surface rounded-lg placeholder-secondary font-body-md text-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
+                                            id="cityName" required="" type="text" value="Mérignac" />
+                                    </div>
+                                </div>
+                                <!-- Checkbox Same Billing -->
+                                <div class="pt-2 flex items-center gap-space-sm">
+                                    <input checked=""
+                                        class="w-4 h-4 text-primary bg-surface-container-lowest rounded focus:ring-primary/20 focus:ring-2 accent-primary cursor-pointer"
+                                        id="sameBilling" type="checkbox" />
+                                    <label class="font-body-md text-body-md text-on-surface cursor-pointer select-none"
+                                        for="sameBilling">L'adresse de facturation est identique à l'adresse de
+                                        livraison</label>
+                                </div>
+                            </div>
+                            <!-- Step 1 Button CTA -->
+                            <div class="flex justify-end pt-space-xs">
+                                <button
+                                    class="w-full sm:w-auto h-12 px-space-xl bg-primary text-on-primary font-label-lg text-label-lg rounded-lg shadow-sm hover:opacity-95 active:scale-[0.99] transition flex items-center justify-center gap-space-sm"
+                                    onclick="goToStep(2)" type="button">
+                                    <span>Continuer vers la vérification</span>
+                                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                        <!-- STEP 2 CONTAINER: VÉRIFICATION -->
+                        <div class="hidden flex-col space-y-space-lg" id="sectionStep2">
+                            <div
+                                class="bg-surface-container-low p-space-md rounded-lg flex items-center gap-space-sm text-on-surface">
+                                <span class="material-symbols-outlined text-primary text-[24px]">fact_check</span>
+                                <div>
+                                    <h2 class="font-headline-sm text-headline-sm">Vérification de vos informations de
+                                        commande</h2>
+                                    <p class="font-body-sm text-body-sm text-secondary">Vérifiez vos informations avant
+                                        d'accéder au protocole de paiement sécurisé.</p>
+                                </div>
+                            </div>
+                            <!-- Read-only Contact Card -->
+                            <div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm space-y-space-sm">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-space-xs">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-[20px]">contact_mail</span>
+                                        <span class="font-title-md text-title-md text-on-surface">Coordonnées
+                                            professionnelles</span>
+                                    </div>
+                                    <button
+                                        class="font-label-lg text-label-lg text-primary hover:underline flex items-center gap-1"
+                                        onclick="goToStep(1)" type="button">
+                                        <span>Modifier</span>
+                                        <span class="material-symbols-outlined text-[16px]">edit</span>
+                                    </button>
+                                </div>
+                                <div
+                                    class="grid grid-cols-1 sm:grid-cols-2 gap-space-md pt-space-xs font-body-md text-body-md">
+                                    <div class="bg-surface-container-low p-space-sm rounded-lg">
+                                        <span
+                                            class="block font-label-caps text-label-caps text-secondary uppercase">Email
+                                            de facturation &amp; suivi</span>
+                                        <span class="font-title-md text-title-md text-on-surface"
+                                            id="recapEmail">direction.travaux@batitp-france.fr</span>
+                                    </div>
+                                    <div class="bg-surface-container-low p-space-sm rounded-lg">
+                                        <span
+                                            class="block font-label-caps text-label-caps text-secondary uppercase">Téléphone
+                                            transporteur</span>
+                                        <span class="font-title-md text-title-md text-on-surface" id="recapPhone">+33 6
+                                            42 89 12 04</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Read-only Shipping Destination Card -->
+                            <div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm space-y-space-sm">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-space-xs">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-[20px]">local_shipping</span>
+                                        <span class="font-title-md text-title-md text-on-surface">Lieu de livraison
+                                            &amp; Transport</span>
+                                    </div>
+                                    <button
+                                        class="font-label-lg text-label-lg text-primary hover:underline flex items-center gap-1"
+                                        onclick="goToStep(1)" type="button">
+                                        <span>Modifier</span>
+                                        <span class="material-symbols-outlined text-[16px]">edit</span>
+                                    </button>
+                                </div>
+                                <div class="bg-surface-container-low p-space-md rounded-lg space-y-space-xs">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-headline-sm text-headline-sm text-on-surface"
+                                            id="recapCompany">BATI TP AQUITAINE SAS</span>
+                                        <span
+                                            class="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed font-label-caps text-label-caps uppercase rounded-lg">Hayon
+                                            inclus</span>
+                                    </div>
+                                    <p class="font-body-md text-body-md text-on-surface" id="recapRecipient">
+                                        Destinataire : Laurent Mercier (SIRET : 842 901 324 00018)</p>
+                                    <p class="font-body-md text-body-md text-on-surface-variant" id="recapAddressFull">
+                                        44 Avenue des Artisans — Parc d'Activités Nord, Bâtiment D, Quai B2, 33700
+                                        Mérignac, France</p>
+                                </div>
+                                <div
+                                    class="p-space-sm bg-surface-container-low rounded-lg flex items-center gap-space-sm text-secondary font-body-sm text-body-sm">
+                                    <span class="material-symbols-outlined text-tertiary text-[20px]">check_box</span>
+                                    <span>Expédition par transporteur lourd Strand Logistics avec prise de rendez-vous
+                                        téléphonique sous 24h ouvrées.</span>
+                                </div>
+                            </div>
+                            <!-- Step 2 Navigation Actions -->
+                            <div
+                                class="flex flex-col-reverse sm:flex-row items-center justify-between gap-space-md pt-space-xs">
+                                <button
+                                    class="w-full sm:w-auto font-label-lg text-label-lg text-secondary hover:text-on-surface flex items-center justify-center gap-space-xs"
+                                    onclick="goToStep(1)" type="button">
+                                    <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                                    <span>Retour aux informations</span>
+                                </button>
+                                <button
+                                    class="w-full sm:w-auto h-12 px-space-xl bg-primary text-on-primary font-label-lg text-label-lg rounded-lg shadow-sm hover:opacity-95 active:scale-[0.99] transition flex items-center justify-center gap-space-sm"
+                                    onclick="goToStep(3)" type="button">
+                                    <span>Continuer vers le paiement</span>
+                                    <span class="material-symbols-outlined text-[18px]">lock</span>
+                                </button>
+                            </div>
+                        </div>
+                                                <!-- STEP 3 CONTAINER: PAIEMENT PAR VIREMENT -->
+                        <div class="hidden flex-col space-y-space-lg" id="sectionStep3">
+                            <div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm space-y-space-md">
+                                <div class="flex items-center gap-space-xs text-on-surface">
+                                    <span class="material-symbols-outlined text-primary text-[22px]">account_balance</span>
+                                    <h2 class="font-headline-sm text-headline-sm">Paiement par virement bancaire</h2>
+                                </div>
+                                <p class="font-body-sm text-body-sm text-secondary">Effectuez le virement avec les coordonnées ci-dessous, puis uploadez votre preuve de paiement.</p>
+
+                                <div class="bg-surface-container-low p-space-md rounded-lg space-y-3 font-body-md">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-secondary">Bénéficiaire</span>
+                                        <span class="font-semibold">Strand Marketplace SAS</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-secondary">IBAN</span>
+                                        <div class="flex items-center gap-2">
+                                            <span class="font-mono font-semibold" id="ibanValue">FR76 3000 6000 0112 3456 7890 189</span>
+                                            <button class="text-primary hover:underline text-sm" onclick="copyToClipboard('ibanValue')" type="button">Copier</button>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-secondary">BIC / SWIFT</span>
+                                        <div class="flex items-center gap-2">
+                                            <span class="font-mono font-semibold" id="bicValue">BNPAFRPPXXX</span>
+                                            <button class="text-primary hover:underline text-sm" onclick="copyToClipboard('bicValue')" type="button">Copier</button>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-secondary">Montant</span>
+                                        <span class="font-semibold text-primary">4 380,00 € TTC</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-secondary">Référence</span>
+                                        <div class="flex items-center gap-2">
+                                            <span class="font-mono font-semibold" id="refValue">STRAND-2024-4380</span>
+                                            <button class="text-primary hover:underline text-sm" onclick="copyToClipboard('refValue')" type="button">Copier</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="pt-2">
+                                    <label class="block font-label-md text-label-md text-on-surface mb-2">Uploader la preuve de paiement *</label>
+                                    <div class="border-2 border-dashed border-outline rounded-lg p-6 text-center bg-surface-container-low hover:bg-surface-container transition-colors">
+                                        <input class="hidden" id="proofUpload" type="file" accept=".pdf,.jpg,.jpeg,.png" onchange="handleProofUpload(this)" />
+                                        <label for="proofUpload" class="cursor-pointer flex flex-col items-center gap-2">
+                                            <span class="material-symbols-outlined text-primary text-[32px]">upload_file</span>
+                                            <span class="font-label-md text-on-surface">Cliquez pour sélectionner le reçu</span>
+                                            <span class="font-body-sm text-secondary">PDF, JPG ou PNG (max 10 Mo)</span>
+                                        </label>
+                                        <p class="mt-2 font-body-sm text-tertiary hidden" id="uploadStatus">Fichier sélectionné</p>
+                                    </div>
+                                </div>
+
+                                <div class="pt-space-xs bg-surface-container-low p-space-md rounded-lg">
+                                    <div class="flex items-start gap-space-sm">
+                                        <input checked="" class="w-4 h-4 mt-1 text-primary accent-primary cursor-pointer shrink-0" id="acceptCgv" required="" type="checkbox" />
+                                        <label class="font-body-sm text-body-sm text-on-surface select-none cursor-pointer" for="acceptCgv">
+                                            J'accepte les <a class="text-primary underline" href="#">CGV</a> et confirme avoir effectué le virement.
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <button class="w-full h-14 bg-primary text-on-primary font-headline-sm text-headline-sm rounded-lg shadow-md hover:opacity-95 active:scale-[0.99] transition flex items-center justify-center gap-space-sm" id="payButton" onclick="confirmTransfer(this)" type="button">
+                                    <span class="material-symbols-outlined text-[24px]">check_circle</span>
+                                    <span>Confirmer la commande</span>
+                                </button>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <button class="font-label-lg text-label-lg text-secondary hover:text-on-surface flex items-center gap-space-xs" onclick="goToStep(2)" type="button">
+                                    <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                                    <span>Retour à la vérification</span>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- RIGHT COLUMN: ORDER SUMMARY (Sticky on Desktop, ~35% -> 4-5 cols) -->
+                    <aside aria-label="Récapitulatif de commande"
+                        class="hidden lg:flex lg:col-span-5 xl:col-span-4 flex-col sticky top-24 space-y-space-md">
+                        <div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm space-y-space-md">
+                            <div class="flex items-center justify-between pb-space-xs">
+                                <h2 class="font-headline-sm text-headline-sm text-on-surface">Récapitulatif de commande
+                                </h2>
+                                <span
+                                    class="font-label-caps text-label-caps uppercase text-secondary bg-surface-container-high px-2 py-0.5 rounded">1
+                                    article</span>
+                            </div>
+                            <!-- Product Item Card -->
+                            <div class="flex items-start gap-space-md bg-surface-container-low p-space-md rounded-lg">
+                                <div
+                                    class="relative w-20 h-20 shrink-0 bg-surface-container rounded-lg overflow-hidden shadow-sm">
+                                    <img class="w-full h-full object-cover"
+                                        data-alt="Professional commercial photography of a yellow tracked mini-dumper mini brouette hydrostatique with Honda engine parked outdoors on clean gravel ground, high industrial grade contrast, sharp studio lighting, muted industrial tones"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZM-J6uQjEaGtRVPYEN5972HF9_mNmBmAeeZcyT5RyDOt4mnq79zhqn1VgPIrWO3xgJr6KzZLgucRHDdftxc_EkdDreFiGs5XbQAoDc7vHekGjlmSk9UvQCyFtsJzGe2GdoDmQ61bfoPNN1-HqBl2_wtnDrUoCFBKhP5C_FDHWXH_eNuA1LX_0J7sZq6CPHdYQc3iEvcPCr3VIFsD7jyv93l-qJUwqQWj9pWh3cMEQ" />
+                                    <span
+                                        class="absolute top-1 right-1 bg-inverse-surface text-inverse-on-surface font-label-caps text-[10px] px-1.5 py-0.5 rounded-full">Qté
+                                        1</span>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <span
+                                        class="inline-block font-label-caps text-[10px] text-tertiary uppercase tracking-wider font-bold">Matériel
+                                        Neuf · En stock</span>
+                                    <h3
+                                        class="font-title-md text-title-md text-on-surface leading-tight mt-0.5 truncate">
+                                        Mini-dumper sur chenilles 500 kg</h3>
+                                    <p class="font-body-sm text-body-sm text-secondary truncate">Moteur Honda GX200 6.5
+                                        CV hydrostatique</p>
+                                    <div class="flex items-center justify-between mt-2">
+                                        <span class="font-body-sm text-[11px] text-secondary">Réf. VPK-500-HD</span>
+                                        <span class="font-title-md text-title-md text-on-surface font-bold">3 650,00 €
+                                            HT</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Promo Code Accordion -->
+                            <div class="pt-space-xs">
+                                <button aria-controls="promoDrawer" aria-expanded="false"
+                                    class="flex items-center justify-between w-full text-left font-label-md text-label-md text-primary focus:outline-none"
+                                    id="promoToggleBtn" type="button">
+                                    <span class="flex items-center gap-1.5">
+                                        <span class="material-symbols-outlined text-[18px]">sell</span>
+                                        <span>Code promotionnel ou bon d'achat</span>
+                                    </span>
+                                    <span
+                                        class="material-symbols-outlined text-[18px] transition-transform duration-200"
+                                        id="promoIcon">expand_more</span>
+                                </button>
+                                <div class="hidden mt-2 pt-2" id="promoDrawer">
+                                    <div class="flex gap-2">
+                                        <input
+                                            class="flex-1 h-9 px-3 bg-white border border-outline text-on-surface rounded font-body-sm text-body-sm placeholder-secondary focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary uppercase"
+                                            id="promoInput" placeholder="Ex: STRAND-BTP2024" type="text" />
+                                        <button
+                                            class="px-3 h-9 bg-surface-container-highest text-on-surface font-label-md text-label-md rounded hover:bg-surface-container-high transition"
+                                            onclick="applyPromo()" type="button">Appliquer</button>
+                                    </div>
+                                    <p class="hidden text-[11px] mt-1 text-tertiary font-body-sm" id="promoFeedback">
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Price Calculation Lines -->
+                            <div class="space-y-2 pt-2 font-body-md text-body-md text-on-surface">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-secondary">Sous-total net matériel</span>
+                                    <span class="font-numeric-data font-medium">3 650,00 € HT</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-secondary">TVA collectée (20,0%)</span>
+                                    <span class="font-numeric-data font-medium">730,00 €</span>
+                                </div>
+                                <div class="flex justify-between items-center text-tertiary">
+                                    <div class="flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-[18px]">local_shipping</span>
+                                        <span>Transport spécialisé hayon</span>
+                                    </div>
+                                    <span
+                                        class="font-label-caps text-label-caps uppercase font-bold text-tertiary bg-tertiary-fixed px-1.5 py-0.5 rounded">Offerte</span>
+                                </div>
+                                <!-- Grand Total Container -->
+                                <div
+                                    class="pt-space-md mt-space-sm bg-surface-container-low p-space-md rounded-lg space-y-1">
+                                    <div class="flex justify-between items-baseline">
+                                        <span class="font-headline-sm text-headline-sm text-on-surface">Total à
+                                            régler</span>
+                                        <span class="font-headline-lg text-headline-lg text-primary">4 380,00 €</span>
+                                    </div>
+                                    <div
+                                        class="flex justify-between items-center text-secondary font-body-sm text-body-sm">
+                                        <span>Soit en montant hors taxes</span>
+                                        <span class="font-numeric-data">3 650,00 € HT</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Safe Transaction Institutional Footer Callout -->
+    
+                    </aside>
+                </div>
+            </div>
+            <!-- INLINE VANILLA JAVASCRIPT LOGIC -->
+            <script>
+                let currentStep = 1;
+
+                function goToStep(step) {
+                    if (step < 1 || step > 3) return;
+                    currentStep = step;
+
+                    // Update forms visibility
+                    const sec1 = document.getElementById('sectionStep1');
+                    const sec2 = document.getElementById('sectionStep2');
+                    const sec3 = document.getElementById('sectionStep3');
+
+                    [sec1, sec2, sec3].forEach(s => {
+                        if (s) s.classList.add('hidden');
+                    });
+
+                    if (step === 1 && sec1) sec1.classList.remove('hidden');
+                    if (step === 2 && sec2) {
+                        syncRecapData();
+                        sec2.classList.remove('hidden');
+                    }
+                    if (step === 3 && sec3) sec3.classList.remove('hidden');
+
+                    // Update stepper bar width
+                    const bar = document.getElementById('stepProgressBar');
+                    if (step === 1) bar.style.width = '0%';
+                    if (step === 2) bar.style.width = '50%';
+                    if (step === 3) bar.style.width = '100%';
+
+                    // Update Stepper Badge States
+                    for (let i = 1; i <= 3; i++) {
+                        const badge = document.getElementById('stepBadge' + i);
+                        const label = document.getElementById('stepLabel' + i);
+
+                        if (i < step) {
+                            // Completed step
+                            badge.className = 'w-10 h-10 rounded-full flex items-center justify-center font-label-lg text-label-lg transition-colors bg-tertiary text-on-tertiary shadow-sm ring-4 ring-surface';
+                            badge.innerHTML = '<span class="material-symbols-outlined text-[20px]">check</span>';
+                            label.className = 'mt-2 font-label-caps text-label-caps uppercase text-tertiary tracking-wider font-semibold';
+                        } else if (i === step) {
+                            // Current step
+                            badge.className = 'w-10 h-10 rounded-full flex items-center justify-center font-label-lg text-label-lg transition-colors bg-primary text-on-primary shadow-sm ring-4 ring-surface';
+                            badge.textContent = i;
+                            label.className = 'mt-2 font-label-caps text-label-caps uppercase text-primary font-bold tracking-wider';
+                        } else {
+                            // Pending step
+                            badge.className = 'w-10 h-10 rounded-full flex items-center justify-center font-label-lg text-label-lg transition-colors bg-surface-container-high text-secondary shadow-sm ring-4 ring-surface';
+                            badge.textContent = i;
+                            label.className = 'mt-2 font-label-caps text-label-caps uppercase text-secondary tracking-wider';
+                        }
+                    }
+
+                    // Smooth scroll back to top of checkout container
+                    window.scrollTo({top: 0, behavior: 'smooth'});
+                }
+
+                function syncRecapData() {
+                    const email = document.getElementById('contactEmail').value;
+                    const phone = document.getElementById('contactPhone').value;
+                    const company = document.getElementById('companyName').value;
+                    const siret = document.getElementById('companySiret').value;
+                    const fullName = document.getElementById('contactFullName').value;
+                    const address = document.getElementById('streetAddress').value;
+                    const address2 = document.getElementById('streetAddress2').value;
+                    const postal = document.getElementById('postalCode').value;
+                    const city = document.getElementById('cityName').value;
+
+                    document.getElementById('recapEmail').textContent = email || 'Non renseigné';
+                    document.getElementById('recapPhone').textContent = phone || 'Non renseigné';
+                    document.getElementById('recapCompany').textContent = company || 'Société non spécifiée';
+                    document.getElementById('recapRecipient').textContent = 'Destinataire : ' + (fullName || 'Non spécifié') + (siret ? ' (SIRET : ' + siret + ')' : '');
+                    document.getElementById('recapAddressFull').textContent = address + (address2 ? ', ' + address2 : '') + ', ' + postal + ' ' + city + ', France';
+                }
+
+                // Mobile Order Summary Accordion
+                const mobileSummaryToggle = document.getElementById('mobileSummaryToggle');
+                const mobileSummaryDrawer = document.getElementById('mobileSummaryDrawer');
+                const mobileSummaryIcon = document.getElementById('mobileSummaryIcon');
+
+                if (mobileSummaryToggle) {
+                    mobileSummaryToggle.addEventListener('click', () => {
+                        const isHidden = mobileSummaryDrawer.classList.contains('hidden');
+                        if (isHidden) {
+                            mobileSummaryDrawer.classList.remove('hidden');
+                            mobileSummaryIcon.style.transform = 'rotate(180deg)';
+                            mobileSummaryToggle.setAttribute('aria-expanded', 'true');
+                        } else {
+                            mobileSummaryDrawer.classList.add('hidden');
+                            mobileSummaryIcon.style.transform = 'rotate(0deg)';
+                            mobileSummaryToggle.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                }
+
+                // Promo Code Accordion
+                const promoToggleBtn = document.getElementById('promoToggleBtn');
+                const promoDrawer = document.getElementById('promoDrawer');
+                const promoIcon = document.getElementById('promoIcon');
+
+                if (promoToggleBtn) {
+                    promoToggleBtn.addEventListener('click', () => {
+                        const isHidden = promoDrawer.classList.contains('hidden');
+                        if (isHidden) {
+                            promoDrawer.classList.remove('hidden');
+                            promoIcon.style.transform = 'rotate(180deg)';
+                            promoToggleBtn.setAttribute('aria-expanded', 'true');
+                        } else {
+                            promoDrawer.classList.add('hidden');
+                            promoIcon.style.transform = 'rotate(0deg)';
+                            promoToggleBtn.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                }
+
+                function applyPromo() {
+                    const code = document.getElementById('promoInput').value.trim();
+                    const feedback = document.getElementById('promoFeedback');
+                    if (!code) return;
+                    feedback.classList.remove('hidden');
+                    if (code.toUpperCase() === 'STRAND-BTP2024') {
+                        feedback.textContent = 'Code STRAND-BTP2024 appliqué : frais de dossier offerts.';
+                        feedback.className = 'text-[11px] mt-1 text-tertiary font-body-sm';
+                    } else {
+                        feedback.textContent = 'Ce code promo est invalide ou expiré.';
+                        feedback.className = 'text-[11px] mt-1 text-error font-body-sm';
+                    }
+                }
+
+                function simulatePayment(btn) {
+                    const cgv = document.getElementById('acceptCgv');
+                    if (!cgv.checked) {
+                        alert('Veuillez accepter les Conditions Générales de Vente pour continuer.');
+                        return;
+                    }
+                    btn.disabled = true;
+                    btn.innerHTML = '<span class="material-symbols-outlined text-[20px] animate-spin">refresh</span><span>Authentification 3D Secure en cours...</span>';
+                    setTimeout(() => {
+                        btn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check_circle</span><span>Paiement validé avec succès</span>';
+                        btn.className = 'w-full h-14 bg-tertiary text-on-tertiary font-headline-sm text-headline-sm rounded-lg shadow-md flex items-center justify-center gap-space-sm';
+                    }, 1600);
+                }
+
+                function copyToClipboard(elementId) {
+                    const text = document.getElementById(elementId).textContent;
+                    navigator.clipboard.writeText(text).then(() => {
+                        alert('Copié : ' + text);
+                    });
+                }
+
+                function handleProofUpload(input) {
+                    const status = document.getElementById('uploadStatus');
+                    if (input.files && input.files[0]) {
+                        status.textContent = 'Fichier sélectionné : ' + input.files[0].name;
+                        status.classList.remove('hidden');
+                    }
+                }
+
+                function confirmTransfer(btn) {
+                    const cgv = document.getElementById('acceptCgv');
+                    const file = document.getElementById('proofUpload').files[0];
+                    if (!cgv.checked) {
+                        alert('Veuillez accepter les CGV.');
+                        return;
+                    }
+                    if (!file) {
+                        alert('Veuillez uploader la preuve de paiement.');
+                        return;
+                    }
+                    btn.disabled = true;
+                    btn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check_circle</span><span>Commande enregistrée</span>';
+                    btn.className = 'w-full h-14 bg-tertiary text-on-tertiary font-headline-sm text-headline-sm rounded-lg shadow-md flex items-center justify-center gap-space-sm';
+                }
+            </script>
+        </div>
+    </main>
+    <footer class="w-full bg-surface-container-lowest shadow-[0_-1px_6px_rgba(0,0,0,0.02)] mt-auto">
+        <div
+            class="max-w-7xl mx-auto px-margin py-space-xl flex flex-col md:flex-row items-center justify-between gap-space-lg">
+            <div class="flex flex-wrap items-center gap-space-lg">
+                <div class="flex items-center gap-space-xs text-secondary"><span
+                        class="material-symbols-outlined text-tertiary text-[20px]">lock</span><span
+                        class="font-label-md text-label-md text-on-surface">Chiffrement SSL 256-bit Certifié</span>
+                </div>
+                <div class="flex items-center gap-space-xs text-secondary"><span
+                        class="material-symbols-outlined text-primary text-[20px]">account_balance</span><span
+                        class="font-label-md text-label-md text-on-surface">Compte Séquestre Bancaire B2B</span></div>
+                <div class="flex items-center gap-space-xs text-secondary"><span
+                        class="material-symbols-outlined text-tertiary text-[20px]">verified</span><span
+                        class="font-label-md text-label-md text-on-surface">Contrôle Conformité TVA
+                        Intracommunautaire</span></div>
+            </div>
+            <div class="flex items-center gap-space-md text-secondary">
+                <nav class="flex items-center gap-space-md" data-active-classes="text-primary font-bold"><a
+                        class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+                        data-path="checkout-cgv" href="#">CGV &amp; Garanties</a><a
+                        class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+                        data-path="checkout-legal" href="#">Mentions Légales</a><a
+                        class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+                        data-path="checkout-privacy" href="#">Protection des Données</a></nav>
+            </div>
+        </div>
+        <div class="bg-surface-container py-space-sm">
+            <div class="max-w-7xl mx-auto px-margin text-center">
+                <p class="font-body-sm text-body-sm text-secondary">© 2024 Strand Marketplace B2B. Opérateur européen
+                    agréé pour le négociant de matériel lourd et industriel.</p>
+            </div>
+        </div>
+    </footer>
+  <script src="cart.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof getCart !== 'function') return;
+  const cart = getCart();
+  if (cart.length === 0) return;
+
+  const totalHT = getCartTotal();
+  const totalTTC = totalHT * 1.20;
+
+  // Update total displays
+  document.querySelectorAll('.font-headline-sm, .font-headline-lg, .font-title-md').forEach(el => {
+    const text = el.textContent;
+    if (text.includes('€') && (text.includes('4 380') || text.includes('4380') || text.includes('Total'))) {
+      if (text.includes('TTC') || text.includes('régler')) {
+        el.textContent = formatPrice(totalTTC) + (text.includes('TTC') ? ' TTC' : '');
+      } else if (text.includes('HT')) {
+        el.textContent = formatPrice(totalHT) + ' HT';
+      }
+    }
+  });
+
+  // Update mobile summary total
+  const mobileTotal = document.querySelector('#mobileSummaryToggle .font-headline-sm');
+  if (mobileTotal) mobileTotal.textContent = formatPrice(totalTTC) + ' TTC';
+});
+</script>
+
+</body>
+
+</html>
