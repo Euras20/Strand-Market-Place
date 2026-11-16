@@ -59,7 +59,7 @@
         <div
           class="flex items-center w-full bg-surface-container-low/70 border border-surface-container-highest/60 rounded-xl focus-within:border-primary transition-colors">
           <input class="w-full bg-transparent px-4 py-2.5 font-body-md placeholder:text-secondary focus:outline-none"
-            placeholder="Rechercher un matériel..." type="search" />
+            placeholder="Rechercher un matériel..." type="search" id="site-search" />
           <button class="m-1 px-4 py-2 bg-primary hover:bg-primary-container text-on-primary rounded-lg shadow-sm"
             type="button"><span class="material-symbols-outlined text-[20px]">search</span></button>
         </div>
@@ -98,37 +98,34 @@
 
   <main class="w-full pt-[148px] bg-background min-h-screen">
     <div class="max-w-[1600px] mx-auto px-4 sm:px-6 py-6">
-      <div class="text-secondary font-label-md mb-4">Accueil / BTP & Manutention</div>
-      <h1 class="font-headline-lg text-headline-lg font-bold text-on-surface mb-6">Mini-dumpers & Brouettes à moteur
-      </h1>
+      <div class="text-secondary font-label-md mb-4" id="breadcrumb">Accueil</div>
+      <h1 id="category-title" class="font-headline-lg text-headline-lg font-bold text-on-surface mb-6">Catégorie</h1>
       <div class="flex gap-6">
         <aside class="w-64 shrink-0 hidden lg:block space-y-6">
           <div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm">
             <h3 class="font-title-md font-semibold mb-3">Prix (€ HT)</h3>
-            <div class="space-y-2 font-body-sm"><label class="flex items-center gap-2"><input type="checkbox"
-                  class="accent-primary" /> Moins de 1 000 €</label><label class="flex items-center gap-2"><input
-                  type="checkbox" class="accent-primary" /> 1 000 – 3 000 €</label><label
-                class="flex items-center gap-2"><input type="checkbox" class="accent-primary" /> 3 000 – 5 000 €</label>
+            <div class="space-y-2 font-body-sm"><label class="flex items-center gap-2"><input type="checkbox" data-min="0" data-max="1000" class="accent-primary price-filter" /> Moins de 1 000 €</label>
+<label class="flex items-center gap-2"><input type="checkbox" data-min="1000" data-max="3000" class="accent-primary price-filter" /> 1 000 – 3 000 €</label>
+<label class="flex items-center gap-2"><input type="checkbox" data-min="3000" data-max="5000" class="accent-primary price-filter" /> 3 000 – 5 000 €</label>
+<label class="flex items-center gap-2"><input type="checkbox" data-min="5000" data-max="15000" class="accent-primary price-filter" /> 5 000 – 15 000 €</label>
+<label class="flex items-center gap-2"><input type="checkbox" data-min="15000" data-max="999999" class="accent-primary price-filter" /> Plus de 15 000 €</label>
             </div>
           </div>
           <div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm">
             <h3 class="font-title-md font-semibold mb-3">Marque</h3>
-            <div class="space-y-2 font-body-sm"><label class="flex items-center gap-2"><input type="checkbox"
-                  class="accent-primary" /> Honda</label><label class="flex items-center gap-2"><input type="checkbox"
-                  class="accent-primary" /> Volkman</label><label class="flex items-center gap-2"><input type="checkbox"
-                  class="accent-primary" /> Oleo-Power</label></div>
+            <div id="brand-filters" class="space-y-2 font-body-sm"></div>
           </div>
         </aside>
         <div class="flex-1">
           <div class="flex items-center justify-between mb-4">
-            <span class="text-secondary font-body-sm">3 produits</span>
+            <span id="product-count" class="text-secondary font-body-sm"></span>
             <select class="border border-outline rounded-lg px-3 py-2 bg-surface-container-lowest text-sm">
               <option>Pertinence</option>
               <option>Prix croissant</option>
               <option>Prix décroissant</option>
             </select>
           </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-md">
+          <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-md">
 
             <div
               class="bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col p-space-md justify-between group"
@@ -397,19 +394,19 @@
             Nos Univers</h4>
           <ul class="space-y-2 font-body-sm text-body-sm text-secondary-fixed-dim">
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                data-path="catalogue-materiel" href="#">Toutes les catégories</a></li>
+                data-path="catalogue-materiel" href="category.html">Toutes les catégories</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                data-path="catalogue-materiel" href="#">Matériel Agricole &amp; Espaces verts</a></li>
+                data-path="catalogue-materiel" href="category.html">Matériel Agricole &amp; Espaces verts</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                data-path="catalogue-materiel" href="#">Chauffage Pro &amp; Énergie</a></li>
+                data-path="catalogue-materiel" href="category.html">Chauffage Pro &amp; Énergie</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                data-path="catalogue-materiel" href="#">BTP &amp; Manutention industrielle</a></li>
+                data-path="catalogue-materiel" href="category.html">BTP &amp; Manutention industrielle</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                data-path="catalogue-materiel" href="#">Atelier &amp; Outillage mécanique</a></li>
+                data-path="catalogue-materiel" href="category.html">Atelier &amp; Outillage mécanique</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a data-path="nouveautes"
-                href="#">Nouveautés machines 2025</a></li>
+                href="nouveautes.html">Nouveautés machines 2025</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a data-path="promotions"
-                href="#">Déstockage &amp; Flottes récentes</a></li>
+                href="promotions.html">Déstockage &amp; Flottes récentes</a></li>
           </ul>
         </div>
         <div>
@@ -418,17 +415,17 @@
             Service Client &amp; Pro</h4>
           <ul class="space-y-2 font-body-sm text-body-sm text-secondary-fixed-dim">
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                data-path="demande-devis" href="#">Demande de cotation grand compte</a></li>
+                data-path="demande-devis" href="demande-devis.html">Demande de cotation grand compte</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                data-path="experts-techniques" href="#">Parler à un conseiller technique</a></li>
+                data-path="experts-techniques" href="experts-techniques.html">Parler à un conseiller technique</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                data-path="livraison-dechargement" href="#">Conditions de livraison &amp; déchargement hayon</a></li>
+                data-path="livraison-dechargement" href="livraison-dechargement.html">Conditions de livraison &amp; déchargement hayon</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                data-path="espace-client" href="#">Suivi de commande &amp; BL numérique</a></li>
+                data-path="espace-client" href="espace-client.html">Suivi de commande &amp; BL numérique</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                data-path="espace-client" href="#">Retours professionnels &amp; SAV fabricant</a></li>
+                data-path="espace-client" href="espace-client.html">Retours professionnels &amp; SAV fabricant</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                data-path="guide-achat-financement" href="#">FAQ &amp; Guides de financement leasing</a></li>
+                data-path="guide-achat-financement" href="guide-achat-financement.html">FAQ &amp; Guides de financement leasing</a></li>
           </ul>
         </div>
         <div>
@@ -437,17 +434,17 @@
             Entreprise &amp; Légal</h4>
           <ul class="space-y-2 font-body-sm text-body-sm text-secondary-fixed-dim">
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a data-path="a-propos"
-                href="#">À propos de Strand SAS</a></li>
+                href="a-propos.html">À propos de Strand SAS</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                data-path="mentions-legales" href="#">Mentions légales</a></li>
+                data-path="mentions-legales" href="mentions-legales.html">Mentions légales</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                data-path="conditions-generales-vente" href="#">CGV Professionnels &amp; Particuliers</a></li>
+                data-path="conditions-generales-vente" href="conditions-generales-vente.html">CGV Professionnels &amp; Particuliers</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                data-path="politique-confidentialite" href="#">Politique de confidentialité RGPD</a></li>
+                data-path="politique-confidentialite" href="politique-confidentialite.html">Politique de confidentialité RGPD</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                data-path="gestion-cookies" href="#">Gestion des cookies de traçage</a></li>
+                data-path="gestion-cookies" href="gestion-cookies.html">Gestion des cookies de traçage</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a data-path="recrutement"
-                href="#">Recrutement ingénieurs &amp; commerce</a></li>
+                href="recrutement.html">Recrutement ingénieurs &amp; commerce</a></li>
           </ul>
         </div>
       </div>
@@ -467,82 +464,8 @@
     </div>
   </footer>
 
-  <script>
-    const CART_KEY = 'strand_cart_v1';
-    function getCart() {try {return JSON.parse(localStorage.getItem(CART_KEY)) || [];} catch (e) {return [];} }
-    function saveCart(c) {localStorage.setItem(CART_KEY, JSON.stringify(c)); renderCartBadge(); renderCartDrawer();}
-    function cartCount() {return getCart().reduce((s, i) => s + (i.qty || 1), 0);}
-    function cartTotalHT() {return getCart().reduce((s, i) => s + (i.priceHT * (i.qty || 1)), 0);}
-    function addToCart(p) {const c = getCart(); const e = c.find(i => i.id === p.id); if (e) {e.qty = (e.qty || 1) + (p.qty || 1);} else {c.push({...p, qty: p.qty || 1});} saveCart(c);}
-    function removeFromCart(id) {saveCart(getCart().filter(i => i.id !== id));}
-    function updateQty(id, d) {const c = getCart(); const it = c.find(i => i.id === id); if (!it) return; it.qty = Math.max(1, (it.qty || 1) + d); saveCart(c);}
-    function fmtEUR(n) {return new Intl.NumberFormat('fr-FR', {minimumFractionDigits: 2, maximumFractionDigits: 2}).format(n) + ' €';}
-    function renderCartBadge() {
-      const n = cartCount(), t = cartTotalHT();
-      document.querySelectorAll('[data-cart-count]').forEach(el => el.textContent = n);
-      document.querySelectorAll('[data-cart-total]').forEach(el => el.textContent = fmtEUR(t));
-    }
-    function renderCartDrawer() {
-      const itemsEl = document.getElementById('cart-items'); const totalEl = document.getElementById('cart-total');
-      if (!itemsEl) return;
-      const cart = getCart();
-      if (cart.length === 0) {
-        itemsEl.innerHTML = `<div class="text-center text-secondary py-12 flex flex-col items-center gap-3"><span class="material-symbols-outlined text-[48px] text-outline-variant">shopping_bag</span><p class="font-body-md">Votre panier est vide</p><a href="strand.html" class="text-primary font-label-md font-semibold hover:underline">Découvrir le catalogue</a></div>`;
-      } else {
-        itemsEl.innerHTML = cart.map(it => `
-      <div class="flex gap-3 p-3 bg-surface-container-low rounded-lg">
-        <div class="w-16 h-16 rounded-lg overflow-hidden bg-surface-container shrink-0">${it.image ? `<img src="${it.image}" alt="" class="w-full h-full object-cover"/>` : ''}</div>
-        <div class="flex-1 min-w-0">
-          <div class="font-label-caps text-[10px] text-secondary uppercase">${it.brand || ''}</div>
-          <div class="font-title-md text-on-surface leading-tight">${it.name}</div>
-          <div class="text-[11px] text-secondary mt-0.5">Réf. ${it.ref || '—'}</div>
-          <div class="flex items-center justify-between mt-2">
-            <div class="flex items-center bg-surface-container-lowest rounded-lg">
-              <button class="w-7 h-7 flex items-center justify-center hover:bg-surface-container rounded-l-lg" onclick="updateQty('${it.id}',-1)" type="button">−</button>
-              <span class="w-8 text-center font-numeric-data text-[13px] font-bold">${it.qty}</span>
-              <button class="w-7 h-7 flex items-center justify-center hover:bg-surface-container rounded-r-lg" onclick="updateQty('${it.id}',1)" type="button">+</button>
-            </div>
-            <div class="text-right"><div class="font-title-md font-bold">${fmtEUR(it.priceHT * it.qty)}</div><div class="text-[10px] text-secondary">HT</div></div>
-          </div>
-        </div>
-        <button class="text-secondary hover:text-error self-start" onclick="removeFromCart('${it.id}')" type="button"><span class="material-symbols-outlined text-[18px]">close</span></button>
-      </div>`).join('');
-      }
-      if (totalEl) totalEl.textContent = fmtEUR(cartTotalHT());
-    }
-    function toggleCartDrawer(open) {
-      const dr = document.getElementById('cart-drawer'), bd = document.getElementById('cart-drawer-backdrop');
-      if (!dr || !bd) return;
-      if (open) {renderCartDrawer(); bd.classList.remove('hidden'); requestAnimationFrame(() => {bd.classList.remove('opacity-0'); dr.classList.remove('translate-x-full');}); document.body.style.overflow = 'hidden';}
-      else {dr.classList.add('translate-x-full'); bd.classList.add('opacity-0'); setTimeout(() => bd.classList.add('hidden'), 300); document.body.style.overflow = '';}
-    }
-    function toggleCategoryDrawer(open) {
-      const dr = document.getElementById('category-drawer'), bd = document.getElementById('category-drawer-backdrop');
-      if (!dr || !bd) return;
-      if (open) {bd.classList.remove('hidden'); requestAnimationFrame(() => {bd.classList.remove('opacity-0'); dr.classList.remove('-translate-x-full');}); document.body.style.overflow = 'hidden';}
-      else {dr.classList.add('-translate-x-full'); bd.classList.add('opacity-0'); setTimeout(() => bd.classList.add('hidden'), 300); document.body.style.overflow = '';}
-    }
-    function buyNow(p) {addToCart({...p, qty: p.qty || 1}); window.location.href = 'checkout.html';}
-    function showCartToast(title, message) {
-      let t = document.getElementById('global-toast');
-      if (!t) {
-        t = document.createElement('div'); t.id = 'global-toast';
-        t.className = 'fixed bottom-6 right-6 z-[100] transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none';
-        t.innerHTML = `<div class="bg-[#252A2D] text-white px-4 py-3 rounded-xl shadow-xl flex items-center gap-3 max-w-md"><span class="material-symbols-outlined text-primary text-[24px]">check_circle</span><div><p class="font-title-md font-semibold" data-tt></p><p class="font-body-sm text-secondary-fixed-dim" data-tm></p></div></div>`;
-        document.body.appendChild(t);
-      }
-      t.querySelector('[data-tt]').textContent = title; t.querySelector('[data-tm]').textContent = message;
-      t.classList.remove('translate-y-24', 'opacity-0'); t.classList.add('translate-y-0', 'opacity-100');
-      setTimeout(() => {t.classList.add('translate-y-24', 'opacity-0'); t.classList.remove('translate-y-0', 'opacity-100');}, 3200);
-    }
-    function toggleWishlist(btn, name) {
-      const icon = btn.querySelector('.material-symbols-outlined');
-      const saved = icon.style.fontVariationSettings && icon.style.fontVariationSettings.includes('FILL 1');
-      if (saved) {icon.style.fontVariationSettings = "'FILL' 0"; icon.classList.remove('text-primary'); icon.classList.add('text-secondary'); showCartToast('Favoris', name + ' retiré');}
-      else {icon.style.fontVariationSettings = "'FILL' 1"; icon.classList.remove('text-secondary'); icon.classList.add('text-primary'); showCartToast('Favoris', name + ' ajouté');}
-    }
-    document.addEventListener('DOMContentLoaded', () => {renderCartBadge(); renderCartDrawer();});
-  </script>
+  <script src="scripts/category.js"></script>
 </body>
+
 
 </html>

@@ -194,7 +194,7 @@
       </div>
     </div>
     <div class="w-full max-w-[1600px] mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
-      <div class="flex items-center gap-3 shrink-0"><a class="flex items-center gap-2" data-path="accueil" href="#">
+      <div class="flex items-center gap-3 shrink-0"><a class="flex items-center gap-2" data-path="accueil" href="index.html">
           <div
             class="w-9 h-9 rounded-lg bg-primary text-on-primary font-headline-md font-bold flex items-center justify-center shadow-sm">
             S</div>
@@ -209,7 +209,7 @@
          <input
             class="w-full bg-transparent px-4 py-2.5 font-body-md text-body-md text-on-surface placeholder:text-secondary focus:outline-none"
             placeholder="Rechercher un matériel, une marque, une référence pro "
-            type="search" /><button aria-label="Lancer la recherche"
+            type="search" id="site-search" /><button aria-label="Lancer la recherche"
             class="m-1 px-4 py-2 bg-primary hover:bg-primary-container text-on-primary rounded-lg transition-colors flex items-center justify-center shrink-0 shadow-[0_1px_2px_rgba(0,0,0,0.08)]"
             type="button"><span class="material-symbols-outlined text-[20px]">search</span><span
               class="hidden lg:inline ml-1 font-label-md text-label-md"></span></button>
@@ -217,12 +217,12 @@
       </div>
       <div class="flex items-center gap-3 shrink-0"><a
           class="relative hidden sm:flex flex-col items-center px-2 py-1 rounded-lg text-on-surface-variant hover:text-on-surface transition-colors"
-          data-path="espace-client" href="#"><span class="material-symbols-outlined text-[22px]">favorite</span><span
+          data-path="espace-client" href="espace-client.html"><span class="material-symbols-outlined text-[22px]">favorite</span><span
             class="font-label-md text-[11px] mt-0.5">Favoris</span></a><a class="flex items-center px-2 py-1 text-on-surface-variant hover:text-on-surface transition-colors" href="#"><span class="material-symbols-outlined text-[22px]">account_circle</span></a><a
           class="flex items-center gap-space-sm pl-space-sm pr-space-md py-2 rounded-xl bg-primary/10 hover:bg-primary/20 transition-colors"
-          data-path="panier" href="#" onclick="toggleCartDrawer(true); return false;">
+          data-path="panier" href="checkout.html" onclick="toggleCartDrawer(true); return false;">
           <div class="relative"><span
-              class="material-symbols-outlined text-primary text-[24px]">shopping_bag</span><span
+              class="material-symbols-outlined text-primary text-[24px]">shopping_bag</span><span id="cart-count"
               class="absolute -top-1.5 -right-2 bg-primary text-on-primary font-label-caps text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
           </div>
           <div class="flex flex-col text-left leading-tight"><span
@@ -417,7 +417,7 @@
             <div class="w-full bg-surface-container-low">
                 <div
                     class="max-w-[1600px] mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3 text-secondary">
-                    <nav aria-label="Fil d'Ariane"
+                    <nav aria-label="Fil d'Ariane" id="product-breadcrumb"
                         class="flex items-center flex-wrap gap-2 font-label-md text-label-md">
                         <a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
                             <span class="material-symbols-outlined text-[16px]">home</span>
@@ -1570,196 +1570,7 @@
                 </div>
             </div>
             <!-- Interactive Logic Script -->
-<script>
-    // ---- Product state ----
-    let currentQty = 1;
-    let isWishlisted = false;
-
-    // Build the product payload from the page
-  function buildProductPayload() {
-  return {
-    id: 'vpk-500-hd',
-    name: 'Mini-dumper sur chenilles hydrostatique 500 kg — Honda GX200 6.5 CV',
-    brand: 'VOLKMAN PRO GERMANY',
-    sku: 'VPK-500-HD',        // ⚠️ cart.js utilise item.sku, pas item.ref
-    price: 3650,               // ← renommé
-    qty: currentQty,
-    image: document.getElementById('main-product-img').src
-  };
-}
-
-function quickAdd(itemTitle, price) {
-  const numericPrice = parseFloat(price.replace(/[^\d,]/g, '').replace(',', '.'));
-  const id = 'related-' + itemTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 40);
-  addToCart({
-    id,
-    name: itemTitle,
-    brand: '',
-    sku: 'ACCESSOIRE',         // ← renommé (était ref)
-    price: numericPrice,       // ← renommé (était priceHT)
-    qty: 1,
-    image: ''
-  });
-  showCartToast(itemTitle);   // signature : showCartToast(nom)
-}
-
-    // ---- Media gallery ----
-    const mediaList = [
-      {type: 'img', label: 'Photo 1 / 6'},
-      {type: 'img', label: 'Photo 2 / 6 — Moteur Honda GX200'},
-      {type: 'img', label: 'Photo 3 / 6 — Vérin & Basculement'},
-      {type: 'img', label: 'Photo 4 / 6 — Poste de commande'},
-      {type: 'img', label: 'Photo 5 / 6 — Chenilles haute adhérence'},
-      {type: 'video', label: 'Vidéo — Essai Chantier 1:45'}
-    ];
-
-    function switchMedia(index, type) {
-      const thumbs = document.querySelectorAll('.thumb-btn');
-      thumbs.forEach((thumb, idx) => {
-        const ind = thumb.querySelector('.thumb-indicator');
-        if (idx === index) {
-          thumb.classList.add('ring-2', 'ring-primary');
-          thumb.classList.remove('ring-0');
-          if (ind) ind.classList.replace('bg-transparent', 'bg-primary/10');
-        } else {
-          thumb.classList.remove('ring-2', 'ring-primary');
-          thumb.classList.add('ring-0');
-          if (ind) ind.classList.replace('bg-primary/10', 'bg-transparent');
-        }
-      });
-      const videoStage = document.getElementById('video-stage-overlay');
-      const counter = document.getElementById('image-counter');
-      counter.textContent = mediaList[index].label;
-      if (type === 'video') videoStage.classList.remove('hidden');
-      else videoStage.classList.add('hidden');
-    }
-
-    function closeVideoStage() {
-      document.getElementById('video-stage-overlay').classList.add('hidden');
-      switchMedia(0, 'img');
-    }
-
-    function simulatePlayVideo() {
-      showCartToast('Lecture de la vidéo démo...', 'Démonstration chantier BTP du dumper Volkman');
-    }
-
-    function handleImageZoom(e) {
-      const container = e.currentTarget;
-      const img = document.getElementById('main-product-img');
-      if (document.getElementById('video-stage-overlay').classList.contains('hidden')) {
-        const rect = container.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
-        img.style.transformOrigin = `${x}% ${y}%`;
-        img.style.transform = 'scale(1.75)';
-      }
-    }
-
-    function resetImageZoom() {
-      const img = document.getElementById('main-product-img');
-      img.style.transform = 'scale(1)';
-      img.style.transformOrigin = 'center center';
-    }
-
-    // ---- Quantity ----
-    function incrementQty() {
-      if (currentQty < 8) {
-        currentQty++;
-        document.getElementById('qty-input').value = currentQty;
-      }
-    }
-    function decrementQty() {
-      if (currentQty > 1) {
-        currentQty--;
-        document.getElementById('qty-input').value = currentQty;
-      }
-    }
-
-    // ---- Tabs ----
-    function switchTab(tabId, btn) {
-      document.querySelectorAll('.tab-content').forEach(tab => {
-        tab.classList.add('hidden');
-        tab.classList.remove('block');
-      });
-      document.getElementById(tabId).classList.remove('hidden');
-      document.getElementById(tabId).classList.add('block');
-      document.querySelectorAll('.tab-btn').forEach(b => {
-        b.classList.remove('bg-primary', 'text-on-primary');
-        b.classList.add('text-on-surface-variant');
-      });
-      btn.classList.add('bg-primary', 'text-on-primary');
-      btn.classList.remove('text-on-surface-variant');
-    }
-
-    // ---- Actions (delegate to cart.js) ----
-    function addToCartAction() {
-      addToCart(buildProductPayload());
-      showCartToast('Article ajouté au panier', `${currentQty}x Mini-dumper Volkman 500 kg`);
-      const btn = document.getElementById('add-to-cart-btn');
-      const original = btn.innerHTML;
-      btn.innerHTML = `<span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span><span>Ajouté avec succès !</span>`;
-      setTimeout(() => { btn.innerHTML = original; }, 1800);
-    }
-
-    function buyNowAction() {
-      buyNow(buildProductPayload());
-    }
-
-    function toggleWishlist() {
-      isWishlisted = !isWishlisted;
-      const icon = document.getElementById('wishlist-icon');
-      if (isWishlisted) {
-        icon.textContent = 'favorite';
-        icon.classList.add('text-error');
-        showCartToast('Ajouté à vos favoris', 'Matériel enregistré dans votre espace pro');
-      } else {
-        icon.textContent = 'favorite_border';
-        icon.classList.remove('text-error');
-      }
-    }
-
-    function shareProduct() {
-      if (navigator.share) {
-        navigator.share({title: 'Mini-dumper Volkman 500 kg sur Strand Pro', url: window.location.href}).catch(() => {});
-      } else {
-        navigator.clipboard.writeText(window.location.href);
-        showCartToast('Lien copié dans le presse-papier', 'Partagez la fiche produit à votre équipe');
-      }
-    }
-
-    function openMediaFullscreen() {
-      const elem = document.getElementById('media-viewport');
-      if (!document.fullscreenElement) elem.requestFullscreen().catch(() => {});
-      else document.exitFullscreen();
-    }
-
-    function scrollRelated(direction) {
-      const carousel = document.getElementById('related-carousel');
-      carousel.scrollBy({left: direction * 320, behavior: 'smooth'});
-    }
-
-    function toggleCategoryDrawer(open) {
-      const drawer = document.getElementById('category-drawer');
-      const backdrop = document.getElementById('category-drawer-backdrop');
-      if (!drawer || !backdrop) return;
-      if (open) {
-        backdrop.classList.remove('hidden');
-        requestAnimationFrame(() => {
-          backdrop.classList.remove('opacity-0');
-          drawer.classList.remove('-translate-x-full');
-        });
-        document.body.style.overflow = 'hidden';
-      } else {
-        drawer.classList.add('-translate-x-full');
-        backdrop.classList.add('opacity-0');
-        setTimeout(() => backdrop.classList.add('hidden'), 300);
-        document.body.style.overflow = '';
-      }
-    }
-
-    // Make sure badge reflects cart on load
-    document.addEventListener('DOMContentLoaded', renderCartBadge);
-</script>
+<script src="scripts/product.js"></script>
         </div>
     </main>
     <footer class="w-full bg-[#252A2D] text-inverse-on-surface pt-space-xl pb-space-lg">
@@ -1795,19 +1606,19 @@ function quickAdd(itemTitle, price) {
                         Nos Univers</h4>
                     <ul class="space-y-2 font-body-sm text-body-sm text-secondary-fixed-dim">
                         <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                                data-path="catalogue-materiel" href="#">Toutes les catégories</a></li>
+                                data-path="catalogue-materiel" href="category.html">Toutes les catégories</a></li>
                         <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                                data-path="catalogue-materiel" href="#">Matériel Agricole &amp; Espaces verts</a></li>
+                                data-path="catalogue-materiel" href="category.html">Matériel Agricole &amp; Espaces verts</a></li>
                         <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                                data-path="catalogue-materiel" href="#">Chauffage Pro &amp; Énergie</a></li>
+                                data-path="catalogue-materiel" href="category.html">Chauffage Pro &amp; Énergie</a></li>
                         <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                                data-path="catalogue-materiel" href="#">BTP &amp; Manutention industrielle</a></li>
+                                data-path="catalogue-materiel" href="category.html">BTP &amp; Manutention industrielle</a></li>
                         <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                                data-path="catalogue-materiel" href="#">Atelier &amp; Outillage mécanique</a></li>
+                                data-path="catalogue-materiel" href="category.html">Atelier &amp; Outillage mécanique</a></li>
                         <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                                data-path="nouveautes" href="#">Nouveautés machines 2025</a></li>
+                                data-path="nouveautes" href="nouveautes.html">Nouveautés machines 2025</a></li>
                         <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                                data-path="promotions" href="#">Déstockage &amp; Flottes récentes</a></li>
+                                data-path="promotions" href="promotions.html">Déstockage &amp; Flottes récentes</a></li>
                     </ul>
                 </div>
                 <div>
@@ -1816,18 +1627,18 @@ function quickAdd(itemTitle, price) {
                         Service Client &amp; Pro</h4>
                     <ul class="space-y-2 font-body-sm text-body-sm text-secondary-fixed-dim">
                         <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                                data-path="demande-devis" href="#">Demande de cotation grand compte</a></li>
+                                data-path="demande-devis" href="demande-devis.html">Demande de cotation grand compte</a></li>
                         <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                                data-path="experts-techniques" href="#">Parler à un conseiller technique</a></li>
+                                data-path="experts-techniques" href="experts-techniques.html">Parler à un conseiller technique</a></li>
                         <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                                data-path="livraison-dechargement" href="#">Conditions de livraison &amp; déchargement
+                                data-path="livraison-dechargement" href="livraison-dechargement.html">Conditions de livraison &amp; déchargement
                                 hayon</a></li>
                         <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                                data-path="espace-client" href="#">Suivi de commande &amp; BL numérique</a></li>
+                                data-path="espace-client" href="espace-client.html">Suivi de commande &amp; BL numérique</a></li>
                         <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                                data-path="espace-client" href="#">Retours professionnels &amp; SAV fabricant</a></li>
+                                data-path="espace-client" href="espace-client.html">Retours professionnels &amp; SAV fabricant</a></li>
                         <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                                data-path="guide-achat-financement" href="#">FAQ &amp; Guides de financement leasing</a>
+                                data-path="guide-achat-financement" href="guide-achat-financement.html">FAQ &amp; Guides de financement leasing</a>
                         </li>
                     </ul>
                 </div>
@@ -1837,19 +1648,19 @@ function quickAdd(itemTitle, price) {
                         Entreprise &amp; Légal</h4>
                     <ul class="space-y-2 font-body-sm text-body-sm text-secondary-fixed-dim">
                         <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                                data-path="a-propos" href="#">À propos de Strand SAS</a></li>
+                                data-path="a-propos" href="a-propos.html">À propos de Strand SAS</a></li>
                         <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                                data-path="mentions-legales" href="#">Mentions légales</a></li>
+                                data-path="mentions-legales" href="mentions-legales.html">Mentions légales</a></li>
                         <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                                data-path="conditions-generales-vente" href="#">CGV Professionnels &amp;
+                                data-path="conditions-generales-vente" href="conditions-generales-vente.html">CGV Professionnels &amp;
                                 Particuliers</a></li>
                         <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                                data-path="politique-confidentialite" href="#">Politique de confidentialité RGPD</a>
+                                data-path="politique-confidentialite" href="politique-confidentialite.html">Politique de confidentialité RGPD</a>
                         </li>
                         <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                                data-path="gestion-cookies" href="#">Gestion des cookies de traçage</a></li>
+                                data-path="gestion-cookies" href="gestion-cookies.html">Gestion des cookies de traçage</a></li>
                         <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                                data-path="recrutement" href="#">Recrutement ingénieurs &amp; commerce</a></li>
+                                data-path="recrutement" href="recrutement.html">Recrutement ingénieurs &amp; commerce</a></li>
                     </ul>
                 </div>
             </div>
@@ -1888,31 +1699,13 @@ function quickAdd(itemTitle, price) {
           <span>Total HT</span>
           <span id="cart-total" class="font-bold text-primary">0,00 €</span>
         </div>
-        <a onclick="goToCheckout()" class="block w-full py-3 bg-primary text-on-primary text-center font-label-lg rounded-lg hover:bg-primary-container transition-colors cursor-pointer">Finaliser la commande</button>
+        <a onclick="goToCheckout()" class="block w-full py-3 bg-primary text-on-primary text-center font-label-lg rounded-lg hover:bg-primary-container transition-colors cursor-pointer">Finaliser la commande</a>
       </div>
     </div>
 
-<script>
-function toggleCartDrawer(open) {
-  const drawer = document.getElementById('cart-drawer');
-  const backdrop = document.getElementById('cart-drawer-backdrop');
-  if (!drawer || !backdrop) return;
-  if (open) {
-    backdrop.classList.remove('hidden');
-    requestAnimationFrame(() => {
-      backdrop.classList.remove('opacity-0');
-      drawer.classList.remove('translate-x-full');
-    });
-    document.body.style.overflow = 'hidden';
-  } else {
-    drawer.classList.add('translate-x-full');
-    backdrop.classList.add('opacity-0');
-    setTimeout(() => backdrop.classList.add('hidden'), 300);
-    document.body.style.overflow = '';
-  }
-}
-</script>
-  <script src="cart.js"></script>
+
+  <script src="scripts/cart.js"></script>
 </body>
+
 
 </html>

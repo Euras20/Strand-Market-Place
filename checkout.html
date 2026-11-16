@@ -52,7 +52,7 @@
     <header class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
         <div class="h-20 max-w-7xl mx-auto px-margin flex items-center justify-between">
             <div class="flex items-center gap-space-lg"><a class="flex items-baseline gap-space-xs"
-                    data-path="cart-review" href="#"><span
+                    data-path="cart-review" href="checkout.html"><span
                         class="font-headline-lg text-headline-lg tracking-tight text-on-surface uppercase font-bold">Strand</span><span
                         class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Pro</span></a>
                 <div class="hidden sm:flex items-center gap-space-xs px-space-sm py-1 bg-surface-container rounded-lg">
@@ -201,7 +201,7 @@
                                             <input
                                                 class="w-full h-11 px-3.5 bg-white border border-outline text-on-surface rounded-lg placeholder-secondary font-body-md text-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
                                                 id="contactEmail" placeholder="exemple@entreprise.fr" required=""
-                                                type="email" value="direction.travaux@batitp-france.fr" />
+                                                type="email" placeholder="exemple@entreprise.fr" />
                                             <span
                                                 class="material-symbols-outlined absolute right-3 top-3 text-tertiary text-[18px]">check_circle</span>
                                         </div>
@@ -213,7 +213,7 @@
                                             <input
                                                 class="w-full h-11 px-3.5 bg-white border border-outline text-on-surface rounded-lg placeholder-secondary font-body-md text-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
                                                 id="contactPhone" placeholder="+33 6 00 00 00 00" required="" type="tel"
-                                                value="+33 6 42 89 12 04" />
+                                                placeholder="+33 6 00 00 00 00" />
                                             <span
                                                 class="material-symbols-outlined absolute right-3 top-3 text-secondary text-[18px]">sms</span>
                                         </div>
@@ -232,7 +232,7 @@
                                             for="companyName">Raison sociale / Entreprise *</label>
                                         <input
                                             class="w-full h-11 px-3.5 bg-white border border-outline text-on-surface rounded-lg placeholder-secondary font-body-md text-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
-                                            id="companyName" required="" type="text" value="BATI TP AQUITAINE SAS" />
+                                            id="companyName" required="" type="text" placeholder="Nom de l'entreprise" />
                                     </div>
                                     <div class="flex flex-col space-y-1">
                                         <label class="font-label-md text-label-md text-on-surface" for="companySiret">N°
@@ -241,14 +241,14 @@
                                         <input
                                             class="w-full h-11 px-3.5 bg-white border border-outline text-on-surface rounded-lg placeholder-secondary font-body-md text-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
                                             id="companySiret" placeholder="Ex: 84290132400018 ou FR..." type="text"
-                                            value="842 901 324 00018" />
+                                            placeholder="SIRET" />
                                     </div>
                                     <div class="flex flex-col space-y-1">
                                         <label class="font-label-md text-label-md text-on-surface"
                                             for="contactFullName">Nom &amp; Prénom du réceptionnaire *</label>
                                         <input
                                             class="w-full h-11 px-3.5 bg-white border border-outline text-on-surface rounded-lg placeholder-secondary font-body-md text-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
-                                            id="contactFullName" required="" type="text" value="Laurent Mercier" />
+                                            id="contactFullName" required="" type="text" placeholder="Nom et prénom" />
                                     </div>
                                     <div class="flex flex-col space-y-1">
                                         <label class="font-label-md text-label-md text-on-surface"
@@ -272,7 +272,7 @@
                                         <input
                                             class="w-full h-11 px-3.5 bg-white border border-outline text-on-surface rounded-lg placeholder-secondary font-body-md text-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
                                             id="streetAddress" required="" type="text"
-                                            value="44 Avenue des Artisans — Parc d'Activités Nord" />
+                                            placeholder="Adresse de livraison" />
                                     </div>
                                     <div class="md:col-span-2 flex flex-col space-y-1">
                                         <label class="font-label-md text-label-md text-on-surface"
@@ -282,21 +282,21 @@
                                             class="w-full h-11 px-3.5 bg-white border border-outline text-on-surface rounded-lg placeholder-secondary font-body-md text-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
                                             id="streetAddress2"
                                             placeholder="Ex: Hangar 4, accès semi-remorque dégagé..." type="text"
-                                            value="Bâtiment D, Quai de déchargement engins B2" />
+                                            placeholder="Complément (optionnel)" />
                                     </div>
                                     <div class="flex flex-col space-y-1">
                                         <label class="font-label-md text-label-md text-on-surface" for="postalCode">Code
                                             postal *</label>
                                         <input
                                             class="w-full h-11 px-3.5 bg-white border border-outline text-on-surface rounded-lg placeholder-secondary font-body-md text-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
-                                            id="postalCode" required="" type="text" value="33700" />
+                                            id="postalCode" required="" type="text" placeholder="Code postal" />
                                     </div>
                                     <div class="flex flex-col space-y-1">
                                         <label class="font-label-md text-label-md text-on-surface" for="cityName">Ville
                                             *</label>
                                         <input
                                             class="w-full h-11 px-3.5 bg-white border border-outline text-on-surface rounded-lg placeholder-secondary font-body-md text-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
-                                            id="cityName" required="" type="text" value="Mérignac" />
+                                            id="cityName" required="" type="text" placeholder="Ville" />
                                     </div>
                                 </div>
                                 <!-- Checkbox Same Billing -->
@@ -450,7 +450,7 @@
                                     </div>
                                     <div class="flex justify-between items-center">
                                         <span class="text-secondary">Montant</span>
-                                        <span class="font-semibold text-primary">4 380,00 € TTC</span>
+                                        <span class="font-semibold text-primary" id="payment-amount">—</span>
                                     </div>
                                     <div class="flex justify-between items-center">
                                         <span class="text-secondary">Référence</span>
@@ -497,9 +497,9 @@
                         </div>
                     </section>
                     <!-- RIGHT COLUMN: ORDER SUMMARY (Sticky on Desktop, ~35% -> 4-5 cols) -->
-                    <aside aria-label="Récapitulatif de commande"
+                    <aside aria-label="Récapitulatif de commande" id="order-summary"
                         class="hidden lg:flex lg:col-span-5 xl:col-span-4 flex-col sticky top-24 space-y-space-md">
-                        <div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm space-y-space-md">
+                        <div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm space-y-space-md" id="summary-card">
                             <div class="flex items-center justify-between pb-space-xs">
                                 <h2 class="font-headline-sm text-headline-sm text-on-surface">Récapitulatif de commande
                                 </h2>
@@ -600,179 +600,7 @@
                 </div>
             </div>
             <!-- INLINE VANILLA JAVASCRIPT LOGIC -->
-            <script>
-                let currentStep = 1;
-
-                function goToStep(step) {
-                    if (step < 1 || step > 3) return;
-                    currentStep = step;
-
-                    // Update forms visibility
-                    const sec1 = document.getElementById('sectionStep1');
-                    const sec2 = document.getElementById('sectionStep2');
-                    const sec3 = document.getElementById('sectionStep3');
-
-                    [sec1, sec2, sec3].forEach(s => {
-                        if (s) s.classList.add('hidden');
-                    });
-
-                    if (step === 1 && sec1) sec1.classList.remove('hidden');
-                    if (step === 2 && sec2) {
-                        syncRecapData();
-                        sec2.classList.remove('hidden');
-                    }
-                    if (step === 3 && sec3) sec3.classList.remove('hidden');
-
-                    // Update stepper bar width
-                    const bar = document.getElementById('stepProgressBar');
-                    if (step === 1) bar.style.width = '0%';
-                    if (step === 2) bar.style.width = '50%';
-                    if (step === 3) bar.style.width = '100%';
-
-                    // Update Stepper Badge States
-                    for (let i = 1; i <= 3; i++) {
-                        const badge = document.getElementById('stepBadge' + i);
-                        const label = document.getElementById('stepLabel' + i);
-
-                        if (i < step) {
-                            // Completed step
-                            badge.className = 'w-10 h-10 rounded-full flex items-center justify-center font-label-lg text-label-lg transition-colors bg-tertiary text-on-tertiary shadow-sm ring-4 ring-surface';
-                            badge.innerHTML = '<span class="material-symbols-outlined text-[20px]">check</span>';
-                            label.className = 'mt-2 font-label-caps text-label-caps uppercase text-tertiary tracking-wider font-semibold';
-                        } else if (i === step) {
-                            // Current step
-                            badge.className = 'w-10 h-10 rounded-full flex items-center justify-center font-label-lg text-label-lg transition-colors bg-primary text-on-primary shadow-sm ring-4 ring-surface';
-                            badge.textContent = i;
-                            label.className = 'mt-2 font-label-caps text-label-caps uppercase text-primary font-bold tracking-wider';
-                        } else {
-                            // Pending step
-                            badge.className = 'w-10 h-10 rounded-full flex items-center justify-center font-label-lg text-label-lg transition-colors bg-surface-container-high text-secondary shadow-sm ring-4 ring-surface';
-                            badge.textContent = i;
-                            label.className = 'mt-2 font-label-caps text-label-caps uppercase text-secondary tracking-wider';
-                        }
-                    }
-
-                    // Smooth scroll back to top of checkout container
-                    window.scrollTo({top: 0, behavior: 'smooth'});
-                }
-
-                function syncRecapData() {
-                    const email = document.getElementById('contactEmail').value;
-                    const phone = document.getElementById('contactPhone').value;
-                    const company = document.getElementById('companyName').value;
-                    const siret = document.getElementById('companySiret').value;
-                    const fullName = document.getElementById('contactFullName').value;
-                    const address = document.getElementById('streetAddress').value;
-                    const address2 = document.getElementById('streetAddress2').value;
-                    const postal = document.getElementById('postalCode').value;
-                    const city = document.getElementById('cityName').value;
-
-                    document.getElementById('recapEmail').textContent = email || 'Non renseigné';
-                    document.getElementById('recapPhone').textContent = phone || 'Non renseigné';
-                    document.getElementById('recapCompany').textContent = company || 'Société non spécifiée';
-                    document.getElementById('recapRecipient').textContent = 'Destinataire : ' + (fullName || 'Non spécifié') + (siret ? ' (SIRET : ' + siret + ')' : '');
-                    document.getElementById('recapAddressFull').textContent = address + (address2 ? ', ' + address2 : '') + ', ' + postal + ' ' + city + ', France';
-                }
-
-                // Mobile Order Summary Accordion
-                const mobileSummaryToggle = document.getElementById('mobileSummaryToggle');
-                const mobileSummaryDrawer = document.getElementById('mobileSummaryDrawer');
-                const mobileSummaryIcon = document.getElementById('mobileSummaryIcon');
-
-                if (mobileSummaryToggle) {
-                    mobileSummaryToggle.addEventListener('click', () => {
-                        const isHidden = mobileSummaryDrawer.classList.contains('hidden');
-                        if (isHidden) {
-                            mobileSummaryDrawer.classList.remove('hidden');
-                            mobileSummaryIcon.style.transform = 'rotate(180deg)';
-                            mobileSummaryToggle.setAttribute('aria-expanded', 'true');
-                        } else {
-                            mobileSummaryDrawer.classList.add('hidden');
-                            mobileSummaryIcon.style.transform = 'rotate(0deg)';
-                            mobileSummaryToggle.setAttribute('aria-expanded', 'false');
-                        }
-                    });
-                }
-
-                // Promo Code Accordion
-                const promoToggleBtn = document.getElementById('promoToggleBtn');
-                const promoDrawer = document.getElementById('promoDrawer');
-                const promoIcon = document.getElementById('promoIcon');
-
-                if (promoToggleBtn) {
-                    promoToggleBtn.addEventListener('click', () => {
-                        const isHidden = promoDrawer.classList.contains('hidden');
-                        if (isHidden) {
-                            promoDrawer.classList.remove('hidden');
-                            promoIcon.style.transform = 'rotate(180deg)';
-                            promoToggleBtn.setAttribute('aria-expanded', 'true');
-                        } else {
-                            promoDrawer.classList.add('hidden');
-                            promoIcon.style.transform = 'rotate(0deg)';
-                            promoToggleBtn.setAttribute('aria-expanded', 'false');
-                        }
-                    });
-                }
-
-                function applyPromo() {
-                    const code = document.getElementById('promoInput').value.trim();
-                    const feedback = document.getElementById('promoFeedback');
-                    if (!code) return;
-                    feedback.classList.remove('hidden');
-                    if (code.toUpperCase() === 'STRAND-BTP2024') {
-                        feedback.textContent = 'Code STRAND-BTP2024 appliqué : frais de dossier offerts.';
-                        feedback.className = 'text-[11px] mt-1 text-tertiary font-body-sm';
-                    } else {
-                        feedback.textContent = 'Ce code promo est invalide ou expiré.';
-                        feedback.className = 'text-[11px] mt-1 text-error font-body-sm';
-                    }
-                }
-
-                function simulatePayment(btn) {
-                    const cgv = document.getElementById('acceptCgv');
-                    if (!cgv.checked) {
-                        alert('Veuillez accepter les Conditions Générales de Vente pour continuer.');
-                        return;
-                    }
-                    btn.disabled = true;
-                    btn.innerHTML = '<span class="material-symbols-outlined text-[20px] animate-spin">refresh</span><span>Authentification 3D Secure en cours...</span>';
-                    setTimeout(() => {
-                        btn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check_circle</span><span>Paiement validé avec succès</span>';
-                        btn.className = 'w-full h-14 bg-tertiary text-on-tertiary font-headline-sm text-headline-sm rounded-lg shadow-md flex items-center justify-center gap-space-sm';
-                    }, 1600);
-                }
-
-                function copyToClipboard(elementId) {
-                    const text = document.getElementById(elementId).textContent;
-                    navigator.clipboard.writeText(text).then(() => {
-                        alert('Copié : ' + text);
-                    });
-                }
-
-                function handleProofUpload(input) {
-                    const status = document.getElementById('uploadStatus');
-                    if (input.files && input.files[0]) {
-                        status.textContent = 'Fichier sélectionné : ' + input.files[0].name;
-                        status.classList.remove('hidden');
-                    }
-                }
-
-                function confirmTransfer(btn) {
-                    const cgv = document.getElementById('acceptCgv');
-                    const file = document.getElementById('proofUpload').files[0];
-                    if (!cgv.checked) {
-                        alert('Veuillez accepter les CGV.');
-                        return;
-                    }
-                    if (!file) {
-                        alert('Veuillez uploader la preuve de paiement.');
-                        return;
-                    }
-                    btn.disabled = true;
-                    btn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check_circle</span><span>Commande enregistrée</span>';
-                    btn.className = 'w-full h-14 bg-tertiary text-on-tertiary font-headline-sm text-headline-sm rounded-lg shadow-md flex items-center justify-center gap-space-sm';
-                }
-            </script>
+            <script src="scripts/checkout-page.js"></script>
         </div>
     </main>
     <footer class="w-full bg-surface-container-lowest shadow-[0_-1px_6px_rgba(0,0,0,0.02)] mt-auto">
@@ -794,11 +622,11 @@
             <div class="flex items-center gap-space-md text-secondary">
                 <nav class="flex items-center gap-space-md" data-active-classes="text-primary font-bold"><a
                         class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
-                        data-path="checkout-cgv" href="#">CGV &amp; Garanties</a><a
+                        data-path="checkout-cgv" href="conditions-generales-vente.html">CGV &amp; Garanties</a><a
                         class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
-                        data-path="checkout-legal" href="#">Mentions Légales</a><a
+                        data-path="checkout-legal" href="mentions-legales.html">Mentions Légales</a><a
                         class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
-                        data-path="checkout-privacy" href="#">Protection des Données</a></nav>
+                        data-path="checkout-privacy" href="politique-confidentialite.html">Protection des Données</a></nav>
             </div>
         </div>
         <div class="bg-surface-container py-space-sm">
@@ -808,35 +636,11 @@
             </div>
         </div>
     </footer>
-  <script src="cart.js"></script>
+  <script src="scripts/cart.js"></script>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  if (typeof getCart !== 'function') return;
-  const cart = getCart();
-  if (cart.length === 0) return;
-
-  const totalHT = getCartTotal();
-  const totalTTC = totalHT * 1.20;
-
-  // Update total displays
-  document.querySelectorAll('.font-headline-sm, .font-headline-lg, .font-title-md').forEach(el => {
-    const text = el.textContent;
-    if (text.includes('€') && (text.includes('4 380') || text.includes('4380') || text.includes('Total'))) {
-      if (text.includes('TTC') || text.includes('régler')) {
-        el.textContent = formatPrice(totalTTC) + (text.includes('TTC') ? ' TTC' : '');
-      } else if (text.includes('HT')) {
-        el.textContent = formatPrice(totalHT) + ' HT';
-      }
-    }
-  });
-
-  // Update mobile summary total
-  const mobileTotal = document.querySelector('#mobileSummaryToggle .font-headline-sm');
-  if (mobileTotal) mobileTotal.textContent = formatPrice(totalTTC) + ' TTC';
-});
-</script>
+<script src="scripts/checkout-page.js"></script>
 
 </body>
+
 
 </html>
