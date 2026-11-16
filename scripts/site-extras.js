@@ -21,18 +21,61 @@
     if (!drawer || !window.StorefrontAPI) return;
     const list = document.getElementById('category-list') || document.getElementById('category-accordion') || drawer.querySelector('.flex-1.overflow-y-auto');
     if (!list) return;
+
+    const icons = {
+      'energie': 'bolt',
+      'bois-de-chauffage': 'local_fire_department',
+      'chauffage': 'thermostat',
+      'jardin-et-espaces-verts': 'yard',
+      'agricole': 'agriculture',
+      'remorques': 'local_shipping',
+      'deneigement': 'ac_unit',
+      'btp-et-manutention': 'construction',
+      'conteneurs-et-modulaires': 'inventory_2',
+      'garage-et-atelier': 'handyman',
+      'machines-outils': 'precision_manufacturing',
+      'pompes-et-arrosage': 'water_drop',
+      'rangement-et-atelier': 'shelves',
+      'cuisine-professionnelle': 'restaurant',
+      'divers': 'category',
+    };
+
     try {
       const json = await StorefrontAPI.api('/storefront/categories');
       const cats = Array.isArray(json) ? json : (json.data || []);
       if (!cats.length) return;
-      list.innerHTML = cats.map(c => `
-        <a class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low" href="category.html?category=${encodeURIComponent(c.slug)}">
-          <div class="flex items-center gap-3">
-            <span class="material-symbols-outlined text-primary text-[22px]">category</span>
-            <span class="font-label-md text-label-md font-semibold text-on-surface">${c.name}</span>
-          </div>
-          <span class="material-symbols-outlined text-[18px] text-secondary">chevron_right</span>
-        </a>`).join('');
+
+      // Group by parent
+      const parents = cats.filter(c => !c.parent_id);
+      const childrenOf = {};
+      cats.forEach(c => {
+        if (c.parent_id) {
+          (childrenOf[c.parent_id] = childrenOf[c.parent_id] || []).push(c);
+        }
+      });
+
+      list.innerHTML = parents.map(parent => {
+        const kids = childrenOf[parent.id] || [];
+        const icon = icons[parent.slug] || 'category';
+        const kidsHtml = kids.map(k =>
+          `<a class="block py-2 px-3 rounded hover:bg-surface-container-low text-on-surface-variant hover:text-primary font-body-sm" href="category.html?category=${encodeURIComponent(k.slug)}">${k.name}</a>`
+        ).join('');
+
+        return `
+          <div class="border-b border-surface-container-highest/40">
+            <button class="w-full flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low transition-colors text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.accordion-icon').textContent = this.nextElementSibling.classList.contains('hidden') ? 'expand_more' : 'expand_less';" type="button">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary text-[22px]">${icon}</span>
+                <span class="font-label-md text-label-md font-semibold text-on-surface">${parent.name}</span>
+              </div>
+              <span class="material-symbols-outlined text-[20px] text-secondary accordion-icon">expand_more</span>
+            </button>
+            <div class="hidden pl-10 pb-2 space-y-1 accordion-content">
+              <a class="block py-2 px-3 rounded hover:bg-surface-container-low text-on-surface font-semibold font-body-sm" href="category.html?category=${encodeURIComponent(parent.slug)}">Tous</a>
+              ${kidsHtml}
+            </div>
+          </div>`;
+      }).join('');
     } catch (e) {
       console.info('Category drawer load failed', e);
     }
