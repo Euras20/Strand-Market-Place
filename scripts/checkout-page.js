@@ -120,8 +120,8 @@ let currentStep = 1;
                     const feedback = document.getElementById('promoFeedback');
                     if (!code) return;
                     feedback.classList.remove('hidden');
-                    if (code.toUpperCase() === 'STRAND-BTP2024') {
-                        feedback.textContent = 'Code STRAND-BTP2024 appliqué : frais de dossier offerts.';
+                    if (code.toUpperCase() === 'JSE-BTP2024') {
+                        feedback.textContent = 'Code JSE-BTP2024 appliqué : frais de dossier offerts.';
                         feedback.className = 'text-[11px] mt-1 text-tertiary font-body-sm';
                     } else {
                         feedback.textContent = 'Ce code promo est invalide ou expiré.';
@@ -354,7 +354,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.querySelectorAll('span, p, div').forEach(el => {
       if (el.children.length) return;
       const t = el.textContent.trim();
-      if (info.beneficiary && t.includes('Strand Marketplace')) el.textContent = info.beneficiary;
+      if (info.beneficiary && t.includes('JS Europe')) el.textContent = info.beneficiary;
       if (info.iban && t.replace(/\s/g,'').startsWith('FR')) el.textContent = info.iban;
       if (info.bic && /^[A-Z]{6}/.test(t) && t.length < 15) el.textContent = info.bic;
     });
