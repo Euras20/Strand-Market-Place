@@ -455,7 +455,7 @@
                                     <div class="flex justify-between items-center">
                                         <span class="text-secondary">Référence</span>
                                         <div class="flex items-center gap-2">
-                                            <span class="font-mono font-semibold" id="refValue">STRAND-2024-4380</span>
+                                            <span class="font-mono font-semibold" id="refValue">JSE-2024-4380</span>
                                             <button class="text-primary hover:underline text-sm" onclick="copyToClipboard('refValue')" type="button">Copier</button>
                                         </div>
                                     </div>
@@ -551,7 +551,7 @@
                                     <div class="flex gap-2">
                                         <input
                                             class="flex-1 h-9 px-3 bg-white border border-outline text-on-surface rounded font-body-sm text-body-sm placeholder-secondary focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary uppercase"
-                                            id="promoInput" placeholder="Ex: STRAND-BTP2024" type="text" />
+                                            id="promoInput" placeholder="Ex: JSE-BTP2024" type="text" />
                                         <button
                                             class="px-3 h-9 bg-surface-container-highest text-on-surface font-label-md text-label-md rounded hover:bg-surface-container-high transition"
                                             onclick="applyPromo()" type="button">Appliquer</button>
@@ -600,8 +600,7 @@
                 </div>
             </div>
             <!-- INLINE VANILLA JAVASCRIPT LOGIC -->
-            <script src="scripts/checkout-page.js"></script>
-        </div>
+                    </div>
     </main>
     <footer class="w-full bg-surface-container-lowest shadow-[0_-1px_6px_rgba(0,0,0,0.02)] mt-auto">
         <div
@@ -636,8 +635,10 @@
             </div>
         </div>
     </footer>
-  <script src="scripts/cart.js"></script>
+  <script src="scripts/api.js"></script>
+<script src="scripts/cart.js"></script>
 
+<script src="scripts/checkout.js"></script>
 <script src="scripts/checkout-page.js"></script>
 
 </body>

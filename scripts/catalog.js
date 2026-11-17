@@ -149,8 +149,8 @@ function renderProductCard(product) {
   return `
     <div class="bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col p-space-md justify-between group" onclick="window.location.href='${href}'" style="cursor:pointer">
       <div>
-        <div class="relative w-full aspect-[16/10] bg-surface-container-low rounded-lg overflow-hidden">
-          <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="${img}" alt="${name}" />
+        <div class="relative w-full h-40 bg-surface-container-low rounded-lg overflow-hidden">
+          <img class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" src="${img}" alt="${name}" />
           ${discount ? `<div class="absolute top-2 left-2"><span class="px-2 py-0.5 bg-primary text-on-primary font-label-caps text-label-caps rounded font-bold">-${discount}%</span></div>` : ''}
           <button aria-label="Favoris" class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/90 hover:bg-surface-container-lowest text-secondary flex items-center justify-center shadow-sm" onclick="event.stopPropagation();" type="button">
             <span class="material-symbols-outlined text-[18px]">favorite</span>
