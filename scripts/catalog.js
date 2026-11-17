@@ -30,8 +30,10 @@ async function loadCategories(containerId = 'category-grid', options = {}) {
 
   try {
     const json = await StorefrontAPI.api('/storefront/categories');
-    const categories = json.data || json || [];
+    let categories = json.data || json || [];
     if (!categories.length) return;
+    const limit = options.limit;
+    if (limit && limit > 0) categories = categories.slice(0, limit);
     grid.innerHTML = categories.map(cat => renderCategoryCard(cat, options)).join('');
   } catch (err) {
     console.warn('Categories load failed:', err);

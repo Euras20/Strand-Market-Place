@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   if (!window.StorefrontAPI) return;
-  StorefrontAPI.loadCategories("category-grid", { page: "category.html" });
+  StorefrontAPI.loadCategories("category-grid", { page: "category.html", limit: 6 });
   StorefrontAPI.loadProducts({ containerId: "promo-grid", promo: true, limit: 4 });
   StorefrontAPI.loadProducts({ containerId: "nouveautes-grid", sort: "newest", limit: 4 });
   StorefrontAPI.loadProducts({ containerId: "selection-grid", minPrice: 2800, sort: "price_desc", limit: 4 });

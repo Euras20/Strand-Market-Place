@@ -50,7 +50,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // Update document title
-    document.title = product.name + ' — Strand Marketplace';
+    document.title = product.name + ' — JS Europe';
+    const loader = document.getElementById('product-loading');
+    if (loader) loader.remove();
 
     // Store for cart
     window.currentProduct = {
@@ -63,5 +65,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
   } catch (err) {
     console.error('Product load failed:', err);
+    const loader = document.getElementById('product-loading');
+    if (loader) loader.remove();
   }
 });
