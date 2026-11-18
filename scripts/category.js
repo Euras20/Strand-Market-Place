@@ -337,3 +337,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
 });
+
+
+window.loadCategoryPage = async function(page) {
+  const params = new URLSearchParams(window.location.search);
+  const category = params.get('category') || params.get('cat') || '';
+  const q = params.get('q') || '';
+  await StorefrontAPI.loadProducts({
+    containerId: 'product-grid',
+    category: category || undefined,
+    q: q || undefined,
+    page: page,
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};

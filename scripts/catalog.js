@@ -73,6 +73,7 @@ async function loadProducts(options = {}) {
     category = null,
     sort = null,
     limit = null,
+    page = null,
     minPrice = null,
     maxPrice = null,
     brand = null,
@@ -98,6 +99,7 @@ async function loadProducts(options = {}) {
     if (category) params.set('category', category);
     if (sort) params.set('sort', sort);
     if (limit) params.set('limit', String(limit));
+    if (page) params.set('page', String(page));
     if (minPrice != null) params.set('min_price', String(minPrice));
     if (maxPrice != null) params.set('max_price', String(maxPrice));
     if (brand) params.set('brand', brand);
@@ -122,6 +124,19 @@ async function loadProducts(options = {}) {
     }
 
     grid.innerHTML = list.map(p => renderProductCard(p)).join('');
+
+    // Pagination
+    const pag = document.getElementById(containerId + '-pagination') || document.getElementById('pagination');
+    if (pag && json.current_page) {
+      const cur = json.current_page;
+      const last = json.last_page;
+      let html = '';
+      if (cur > 1) html += `<button onclick="window.loadCategoryPage && window.loadCategoryPage(${cur-1})" class="px-4 py-2 border rounded">Précédent</button>`;
+      html += `<span class="px-4 py-2">Page ${cur} / ${last}</span>`;
+      if (cur < last) html += `<button onclick="window.loadCategoryPage && window.loadCategoryPage(${cur+1})" class="px-4 py-2 border rounded">Suivant</button>`;
+      pag.innerHTML = html;
+      pag.classList.remove('hidden');
+    }
   } catch (err) {
     console.error(err);
     if (errorEl) {

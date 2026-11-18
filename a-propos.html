@@ -1,66 +1,52 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>À propos · Strand</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>À propos · JS EUROPE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: "#9d3e00",
-            "on-primary": "#ffffff",
-            "primary-container": "#ffdbcc",
-            "on-primary-container": "#7b2f00",
-            surface: "#fafaf9",
-            "surface-container-lowest": "#ffffff",
-            "on-surface": "#1a1c1a",
-            "on-surface-variant": "#594238",
-            outline: "#8c7166",
-            "outline-variant": "#d8c2b8",
-            background: "#fffbff"
-          },
-          fontFamily: { sans: ["Inter", "system-ui", "sans-serif"] }
-        }
-      }
-    };
-  </script>
-  <style>body { font-family: Inter, system-ui, sans-serif; } .prose h2 { font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; color: #9d3e00; } .prose p, .prose li { line-height: 1.7; } .prose ul { list-style: disc; padding-left: 1.25rem; margin: 0.5rem 0 1rem; }</style>
 </head>
-<body class="bg-background text-on-surface min-h-screen antialiased">
-  <header class="bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/40 sticky top-0 z-40">
-    <div class="max-w-3xl mx-auto px-5 h-16 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-2 text-sm font-medium text-on-surface-variant hover:text-primary transition">
-        <span class="material-symbols-outlined text-[20px]">arrow_back</span> Accueil
-      </a>
-      <span class="text-xs uppercase tracking-[0.18em] text-on-surface-variant font-medium">Strand</span>
+<body class="bg-stone-50 text-stone-900">
+  <header class="bg-white border-b">
+    <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="index.html" class="font-black text-xl tracking-tighter">JS EUROPE</a>
+      <a href="index.html" class="text-sm text-stone-600 hover:text-stone-900">← Retour à l'accueil</a>
     </div>
   </header>
+  <main class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-3xl font-bold mb-2">À propos de JS EUROPE</h1>
+    <p class="text-stone-600 mb-8">Négoce de matériel professionnel depuis 2014</p>
 
-  <main class="max-w-3xl mx-auto px-5 py-12 md:py-16">
-    <h1 class="text-3xl md:text-4xl font-semibold tracking-tight text-on-surface mb-6">À propos de Strand</h1>
-    <div class="prose text-on-surface-variant text-sm md:text-[15px] space-y-4">
-      
-<p>Strand est la marketplace de référence pour l'équipement professionnel, les machines agricoles, le BTP et l'outillage d'atelier en France et en Europe.</p>
-<p>Nous sélectionnons des équipements fiables pour les professionnels et les collectivités, avec un accompagnement technique et des conditions de livraison adaptées.</p>
+    <div class="space-y-6 text-stone-800 leading-relaxed">
+      <p>JS EUROPE est une société à responsabilité limitée à associé unique (SARLU) spécialisée dans le négoce de matériel industriel, de bâtiment et d’équipements professionnels destinés aux entreprises, artisans, collectivités et exploitants.</p>
 
+      <p>Immatriculée au Registre National des Entreprises sous le numéro SIREN <strong>803 558 410</strong>, la société a été créée en 2014. Son siège social est situé au <strong>47 rue du Trou Grillon, 91280 Saint-Pierre-du-Perray</strong> (Essonne).</p>
+
+      <p>Dirigée par son gérant <strong>Strady Joe</strong>, JS EUROPE propose un catalogue sélectionné de matériels : agriculture et espaces verts, BTP et manutention, chauffage et énergie, atelier et outillage. Nous travaillons avec des marques reconnues et assurons un suivi technique après-vente.</p>
+
+      <h2 class="text-2xl font-semibold mt-10">Notre activité</h2>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>Négoce national et international de matériel industriel et de bâtiment</li>
+        <li>Apport d’affaires et prestations de services</li>
+        <li>Vente de produits non réglementés liés à l’objet social</li>
+        <li>Code APE : 4690Z – Commerce de gros non spécialisé</li>
+        <li>Capital social : 300 000 €</li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold mt-10">Nos engagements</h2>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>Sélection de matériel professionnel adapté aux usages intensifs</li>
+        <li>Devis clairs et délais de réponse sous 24 heures ouvrées</li>
+        <li>Support technique dédié</li>
+        <li>Livraison sur chantier ou atelier en France et en Europe</li>
+        <li>Solutions de financement (leasing, Chorus Pro) pour les professionnels et collectivités</li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold mt-10">Nous contacter</h2>
+      <p>Email : <a href="mailto:contact@jseurope.fr" class="text-amber-700 underline">contact@jseurope.fr</a></p>
+      <p>Adresse : 47 rue du Trou Grillon, 91280 Saint-Pierre-du-Perray, France</p>
     </div>
   </main>
-
-  <footer class="border-t border-outline-variant/30 mt-12 py-8 text-center text-xs text-on-surface-variant">
-    <a href="index.html" class="hover:text-primary">Accueil</a>
-    <span class="mx-2">·</span>
-    <a href="category.html" class="hover:text-primary">Catalogue</a>
-    <span class="mx-2">·</span>
-    <a href="tracking.html" class="hover:text-primary">Suivi</a>
-    <span class="mx-2">·</span>
-    <a href="demande-devis.html" class="hover:text-primary">Devis</a>
-  </footer>
 </body>
 </html>
