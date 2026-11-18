@@ -124,11 +124,13 @@
             </select>
           </div>
           <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-md">
-<div class="col-span-full flex items-center justify-center py-16 text-secondary">
-  <div class="flex flex-col items-center gap-3">
-    <div class="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
-    <span class="font-body-sm">Chargement…</span>
-  </div>
+            <div class="col-span-full flex items-center justify-center py-16 text-secondary">
+              <div class="flex flex-col items-center gap-3">
+                <div class="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+                <span class="font-body-sm">Chargement des produits…</span>
+              </div>
+            </div>
+          </div>
 </div>
           </div>
                 <div class="mt-space-sm">
@@ -260,13 +262,8 @@
         </div>
         
         <div class="flex-1 overflow-y-auto p-space-md space-y-1" id="category-accordion">
-          <!-- Agricole -->
-          <div class="border-b border-surface-container-highest/40">
-            <button class="w-full flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low transition-colors text-left" onclick="toggleAccordion(this)" type="button">
-              <div class="flex items-center gap-3">
-                <span class="material-symbols-outlined text-primary text-[22px]">agriculture</span>
-                <span class="font-label-md text-label-md font-semibold text-on-surface">Agricole & Élevage</span>
-              </div>
+          <p class="text-sm text-secondary p-3">Chargement des catégories…</p>
+        </div>
               <span class="material-symbols-outlined text-[20px] text-secondary accordion-icon">expand_more</span>
             </button>
             <div class="hidden pl-10 pb-2 space-y-1 accordion-content">
@@ -458,6 +455,7 @@
 
   <script src="scripts/api.js"></script>
 <script src="scripts/catalog.js"></script>
+<script src="scripts/site-extras.js"></script>
 <script src="scripts/category.js"></script>
 </body>
 
