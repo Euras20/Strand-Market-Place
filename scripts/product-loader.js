@@ -102,13 +102,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     const charsList = document.getElementById('characteristics-list-mobile');
     if (charsList && product.attribute_values && product.attribute_values.length) {
       charsList.innerHTML = product.attribute_values.map(av => {
-        const label = av.attribute?.name || av.attribute_name || 'Caractéristique';
+        const label = av.definition?.label || av.attribute?.name || av.attribute_name || 'Caractéristique';
         const value = av.value_text ?? av.value_integer ?? av.value_decimal ?? av.value ?? '—';
         return `<div class="flex justify-between gap-2 py-1 border-b border-surface-container-highest/40 last:border-0"><span class="text-secondary">${label}</span><span class="font-semibold text-on-surface text-right">${value}</span></div>`;
       }).join('');
     } else if (charsList) {
       charsList.innerHTML = '<div class="text-secondary">Aucune caractéristique détaillée.</div>';
     }
+
+    // Gallery thumbs
+    const thumbsContainer = document.getElementById('gallery-thumbs-mobile');
     if (thumbsContainer && product.media && product.media.length) {
       thumbsContainer.innerHTML = product.media.slice(0, 6).map((m, i) => {
         const src = StorefrontAPI.mediaUrl(m);
