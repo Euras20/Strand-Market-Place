@@ -257,6 +257,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         ? brands.map(n => `<label class="flex items-center gap-2"><input type="checkbox" class="accent-primary brand-filter" value="${n}"> ${n}</label>`).join('')
         : '<span class="text-secondary text-sm">Aucune marque</span>';
     }
+    // Also fill mobile brand filters
+    const boxMobile = document.getElementById('brand-filters-mobile');
+    if (boxMobile) {
+      boxMobile.innerHTML = brands.length
+        ? brands.map(n => `<label class="flex items-center gap-2"><input type="checkbox" class="accent-primary brand-filter" value="${n}"> ${n}</label>`).join('')
+        : '<span class="text-secondary text-sm">Aucune marque</span>';
+    }
+
     // Attribute filters (dimension, taille, etc.)
     const groups = {};
     all.forEach(p => chars(p).forEach(c => { (groups[c.name] ||= new Set()).add(c.value); }));
@@ -273,6 +281,24 @@ document.addEventListener('DOMContentLoaded', async () => {
         aside.appendChild(div);
       });
     }
+    // Also add attribute filters to mobile drawer
+    const mobileDrawer = document.getElementById('filter-drawer');
+    if (mobileDrawer) {
+      mobileDrawer.querySelectorAll('[data-attr-filter-mobile]').forEach(el => el.remove());
+      const container = mobileDrawer.querySelector('.p-4.space-y-4') || mobileDrawer;
+      Object.entries(groups).slice(0, 4).forEach(([name, values]) => {
+        const div = document.createElement('div');
+        div.dataset.attrFilterMobile = name;
+        div.innerHTML = `<span class="font-label-lg text-[13px] font-semibold block mb-2">${name}</span><div class="space-y-2 text-[13px]">` +
+          [...values].slice(0, 8).map(v => `<label class="flex items-center gap-2"><input type="checkbox" class="accent-primary attr-filter" data-name="${name}" value="${v}"> ${v}</label>`).join('') +
+          `</div>`;
+        // Insert before the apply button
+        const applyBtn = container.querySelector('button');
+        if (applyBtn) container.insertBefore(div, applyBtn);
+        else container.appendChild(div);
+      });
+    }
+
     document.querySelectorAll('.brand-filter, .price-filter, .attr-filter').forEach(i => {
       i.addEventListener('change', () => {
         if (i.classList.contains('price-filter') || i.classList.contains('brand-filter')) {
