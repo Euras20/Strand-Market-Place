@@ -94,20 +94,24 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Full description
     const descEl = document.getElementById('description-content-mobile');
-    if (descEl && product.description) {
-      descEl.innerHTML = product.description.replace(/\n/g, '<br>');
+    if (descEl) {
+      descEl.innerHTML = product.description
+        ? product.description.replace(/\n/g, '<br>')
+        : 'Aucune description disponible.';
     }
 
     // Full characteristics / attributes
     const charsList = document.getElementById('characteristics-list-mobile');
-    if (charsList && product.attribute_values && product.attribute_values.length) {
-      charsList.innerHTML = product.attribute_values.map(av => {
-        const label = av.definition?.label || av.attribute?.name || av.attribute_name || 'Caractéristique';
-        const value = av.value_text ?? av.value_integer ?? av.value_decimal ?? av.value ?? '—';
-        return `<div class="flex justify-between gap-2 py-1 border-b border-surface-container-highest/40 last:border-0"><span class="text-secondary">${label}</span><span class="font-semibold text-on-surface text-right">${value}</span></div>`;
-      }).join('');
-    } else if (charsList) {
-      charsList.innerHTML = '<div class="text-secondary">Aucune caractéristique détaillée.</div>';
+    if (charsList) {
+      if (product.attribute_values && product.attribute_values.length) {
+        charsList.innerHTML = product.attribute_values.map(av => {
+          const label = (av.definition && av.definition.label) || av.attribute?.name || 'Caractéristique';
+          const value = av.value_text ?? av.value_integer ?? av.value_decimal ?? av.value ?? '—';
+          return `<div class="flex justify-between gap-2 py-1 border-b border-surface-container-highest/40 last:border-0"><span class="text-secondary">${label}</span><span class="font-semibold text-on-surface text-right">${value}</span></div>`;
+        }).join('');
+      } else {
+        charsList.innerHTML = '<div class="text-secondary">Aucune caractéristique détaillée.</div>';
+      }
     }
 
     // Gallery thumbs
