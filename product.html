@@ -171,8 +171,52 @@
 </head>
 
 <body class="bg-background font-body-md text-body-md text-on-surface antialiased">
-     <header
-    class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+  <!-- ===================== MOBILE HEADER (same as index) ===================== -->
+  <header class="md:hidden fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+    <div class="bg-surface-container-low text-on-surface-variant text-label-md font-label-md py-space-xs">
+      <div class="w-full max-w-[1600px] mx-auto px-3 flex items-center justify-between text-[11px] gap-2">
+        <div class="flex items-center gap-1 truncate"><span class="material-symbols-outlined text-[14px] text-tertiary shrink-0">local_shipping</span><span class="truncate">Livraison spécialisée France & Europe</span></div>
+        <a class="flex items-center gap-1 shrink-0 font-semibold text-primary" href="tel:0189402210"><span class="material-symbols-outlined text-[14px]">support_agent</span><span>01 89 40 22 10</span></a>
+      </div>
+    </div>
+    <div class="w-full mx-auto px-3 py-2.5 flex flex-col gap-2.5 bg-surface-container-lowest border-b border-surface-container-highest/60">
+      <div class="flex items-center justify-between gap-2">
+        <div class="flex items-center gap-2">
+          <button aria-label="Ouvrir les catégories" class="p-1.5 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high flex items-center justify-center cursor-pointer" onclick="toggleCategoryDrawer(true)" type="button"><span class="material-symbols-outlined text-[22px] text-primary">menu</span></button>
+          <a class="flex items-center gap-1.5" data-path="accueil" href="index.html">
+            <div class="w-7 h-7 rounded-lg bg-primary text-on-primary font-headline-md font-bold flex items-center justify-center text-[15px] shadow-sm">S</div>
+            <div class="flex flex-col leading-none"><span class="font-headline-sm text-[16px] text-on-surface font-bold tracking-tight">STRAND</span><span class="font-label-caps text-[9px] text-on-surface-variant uppercase tracking-wider">B2B Pro</span></div>
+          </a>
+        </div>
+        <div class="flex items-center gap-1.5 shrink-0">
+          <a aria-label="Favoris" class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" data-path="espace-client" href="espace-client.html"><span class="material-symbols-outlined text-[20px]">favorite</span></a>
+          <a aria-label="Compte pro" class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">account_circle</span></a>
+          <a class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-primary/10 hover:bg-primary/20 transition-colors" data-path="panier" href="checkout.html" onclick="toggleCartDrawer(true); return false;">
+            <div class="relative flex items-center"><span class="material-symbols-outlined text-primary text-[20px]">shopping_bag</span><span data-cart-count class="absolute -top-1.5 -right-2 bg-primary text-on-primary font-label-caps text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span></div>
+            <span data-cart-total class="font-numeric-data text-[12px] text-primary font-bold hidden xs:inline">0 €</span>
+          </a>
+        </div>
+      </div>
+      <div class="relative w-full search-container">
+        <div class="flex items-center w-full bg-surface-container-low/80 rounded-xl border border-surface-container-highest/60 focus-within:border-primary transition-colors">
+          <span class="material-symbols-outlined text-[18px] text-secondary ml-3 shrink-0">search</span>
+          <input class="w-full bg-transparent px-2.5 py-2 font-body-sm text-[13px] text-on-surface placeholder:text-secondary focus:outline-none" id="site-search-mobile" placeholder="Rechercher un matériel, référence..." type="search"/>
+          <button aria-label="Rechercher" class="m-1 px-3 py-1 bg-primary text-on-primary rounded-lg text-[12px] font-label-md font-semibold shrink-0" type="button">OK</button>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 overflow-x-auto scrollbar-none pb-1">
+        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-[12px] font-semibold shrink-0" onclick="toggleCategoryDrawer(true)" type="button"><span class="material-symbols-outlined text-[18px]">menu</span><span>Toutes les catégories</span></button>
+        <a class="px-3 py-1.5 text-primary font-label-md text-[12px] font-semibold hover:bg-surface-container-low rounded-lg whitespace-nowrap" href="category.html?promo=1">Promotions</a>
+        <a class="px-3 py-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg whitespace-nowrap font-label-md text-[12px]" href="category.html?sort=newest">Nouveautés</a>
+        <a class="px-3 py-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg whitespace-nowrap font-label-md text-[12px]" href="a-propos.html">À propos</a>
+        <a class="px-3 py-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg whitespace-nowrap font-label-md text-[12px]" href="guide-achat-financement.html">Guide</a>
+        <a class="px-3 py-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg whitespace-nowrap font-label-md text-[12px]" href="#">Plus</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== DESKTOP HEADER ===================== -->
+  <header class="hidden md:block fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
     <div class="bg-surface-container-low text-on-surface-variant text-label-md font-label-md py-space-xs">
       <div class="w-full max-w-[1600px] mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
         <div class="flex items-center gap-space-sm"><span
@@ -401,7 +445,73 @@
     <span class="font-body-sm text-secondary">Chargement du produit…</span>
   </div>
 </div>
-<main class="w-full pt-[148px] bg-background min-h-screen">
+<main class="w-full bg-background min-h-screen">
+  <!-- MOBILE PRODUCT LAYOUT -->
+  <div class="md:hidden pt-[98px] pb-24">
+    <div class="flex flex-col w-full">
+      <!-- Breadcrumb -->
+      <nav aria-label="Fil d'Ariane" class="px-3 py-2 bg-surface-container-low" id="product-breadcrumb-mobile">
+        <ol class="flex items-center gap-1.5 text-secondary overflow-x-auto whitespace-nowrap text-[12px]">
+          <li><a href="index.html" class="hover:text-primary">Accueil</a><span class="material-symbols-outlined text-[14px]">chevron_right</span></li>
+          <li class="truncate" id="breadcrumb-category-mobile">Catégorie</li>
+        </ol>
+      </nav>
+
+      <!-- Gallery -->
+      <section class="flex flex-col bg-surface-container-lowest">
+        <div class="relative w-full aspect-[4/3] bg-surface-container overflow-hidden">
+          <div class="absolute top-3 left-3 z-10 flex flex-col gap-1.5 max-w-[70%]">
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-tertiary text-on-tertiary font-label-caps text-[10px] shadow-sm"><span class="material-symbols-outlined text-[13px]">verified</span> NORME CE</span>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-primary-container text-on-primary-container font-label-caps text-[10px] shadow-sm"><span class="material-symbols-outlined text-[13px]">local_shipping</span> LIVRAISON HAYON</span>
+          </div>
+          <div class="absolute top-3 right-3 z-10 flex flex-col gap-1.5">
+            <button aria-label="Favoris" class="w-10 h-10 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center text-on-surface shadow-sm" id="btn-fav-mobile"><span class="material-symbols-outlined text-[20px]">favorite_border</span></button>
+          </div>
+          <img alt="Produit" class="w-full h-full object-cover" id="main-product-img-mobile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLtpQ6kosn-w3EdBLYNKU0zYD4q9wEz59NvuRJKPkc6N0sW1BW0mFbS86IaL82wX5ReOdBaQSWvyum-RN85N4j4GhatEetXsvNBm2X4yUHcD2bx0wrxklZGRJaxfGtyNZgSXGUPWqUodqTkp1AvpKYR-D9J6ArkufcD7WHLVwITlm5KI3w3_cac1mWbe5gxS2uUtLvVdz3bGlp6bANt0HVzfO4iy-N7BrRSLP1tMJz"/>
+          <div class="absolute bottom-3 right-3 px-2.5 py-1 rounded-full bg-inverse-surface/85 text-inverse-on-surface text-[12px]"><span id="gallery-counter-mobile">Photo 1 / 1</span></div>
+        </div>
+        <div class="px-3 py-3 flex items-center gap-2 overflow-x-auto bg-surface-container-low" id="gallery-thumbs-mobile" style="scrollbar-width: none;"></div>
+      </section>
+
+      <!-- Product Info -->
+      <section class="flex flex-col px-3 py-4 gap-4 bg-surface">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-caps text-[10px]" id="product-category-badge-mobile">GAMME PRO</span>
+          <span class="font-label-md text-[12px] text-secondary">Marque : <strong class="text-on-surface" id="product-brand-mobile">—</strong></span>
+        </div>
+        <h2 class="font-headline-md text-[18px] text-on-surface tracking-tight font-bold" id="product-title-mobile">Chargement…</h2>
+        <div class="p-3 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-2">
+          <div class="flex items-baseline justify-between flex-wrap gap-2">
+            <span class="font-headline-xl-mobile text-[24px] text-on-surface font-bold" id="price-ht-mobile">— € HT</span>
+            <span class="px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-caps text-[10px] font-bold" id="price-discount-mobile"></span>
+          </div>
+          <span class="font-body-sm text-[12px] text-secondary" id="price-ttc-mobile">Soit — € TTC</span>
+        </div>
+        <div class="p-3 rounded-lg bg-surface-container-low flex flex-col gap-1.5" id="stock-status-mobile">
+          <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-tertiary animate-pulse"></span><span class="font-label-lg text-[13px] text-tertiary font-semibold">Vérification du stock…</span></div>
+        </div>
+        <div class="p-3 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-2" id="key-specs-mobile">
+          <span class="font-label-lg text-[12px] text-on-surface font-bold uppercase tracking-wider">Points clés</span>
+          <ul class="flex flex-col gap-2 text-[12px]" id="key-specs-list-mobile"></ul>
+        </div>
+      </section>
+
+      <!-- Sticky bottom bar -->
+      <div class="fixed bottom-0 left-0 right-0 z-40 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_-2px_12px_rgba(0,0,0,0.08)] px-3 py-2.5 flex items-center justify-between gap-3 pb-safe md:hidden">
+        <div class="flex flex-col min-w-0">
+          <span class="font-headline-sm text-[16px] text-on-surface font-bold truncate" id="sticky-price-ht-mobile">— €</span>
+          <span class="font-body-sm text-[11px] text-secondary truncate" id="sticky-price-ttc-mobile">TTC : — €</span>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <button aria-label="Ajouter au panier" class="min-w-[44px] min-h-[44px] rounded-lg bg-surface-container text-on-surface flex items-center justify-center" onclick="document.getElementById('add-to-cart-desktop')?.click()"><span class="material-symbols-outlined text-[20px]">shopping_cart</span></button>
+          <button class="min-h-[44px] px-5 rounded-lg bg-primary text-on-primary font-label-lg text-[14px] font-bold flex items-center justify-center gap-1.5" onclick="document.getElementById('buy-now-desktop')?.click()">Acheter</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESKTOP PRODUCT LAYOUT -->
+  <div class="hidden md:block pt-[148px]">
         <div class="flex flex-col w-full">
             <!-- Toast Notification Container -->
             <div class="fixed top-24 right-6 z-50 transform translate-x-full transition-transform duration-300 ease-out flex items-center gap-3 px-5 py-3.5 rounded-lg shadow-xl bg-surface-container-lowest text-on-surface"
@@ -1580,6 +1690,7 @@
 <script src="scripts/product.js"></script>
 <script src="scripts/product-loader.js"></script>
         </div>
+      </div> <!-- end desktop product wrapper -->
     </main>
     <footer class="w-full bg-[#252A2D] text-inverse-on-surface pt-space-xl pb-space-lg">
         <div class="w-full max-w-[1600px] mx-auto px-4 sm:px-6">
