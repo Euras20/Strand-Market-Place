@@ -62,8 +62,46 @@ document.addEventListener('DOMContentLoaded', async () => {
       const last = bc.querySelector('span:last-child, a:last-child');
       if (last) last.textContent = product.name;
     }
-    const bcMobile = document.getElementById('breadcrumb-category-mobile');
-    if (bcMobile) bcMobile.textContent = product.name;
+    // Category badge
+    const catBadge = document.getElementById('product-category-badge-mobile');
+    if (catBadge && product.category?.name) catBadge.textContent = product.category.name.toUpperCase();
+
+    // Stock status
+    const stockEl = document.getElementById('stock-status-mobile');
+    if (stockEl) {
+      const inv = variant.inventory;
+      const inStock = inv ? ((inv.on_hand || 0) - (inv.reserved || 0)) > 0 : true;
+      stockEl.innerHTML = inStock
+        ? `<div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-tertiary animate-pulse"></span><span class="font-label-lg text-[13px] text-tertiary font-semibold">En stock</span></div>`
+        : `<div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-error"></span><span class="font-label-lg text-[13px] text-error font-semibold">Sur commande</span></div>`;
+    }
+
+    // Key specs (from description excerpt or attributes)
+    const specsList = document.getElementById('key-specs-list-mobile');
+    if (specsList) {
+      let items = [];
+      if (product.attribute_values && product.attribute_values.length) {
+        items = product.attribute_values.slice(0, 4).map(av => av.value_text || av.value_integer || av.value_decimal).filter(Boolean);
+      } else if (product.description) {
+        items = product.description.split(/[.\n]/).filter(s => s.trim().length > 20).slice(0, 3);
+      }
+      if (items.length) {
+        specsList.innerHTML = items.map(text => `<li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-[16px] mt-0.5">check_circle</span><span>${text.trim()}</span></li>`).join('');
+      } else {
+        specsList.innerHTML = '<li class="text-secondary">Caractéristiques détaillées disponibles sur demande.</li>';
+      }
+    }
+
+    // Gallery thumbs
+    const thumbsContainer = document.getElementById('gallery-thumbs-mobile');
+    if (thumbsContainer && product.media && product.media.length) {
+      thumbsContainer.innerHTML = product.media.slice(0, 6).map((m, i) => {
+        const src = StorefrontAPI.mediaUrl(m);
+        return `<button class="flex-shrink-0 w-16 h-16 rounded overflow-hidden p-0.5 ${i === 0 ? 'bg-primary' : 'bg-surface-container'}" onclick="document.getElementById('main-product-img-mobile').src='${src}'; document.getElementById('gallery-counter-mobile').textContent='Photo ${i+1} / ${Math.min(product.media.length,6)}'"><img class="w-full h-full object-cover" src="${src}" alt=""/></button>`;
+      }).join('');
+      const counter = document.getElementById('gallery-counter-mobile');
+      if (counter) counter.textContent = `Photo 1 / ${Math.min(product.media.length, 6)}`;
+    }
 
     // Update document title
     document.title = product.name + ' — JS Europe';
