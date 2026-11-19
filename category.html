@@ -26,7 +26,52 @@
 
 <body class="bg-background font-body-md text-body-md text-on-surface antialiased">
 
-  <header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+  <!-- ===================== MOBILE HEADER (same as index) ===================== -->
+  <header class="md:hidden fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+    <div class="bg-surface-container-low text-on-surface-variant text-label-md font-label-md py-space-xs">
+      <div class="w-full max-w-[1600px] mx-auto px-3 flex items-center justify-between text-[11px] gap-2">
+        <div class="flex items-center gap-1 truncate"><span class="material-symbols-outlined text-[14px] text-tertiary shrink-0">local_shipping</span><span class="truncate">Livraison spécialisée France & Europe</span></div>
+        <a class="flex items-center gap-1 shrink-0 font-semibold text-primary" href="tel:0189402210"><span class="material-symbols-outlined text-[14px]">support_agent</span><span>01 89 40 22 10</span></a>
+      </div>
+    </div>
+    <div class="w-full mx-auto px-3 py-2.5 flex flex-col gap-2.5 bg-surface-container-lowest border-b border-surface-container-highest/60">
+      <div class="flex items-center justify-between gap-2">
+        <div class="flex items-center gap-2">
+          <button aria-label="Ouvrir les catégories" class="p-1.5 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high flex items-center justify-center cursor-pointer" onclick="toggleCategoryDrawer(true)" type="button"><span class="material-symbols-outlined text-[22px] text-primary">menu</span></button>
+          <a class="flex items-center gap-1.5" data-path="accueil" href="index.html">
+            <div class="w-7 h-7 rounded-lg bg-primary text-on-primary font-headline-md font-bold flex items-center justify-center text-[15px] shadow-sm">S</div>
+            <div class="flex flex-col leading-none"><span class="font-headline-sm text-[16px] text-on-surface font-bold tracking-tight">STRAND</span><span class="font-label-caps text-[9px] text-on-surface-variant uppercase tracking-wider">B2B Pro</span></div>
+          </a>
+        </div>
+        <div class="flex items-center gap-1.5 shrink-0">
+          <a aria-label="Favoris" class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" href="espace-client.html"><span class="material-symbols-outlined text-[20px]">favorite</span></a>
+          <a aria-label="Compte pro" class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">account_circle</span></a>
+          <a class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-primary/10 hover:bg-primary/20 transition-colors" href="checkout.html" onclick="toggleCartDrawer(true); return false;">
+            <div class="relative flex items-center"><span class="material-symbols-outlined text-primary text-[20px]">shopping_bag</span><span data-cart-count class="absolute -top-1.5 -right-2 bg-primary text-on-primary font-label-caps text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span></div>
+            <span data-cart-total class="font-numeric-data text-[12px] text-primary font-bold hidden xs:inline">0 €</span>
+          </a>
+        </div>
+      </div>
+      <div class="relative w-full search-container">
+        <div class="flex items-center w-full bg-surface-container-low/80 rounded-xl border border-surface-container-highest/60 focus-within:border-primary transition-colors">
+          <span class="material-symbols-outlined text-[18px] text-secondary ml-3 shrink-0">search</span>
+          <input class="w-full bg-transparent px-2.5 py-2 font-body-sm text-[13px] text-on-surface placeholder:text-secondary focus:outline-none" id="site-search-mobile" placeholder="Rechercher un matériel, référence..." type="search"/>
+          <button aria-label="Rechercher" class="m-1 px-3 py-1 bg-primary text-on-primary rounded-lg text-[12px] font-label-md font-semibold shrink-0" type="button">OK</button>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 overflow-x-auto scrollbar-none pb-1">
+        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-[12px] font-semibold shrink-0" onclick="toggleCategoryDrawer(true)" type="button"><span class="material-symbols-outlined text-[18px]">menu</span><span>Toutes les catégories</span></button>
+        <a class="px-3 py-1.5 text-primary font-label-md text-[12px] font-semibold hover:bg-surface-container-low rounded-lg whitespace-nowrap" href="category.html?promo=1">Promotions</a>
+        <a class="px-3 py-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg whitespace-nowrap font-label-md text-[12px]" href="category.html?sort=newest">Nouveautés</a>
+        <a class="px-3 py-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg whitespace-nowrap font-label-md text-[12px]" href="a-propos.html">À propos</a>
+        <a class="px-3 py-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg whitespace-nowrap font-label-md text-[12px]" href="guide-achat-financement.html">Guide</a>
+        <a class="px-3 py-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg whitespace-nowrap font-label-md text-[12px]" href="#">Plus</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== DESKTOP HEADER ===================== -->
+  <header class="hidden md:block fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
     <div class="bg-surface-container-low text-on-surface-variant text-label-md font-label-md py-space-xs">
       <div class="w-full max-w-[1600px] mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
         <div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px] text-tertiary">local_shipping</span><span>Livraison spécialisée sur chantier ou atelier en France et en Europe</span></div>
@@ -70,8 +115,14 @@
     </div>
   </header>
 
-  <main class="w-full pt-[148px] bg-background min-h-screen">
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 py-6">
+  <main class="w-full pt-[98px] md:pt-[148px] bg-background min-h-screen">
+    <div class="max-w-[1600px] mx-auto px-3 md:px-6 py-4 md:py-6">
+      <div class="flex items-center justify-between mb-4 md:hidden">
+        <h1 class="font-headline-md text-[18px] font-bold" id="category-title-mobile">Catégorie</h1>
+        <button class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container text-on-surface font-label-md text-[13px] font-semibold" onclick="toggleFilterDrawer(true)" type="button">
+          <span class="material-symbols-outlined text-[18px]">tune</span> Filtres
+        </button>
+      </div>
       <div class="text-secondary font-label-md mb-4" id="breadcrumb">Accueil</div>
       <h1 id="category-title" class="font-headline-lg text-headline-lg font-bold text-on-surface mb-6">Catégorie</h1>
       <div class="flex gap-6">
@@ -100,7 +151,7 @@
               <option>Prix décroissant</option>
             </select>
           </div>
-          <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-md">
+          <div id="product-grid" class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2.5 md:gap-space-md">
             <div class="col-span-full flex items-center justify-center py-16 text-secondary">
               <div class="flex flex-col items-center gap-3">
                 <div class="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
@@ -155,7 +206,46 @@
     </div>
   </footer>
 
-  <script src="scripts/api.js"></script>
+  <!-- Mobile Filter Drawer -->
+  <div class="fixed inset-0 z-[60] bg-black/40 opacity-0 pointer-events-none transition-opacity md:hidden" id="filter-drawer-backdrop" onclick="toggleFilterDrawer(false)"></div>
+  <div class="fixed bottom-0 left-0 right-0 z-[70] bg-surface-container-lowest rounded-t-2xl shadow-2xl transform translate-y-full transition-transform duration-300 md:hidden max-h-[80vh] overflow-y-auto" id="filter-drawer">
+    <div class="p-4 border-b border-surface-container-highest flex items-center justify-between sticky top-0 bg-surface-container-lowest">
+      <h3 class="font-headline-sm text-[16px] font-bold">Filtres</h3>
+      <button class="p-1 rounded-lg hover:bg-surface-container" onclick="toggleFilterDrawer(false)" type="button"><span class="material-symbols-outlined">close</span></button>
+    </div>
+    <div class="p-4 space-y-4">
+      <div>
+        <span class="font-label-lg text-[13px] font-semibold block mb-2">Prix</span>
+        <div class="space-y-2 text-[13px]">
+          <label class="flex items-center gap-2"><input type="checkbox" data-min="0" data-max="1000" class="accent-primary price-filter" /> Moins de 1 000 €</label>
+          <label class="flex items-center gap-2"><input type="checkbox" data-min="1000" data-max="3000" class="accent-primary price-filter" /> 1 000 – 3 000 €</label>
+          <label class="flex items-center gap-2"><input type="checkbox" data-min="3000" data-max="5000" class="accent-primary price-filter" /> 3 000 – 5 000 €</label>
+          <label class="flex items-center gap-2"><input type="checkbox" data-min="5000" data-max="15000" class="accent-primary price-filter" /> 5 000 – 15 000 €</label>
+          <label class="flex items-center gap-2"><input type="checkbox" data-min="15000" data-max="999999" class="accent-primary price-filter" /> Plus de 15 000 €</label>
+        </div>
+      </div>
+      <div>
+        <span class="font-label-lg text-[13px] font-semibold block mb-2">Marques</span>
+        <div id="brand-filters-mobile" class="space-y-2 text-[13px]"></div>
+      </div>
+      <button class="w-full py-3 rounded-lg bg-primary text-on-primary font-label-lg font-semibold" onclick="toggleFilterDrawer(false); applyFilters && applyFilters()">Appliquer</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleFilterDrawer(open) {
+      const drawer = document.getElementById('filter-drawer');
+      const backdrop = document.getElementById('filter-drawer-backdrop');
+      if (!drawer || !backdrop) return;
+      if (open) {
+        drawer.classList.remove('translate-y-full');
+        backdrop.classList.remove('opacity-0', 'pointer-events-none');
+      } else {
+        drawer.classList.add('translate-y-full');
+        backdrop.classList.add('opacity-0', 'pointer-events-none');
+      }
+    }
+  </script>
   <script src="scripts/catalog.js"></script>
   <script src="scripts/site-extras.js"></script>
   <script src="scripts/category.js"></script>
