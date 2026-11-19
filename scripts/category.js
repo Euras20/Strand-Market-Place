@@ -330,7 +330,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         containerId: 'product-grid',
         category: category || undefined,
         q: q || undefined,
-        limit: 24,
+        
       });
     } catch (e) {
       grid.innerHTML = '<div class="col-span-full text-center py-12 text-error">Impossible de charger les produits.</div>';
