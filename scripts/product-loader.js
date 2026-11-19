@@ -92,8 +92,23 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
     }
 
-    // Gallery thumbs
-    const thumbsContainer = document.getElementById('gallery-thumbs-mobile');
+    // Full description
+    const descEl = document.getElementById('description-content-mobile');
+    if (descEl && product.description) {
+      descEl.innerHTML = product.description.replace(/\n/g, '<br>');
+    }
+
+    // Full characteristics / attributes
+    const charsList = document.getElementById('characteristics-list-mobile');
+    if (charsList && product.attribute_values && product.attribute_values.length) {
+      charsList.innerHTML = product.attribute_values.map(av => {
+        const label = av.attribute?.name || av.attribute_name || 'Caractéristique';
+        const value = av.value_text ?? av.value_integer ?? av.value_decimal ?? av.value ?? '—';
+        return `<div class="flex justify-between gap-2 py-1 border-b border-surface-container-highest/40 last:border-0"><span class="text-secondary">${label}</span><span class="font-semibold text-on-surface text-right">${value}</span></div>`;
+      }).join('');
+    } else if (charsList) {
+      charsList.innerHTML = '<div class="text-secondary">Aucune caractéristique détaillée.</div>';
+    }
     if (thumbsContainer && product.media && product.media.length) {
       thumbsContainer.innerHTML = product.media.slice(0, 6).map((m, i) => {
         const src = StorefrontAPI.mediaUrl(m);
@@ -101,6 +116,24 @@ document.addEventListener('DOMContentLoaded', async () => {
       }).join('');
       const counter = document.getElementById('gallery-counter-mobile');
       if (counter) counter.textContent = `Photo 1 / ${Math.min(product.media.length, 6)}`;
+    }
+
+    // Related products
+    const relatedEl = document.getElementById('related-products-mobile');
+    if (relatedEl && product.category) {
+      try {
+        const related = await StorefrontAPI.api('/storefront/products?category=' + encodeURIComponent(product.category.slug) + '&limit=6');
+        const list = Array.isArray(related) ? related : (related.data || []);
+        relatedEl.innerHTML = list.filter(p => p.id !== product.id).slice(0, 5).map(p => {
+          const pImg = StorefrontAPI.mediaUrl(p.media?.[0]) || StorefrontAPI.PLACEHOLDER;
+          const pPrice = Number(p.variants?.[0]?.price ?? p.price ?? 0);
+          return `<a href="product.html?slug=${encodeURIComponent(p.slug)}" class="w-48 flex-shrink-0 p-3 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-2">
+            <div class="aspect-[4/3] rounded-lg overflow-hidden bg-surface-container"><img class="w-full h-full object-cover" src="${pImg}" alt=""/></div>
+            <span class="font-label-md text-[12px] text-on-surface font-semibold line-clamp-2">${p.name}</span>
+            <span class="font-headline-sm text-[14px] text-on-surface font-bold">${StorefrontAPI.formatPrice(pPrice)} HT</span>
+          </a>`;
+        }).join('');
+      } catch (e) { /* ignore related load failure */ }
     }
 
     // Update document title
