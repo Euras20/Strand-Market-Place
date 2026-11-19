@@ -636,7 +636,70 @@
         </div>
     </footer>
   <script src="scripts/api.js"></script>
+<script src="scripts/api.js"></script>
 <script src="scripts/cart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  if (!window.StorefrontAPI?.api) return;
+  try {
+    const data = await StorefrontAPI.api('/storefront/cart');
+    const items = data.cart?.items || [];
+    const totals = data.totals || {};
+    const subtotal = totals.subtotal || totals.total || 0;
+    const tax = subtotal * 0.2;
+    const ttc = subtotal + tax;
+
+    function itemHtml(it, size = 'w-16 h-16') {
+      const variant = it.variant || {};
+      const name = variant.product?.name || variant.variant_name || variant.sku || 'Produit';
+      const price = it.unit_price ?? variant.price ?? 0;
+      const qty = it.quantity || 1;
+      const img = StorefrontAPI.mediaUrl?.(variant.media?.[0]) || StorefrontAPI.PLACEHOLDER;
+      return `<div class="flex items-start gap-3 bg-surface-container-lowest p-3 rounded-lg shadow-sm">
+        <div class="relative ${size} shrink-0 bg-surface-container rounded-lg overflow-hidden">
+          <img class="w-full h-full object-cover" src="${img}" alt=""/>
+          <span class="absolute top-1 right-1 bg-inverse-surface text-inverse-on-surface font-label-caps text-[10px] px-1.5 py-0.5 rounded-full">${qty}</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <h3 class="font-title-md text-title-md text-on-surface truncate">${name}</h3>
+          <p class="font-body-sm text-body-sm text-secondary">${variant.sku || ''}</p>
+          <p class="font-label-lg text-label-lg text-on-surface mt-1">${StorefrontAPI.formatPrice(price)} HT</p>
+        </div>
+      </div>`;
+    }
+
+    // Mobile summary
+    const mobileDrawer = document.getElementById('mobileSummaryDrawer');
+    if (mobileDrawer && items.length) {
+      mobileDrawer.innerHTML = items.map(it => itemHtml(it)).join('') + `
+        <div class="bg-surface-container-lowest p-3 rounded-lg space-y-2 text-on-surface shadow-sm font-body-sm">
+          <div class="flex justify-between"><span class="text-secondary">Sous-total HT</span><span>${StorefrontAPI.formatPrice(subtotal)}</span></div>
+          <div class="flex justify-between"><span class="text-secondary">TVA 20%</span><span>${StorefrontAPI.formatPrice(tax)}</span></div>
+          <div class="pt-2 flex justify-between font-bold"><span>Total TTC</span><span class="text-primary">${StorefrontAPI.formatPrice(ttc)}</span></div>
+        </div>`;
+    }
+    const mobileTotal = document.querySelector('#mobileSummaryToggle .font-headline-sm');
+    if (mobileTotal) mobileTotal.textContent = StorefrontAPI.formatPrice(ttc) + ' TTC';
+
+    // Desktop summary
+    const summaryCard = document.getElementById('summary-card');
+    if (summaryCard && items.length) {
+      const itemsHtml = items.map(it => itemHtml(it, 'w-20 h-20')).join('');
+      const totalsHtml = `
+        <div class="space-y-2 text-on-surface font-body-sm">
+          <div class="flex justify-between"><span class="text-secondary">Sous-total HT</span><span>${StorefrontAPI.formatPrice(subtotal)}</span></div>
+          <div class="flex justify-between"><span class="text-secondary">TVA 20%</span><span>${StorefrontAPI.formatPrice(tax)}</span></div>
+          <div class="pt-2 flex justify-between font-bold text-lg"><span>Total TTC</span><span class="text-primary">${StorefrontAPI.formatPrice(ttc)}</span></div>
+        </div>`;
+      // Replace the product items area (keep the title)
+      const titleRow = summaryCard.querySelector('.flex.items-center.justify-between');
+      summaryCard.innerHTML = (titleRow ? titleRow.outerHTML : '') + itemsHtml + totalsHtml;
+    }
+  } catch (err) {
+    console.info('Checkout summary: cart not available', err.message);
+  }
+});
+</script>
 
 <script src="scripts/checkout.js"></script>
 <script src="scripts/checkout-page.js"></script>
