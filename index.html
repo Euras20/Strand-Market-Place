@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <meta content="web_standard" name="shell-type" />
-  <title>Strand - Équipement Professionnel &amp; Matériel Industriel B2B</title>
+  <title>JS EUROPE - Équipement Professionnel & Matériel Industriel B2B</title>
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
   <link
@@ -78,9 +78,54 @@
 
 <body class="bg-background font-body-md text-body-md text-on-surface antialiased">
 
-  <!-- ===================== HEADER ===================== -->
+  <!-- ===================== MOBILE HEADER ===================== -->
+  <header class="md:hidden fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+    <div class="bg-surface-container-low text-on-surface-variant text-label-md font-label-md py-space-xs">
+      <div class="w-full max-w-[1600px] mx-auto px-3 flex items-center justify-between text-[11px] gap-2">
+        <div class="flex items-center gap-1 truncate"><span class="material-symbols-outlined text-[14px] text-tertiary shrink-0">local_shipping</span><span class="truncate">Livraison spécialisée France & Europe</span></div>
+        <a class="flex items-center gap-1 shrink-0 font-semibold text-primary" href="tel:0189402210"><span class="material-symbols-outlined text-[14px]">support_agent</span><span>01 89 40 22 10</span></a>
+      </div>
+    </div>
+    <div class="w-full mx-auto px-3 py-2.5 flex flex-col gap-2.5 bg-surface-container-lowest border-b border-surface-container-highest/60">
+      <div class="flex items-center justify-between gap-2">
+        <div class="flex items-center gap-2">
+          <button aria-label="Ouvrir les catégories" class="p-1.5 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high flex items-center justify-center cursor-pointer" onclick="toggleCategoryDrawer(true)" type="button"><span class="material-symbols-outlined text-[22px] text-primary">menu</span></button>
+          <a class="flex items-center gap-1.5" data-path="accueil" href="index.html">
+            <div class="w-7 h-7 rounded-lg bg-primary text-on-primary font-headline-md font-bold flex items-center justify-center text-[15px] shadow-sm">S</div>
+            <div class="flex flex-col leading-none"><span class="font-headline-sm text-[16px] text-on-surface font-bold tracking-tight">JS EUROPE</span><span class="font-label-caps text-[9px] text-on-surface-variant uppercase tracking-wider">Marketplace Pro</span></div>
+          </a>
+        </div>
+        <div class="flex items-center gap-1.5 shrink-0">
+          <a aria-label="Favoris" class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" data-path="espace-client" href="espace-client.html"><span class="material-symbols-outlined text-[20px]">favorite</span></a>
+          <a aria-label="Compte pro" class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">account_circle</span></a>
+          <a class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-primary/10 hover:bg-primary/20 transition-colors" data-path="panier" href="checkout.html" onclick="toggleCartDrawer(true); return false;">
+            <div class="relative flex items-center"><span class="material-symbols-outlined text-primary text-[20px]">shopping_bag</span><span data-cart-count class="absolute -top-1.5 -right-2 bg-primary text-on-primary font-label-caps text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span></div>
+            <span data-cart-total class="font-numeric-data text-[12px] text-primary font-bold hidden xs:inline">0 €</span>
+          </a>
+        </div>
+      </div>
+      <div class="relative w-full search-container">
+        <div class="flex items-center w-full bg-surface-container-low/80 rounded-xl border border-surface-container-highest/60 focus-within:border-primary transition-colors">
+          <span class="material-symbols-outlined text-[18px] text-secondary ml-3 shrink-0">search</span>
+          <input class="w-full bg-transparent px-2.5 py-2 font-body-sm text-[13px] text-on-surface placeholder:text-secondary focus:outline-none" id="site-search-mobile" placeholder="Rechercher un matériel, référence..." type="search"/>
+          <button aria-label="Rechercher" class="m-1 px-3 py-1 bg-primary text-on-primary rounded-lg text-[12px] font-label-md font-semibold shrink-0" type="button">OK</button>
+        </div>
+      </div>
+      <!-- Secondary nav next to Toutes les catégories -->
+      <div class="flex items-center gap-2 overflow-x-auto scrollbar-none pb-1">
+        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-[12px] font-semibold shrink-0" onclick="toggleCategoryDrawer(true)" type="button"><span class="material-symbols-outlined text-[18px]">menu</span><span>Toutes les catégories</span></button>
+        <a class="px-3 py-1.5 text-primary font-label-md text-[12px] font-semibold hover:bg-surface-container-low rounded-lg whitespace-nowrap" href="category.html?promo=1">Promotions</a>
+        <a class="px-3 py-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg whitespace-nowrap font-label-md text-[12px]" href="category.html?sort=newest">Nouveautés</a>
+        <a class="px-3 py-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg whitespace-nowrap font-label-md text-[12px]" href="a-propos.html">À propos</a>
+        <a class="px-3 py-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg whitespace-nowrap font-label-md text-[12px]" href="guide-achat-financement.html">Guide</a>
+        <a class="px-3 py-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg whitespace-nowrap font-label-md text-[12px]" href="#">Plus</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== DESKTOP HEADER ===================== -->
   <header
-    class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+    class="hidden md:block fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
     <div class="bg-surface-container-low text-on-surface-variant text-label-md font-label-md py-space-xs">
       <div class="w-full max-w-[1600px] mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
         <div class="flex items-center gap-space-sm"><span
@@ -160,8 +205,100 @@
     </div>
   </header>
 
-  <main class="w-full pt-[148px] bg-background min-h-screen">
-    <div class="flex flex-col w-full">
+  <main class="w-full bg-background min-h-screen">
+    <!-- MOBILE MAIN -->
+    <div class="md:hidden pt-[98px]">
+      <div class="flex flex-col w-full">
+        <!-- HERO (stacked) -->
+        <section class="w-full px-3 pt-3 pb-2 space-y-3">
+          <div class="relative bg-surface-container-low rounded-xl overflow-hidden shadow-sm flex flex-col justify-between p-4 min-h-[340px]">
+            <div class="absolute inset-0 bg-cover bg-center opacity-95" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBQ5Rb0wHFRFoIr38N6m6Fykd5XO0LHy-17P7j9VoWBjjjeV46QXOtZZTohXatUUWyiiSwF1qNSYMpV0VF2M0NhJ-9IL9x3cZMUS9Mpa-Xokhxu2vVTnlB07OwpuMMNUZbTk9xBQUvzJvW6yXkv2nyw4sbvQcCA-3STHFyZf0LNnR8cg4G_xocWfSKBG1oQofE5az8cXTg49sG6bd4QOb1gdgCPnBhvgpf5KlOqncUa')"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#252A2D]/95 via-[#252A2D]/80 to-[#252A2D]/40"></div>
+            <div class="relative z-10 space-y-2">
+              <div class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-surface-container-highest/20 backdrop-blur-sm rounded text-primary-fixed font-label-caps text-[10px] uppercase tracking-wider"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>SÉLECTION SAISONNIÈRE 2025</div>
+              <h1 class="font-headline-xl-mobile text-[22px] leading-tight text-surface-container-lowest font-bold" id="hero-title-mobile">Les équipements qui font avancer vos projets.</h1>
+              <p class="font-body-sm text-[12px] text-surface-container-high leading-relaxed" id="hero-subtitle-mobile">Découvrez une sélection rigoureuse de machines agricoles, outillage d'atelier et BTP certifiés, livrables avec hayon.</p>
+              <div class="flex flex-col gap-2 pt-1">
+                <a class="w-full py-2.5 px-4 bg-primary text-on-primary font-label-md text-[13px] rounded-lg font-semibold text-center flex items-center justify-center gap-1.5" href="category.html"><span>Découvrir nos produits</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+                <button class="w-full py-2 px-4 bg-surface-container-lowest/90 text-on-surface font-label-md text-[13px] rounded-lg font-semibold flex items-center justify-center gap-1.5" onclick="openDevisModal('Général - Équipements 2025')" type="button"><span class="material-symbols-outlined text-[16px] text-secondary">request_quote</span><span>Demander un devis direct</span></button>
+              </div>
+            </div>
+          </div>
+          <div class="relative bg-[#252A2D] rounded-xl overflow-hidden shadow-sm p-4 flex flex-col justify-between min-h-[160px]">
+            <div class="absolute inset-0 bg-cover bg-center opacity-60" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBqBqXGDuaykhX-BLQGkieMrIfR3-xdYP0lbbhMDG8hXG6HT_FEN41R8jLjs00VHSxlJZL5OezPSOq5TA1WwWXMaBp_0ZqiNwBqEMCjlS8PxY-KCsIkXl2Iwm5D3k-Ta5WePrmAyL6UM7Lc13x6czgc9mprPWJ6lNZlM4ZfmQXyLGqnePi0lMVEObUKUq_hgBYBuF71GKI3lTmiYqHBLySpPqE9LxwNkMhhL_uIwYNC')"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#252A2D]/95 via-[#252A2D]/80 to-transparent"></div>
+            <div class="relative z-10"><span class="px-2 py-0.5 bg-surface-container-highest/20 text-tertiary-fixed font-label-caps text-[10px] uppercase tracking-wider rounded">OFFRE PRO</span></div>
+            <div class="relative z-10 space-y-1"><h2 class="font-headline-sm text-[16px] text-surface-container-lowest font-bold leading-snug">Préparez votre saison avec les bons équipements.</h2><p class="font-body-sm text-[11px] text-surface-container-high leading-relaxed line-clamp-2">Chauffage d'atelier & fendeuses de bois professionnelles disponibles sur stock logistique.</p><a class="inline-flex items-center gap-1 text-primary-fixed text-[12px] font-semibold" href="category.html">Voir la sélection <span class="material-symbols-outlined text-[14px]">arrow_forward</span></a></div>
+          </div>
+        </section>
+
+        <!-- TRUST -->
+        <section class="w-full px-3 py-2">
+          <div class="bg-surface-container-lowest rounded-xl shadow-sm p-3 grid grid-cols-2 gap-2.5">
+            <div class="flex items-start gap-2 p-1.5 rounded-lg bg-surface-container-low/60"><div class="w-7 h-7 rounded bg-surface-container-lowest flex items-center justify-center shrink-0 text-primary"><span class="material-symbols-outlined text-[16px]">rv_hookup</span></div><div><h3 class="font-label-caps text-[10px] text-on-surface font-bold">LIVRAISON HAYON</h3><p class="font-body-sm text-[10px] text-secondary mt-0.5">Sur chantier ou atelier</p></div></div>
+            <div class="flex items-start gap-2 p-1.5 rounded-lg bg-surface-container-low/60"><div class="w-7 h-7 rounded bg-surface-container-lowest flex items-center justify-center shrink-0 text-tertiary"><span class="material-symbols-outlined text-[16px]">verified_user</span></div><div><h3 class="font-label-caps text-[10px] text-on-surface font-bold">CHORUS 30J</h3><p class="font-body-sm text-[10px] text-secondary mt-0.5">Paiement sécurisé pro</p></div></div>
+            <div class="flex items-start gap-2 p-1.5 rounded-lg bg-surface-container-low/60"><div class="w-7 h-7 rounded bg-surface-container-lowest flex items-center justify-center shrink-0 text-primary"><span class="material-symbols-outlined text-[16px]">engineering</span></div><div><h3 class="font-label-caps text-[10px] text-on-surface font-bold">CONSEIL DÉDIÉ</h3><p class="font-body-sm text-[10px] text-secondary mt-0.5">Support ingénieur</p></div></div>
+            <div class="flex items-start gap-2 p-1.5 rounded-lg bg-surface-container-low/60"><div class="w-7 h-7 rounded bg-surface-container-lowest flex items-center justify-center shrink-0 text-secondary"><span class="material-symbols-outlined text-[16px]">timer</span></div><div><h3 class="font-label-caps text-[10px] text-on-surface font-bold">DEVIS SOUS 24H</h3><p class="font-body-sm text-[10px] text-secondary mt-0.5">Chiffrage personnalisé</p></div></div>
+          </div>
+        </section>
+
+        <!-- UNIVERS -->
+        <section class="w-full px-3 py-3">
+          <div class="flex items-baseline justify-between gap-2 pb-2"><div><span class="font-label-caps text-[10px] text-primary uppercase tracking-wider font-bold">PANORAMA DU CATALOGUE</span><h2 class="font-headline-md text-[18px] text-on-surface font-bold leading-tight">Explorez nos univers</h2></div><a class="text-primary font-semibold text-[11px] shrink-0" href="category.html">Tous les rayons (15) <span class="material-symbols-outlined text-[14px]">arrow_forward</span></a></div>
+          <div id="category-grid-mobile" class="grid grid-cols-2 gap-2.5"></div>
+        </section>
+
+        <!-- PROMOS -->
+        <section class="w-full px-3 py-3">
+          <div class="flex items-baseline justify-between gap-2 pb-2"><div><div class="inline-flex items-center gap-1 text-primary font-label-caps text-[10px] uppercase font-bold tracking-wider"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>CONDITIONS DÉSTOCKAGE</div><h2 class="font-headline-md text-[18px] text-on-surface font-bold leading-tight">Nos offres du moment</h2></div><a class="text-primary font-semibold text-[11px] shrink-0" href="category.html?promo=1">Toutes <span class="material-symbols-outlined text-[14px]">arrow_forward</span></a></div>
+          <div id="promo-grid-mobile" class="grid grid-cols-2 gap-2.5"></div>
+        </section>
+
+        <!-- NOUVEAUTÉS -->
+        <section class="w-full px-3 py-3">
+          <div class="flex items-baseline justify-between gap-2 pb-2"><div><span class="font-label-caps text-[10px] text-secondary uppercase tracking-wider font-bold">DERNIÈRES ENTRÉES</span><h2 class="font-headline-md text-[18px] text-on-surface font-bold leading-tight">Nos nouveautés</h2></div><a class="text-primary font-semibold text-[11px] shrink-0" href="category.html?sort=newest">Toutes <span class="material-symbols-outlined text-[14px]">arrow_forward</span></a></div>
+          <div id="nouveautes-grid-mobile" class="grid grid-cols-2 gap-2.5"></div>
+        </section>
+
+        <!-- SÉLECTION -->
+        <section class="w-full px-3 py-3">
+          <div class="flex items-baseline justify-between gap-2 pb-2"><div><span class="font-label-caps text-[10px] text-primary uppercase tracking-wider font-bold">MATÉRIEL ÉPROUVÉ</span><h2 class="font-headline-md text-[18px] text-on-surface font-bold leading-tight">Notre sélection</h2></div><a class="text-primary font-semibold text-[11px] shrink-0" href="category.html">Voir toute la sélection <span class="material-symbols-outlined text-[14px]">arrow_forward</span></a></div>
+          <div id="selection-grid-mobile" class="grid grid-cols-2 gap-2.5"></div>
+        </section>
+
+        <!-- TÉMOIGNAGES (added) -->
+        <section class="w-full px-3 py-3">
+          <div class="text-center mb-3"><span class="inline-block px-3 py-1 bg-primary/10 text-primary font-label-caps text-[10px] uppercase tracking-wider rounded">Témoignages</span><h2 class="font-headline-md text-[18px] text-on-surface font-bold mt-1">Ils nous font confiance</h2></div>
+          <div class="space-y-3">
+            <div class="bg-surface-container-lowest rounded-xl p-3 shadow-sm border border-outline-variant/20"><div class="flex items-center gap-0.5 text-primary mb-1"><span class="material-symbols-outlined text-[16px]">star</span><span class="material-symbols-outlined text-[16px]">star</span><span class="material-symbols-outlined text-[16px]">star</span><span class="material-symbols-outlined text-[16px]">star</span><span class="material-symbols-outlined text-[16px]">star</span></div><p class="font-body-sm text-[12px] text-on-surface leading-relaxed">« Livraison rapide et matériel conforme à la description. L'équipe technique a répondu à toutes nos questions avant l'achat. »</p><div class="mt-2 flex items-center gap-2"><div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-[12px]">JM</div><div><p class="font-label-md font-semibold text-[12px]">Jean-Marc D.</p><p class="font-body-sm text-[10px] text-secondary">Exploitant agricole, Bretagne</p></div></div></div>
+            <div class="bg-surface-container-lowest rounded-xl p-3 shadow-sm border border-outline-variant/20"><div class="flex items-center gap-0.5 text-primary mb-1"><span class="material-symbols-outlined text-[16px]">star</span><span class="material-symbols-outlined text-[16px]">star</span><span class="material-symbols-outlined text-[16px]">star</span><span class="material-symbols-outlined text-[16px]">star</span><span class="material-symbols-outlined text-[16px]">star</span></div><p class="font-body-sm text-[12px] text-on-surface leading-relaxed">« Excellent rapport qualité-prix sur les micro-tracteurs. Service après-vente réactif, nous recommanderons Strand. »</p><div class="mt-2 flex items-center gap-2"><div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-[12px]">SL</div><div><p class="font-label-md font-semibold text-[12px]">Sophie L.</p><p class="font-body-sm text-[10px] text-secondary">Entreprise espaces verts, Loire</p></div></div></div>
+            <div class="bg-surface-container-lowest rounded-xl p-3 shadow-sm border border-outline-variant/20"><div class="flex items-center gap-0.5 text-primary mb-1"><span class="material-symbols-outlined text-[16px]">star</span><span class="material-symbols-outlined text-[16px]">star</span><span class="material-symbols-outlined text-[16px]">star</span><span class="material-symbols-outlined text-[16px]">star</span><span class="material-symbols-outlined text-[16px]">star</span></div><p class="font-body-sm text-[12px] text-on-surface leading-relaxed">« Devis clair et sans surprise. Le matériel est arrivé dans les délais annoncés, prêt à l'emploi. Très satisfait. »</p><div class="mt-2 flex items-center gap-2"><div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-[12px]">PR</div><div><p class="font-label-md font-semibold text-[12px]">Pierre R.</p><p class="font-body-sm text-[10px] text-secondary">Collectivité, Normandie</p></div></div></div>
+          </div>
+        </section>
+
+        <!-- CTA + NEWSLETTER (compact) -->
+        <section class="w-full px-3 py-3">
+          <div class="bg-surface-container-low rounded-xl p-4 shadow-sm space-y-2.5">
+            <h2 class="font-headline-sm text-[17px] text-on-surface font-bold leading-tight">Un projet d'équipement ou un besoin spécifique ?</h2>
+            <button class="w-full py-2.5 px-3 bg-primary text-on-primary font-label-md text-[13px] rounded-lg font-semibold flex items-center justify-center gap-1.5" onclick="openDevisModal('Projet spécifique')" type="button"><span class="material-symbols-outlined text-[16px]">assignment_turned_in</span>Demander un devis en ligne</button>
+            <a class="w-full py-2 px-3 bg-surface-container-lowest text-on-surface font-label-md text-[13px] rounded-lg font-semibold flex items-center justify-center gap-1.5" href="tel:0189402210"><span class="material-symbols-outlined text-[16px] text-primary">phone_in_talk</span>01 89 40 22 10</a>
+          </div>
+        </section>
+        <section class="w-full px-3 py-3 pb-6">
+          <div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm border border-surface-container-highest/60 space-y-2.5">
+            <h2 class="font-headline-sm text-[16px] text-on-surface font-bold leading-snug">Restez informé des innovations & opportunités</h2>
+            <form class="space-y-2" onsubmit="handleNewsletterSubmit(event)">
+              <input class="w-full bg-surface-container-low px-3 py-2 rounded-lg font-body-sm text-[12px] text-on-surface placeholder:text-secondary focus:outline-none" placeholder="Email pro" required type="email"/>
+              <button class="w-full py-2 bg-primary text-on-primary font-label-md text-[12px] rounded-lg font-semibold" type="submit">S'inscrire</button>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- DESKTOP MAIN -->
+    <div class="hidden md:block pt-[148px]">
+      <div class="flex flex-col w-full">
 
       <!-- HERO -->
       <section class="w-full max-w-[1600px] mx-auto px-4 sm:px-6 pt-space-md pb-space-lg">
@@ -243,7 +380,7 @@
               class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center shrink-0 text-tertiary">
               <span class="material-symbols-outlined text-[24px]">verified_user</span></div>
             <div>
-              <h3 class="font-title-md text-title-md text-on-surface font-semibold">PAIEMENT SÉCURISÉ &amp; CHORUS</h3>
+              <h3 class="font-title-md text-title-md text-on-surface font-semibold">PAIEMENT SÉCURISÉ & CHORUS</h3>
               <p class="font-body-sm text-body-sm text-secondary mt-0.5 leading-snug">Règlement CB sécurisé, virement
                 bancaire et mandats administratifs 30j.</p>
             </div>
@@ -331,7 +468,7 @@
               <div>
                 <h3
                   class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors">
-                  Jardin &amp; Espaces verts</h3>
+                  Jardin & Espaces verts</h3>
                 <p class="font-body-sm text-body-sm text-secondary mt-1 line-clamp-2">Tondeuses autoportées,
                   débroussailleuses pro forestières.</p>
               </div>
@@ -358,7 +495,7 @@
               <div>
                 <h3
                   class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors">
-                  Chauffage &amp; Énergie</h3>
+                  Chauffage & Énergie</h3>
                 <p class="font-body-sm text-body-sm text-secondary mt-1 line-clamp-2">Générateurs d'air chaud fioul,
                   chaudières et aérothermes.</p>
               </div>
@@ -385,7 +522,7 @@
               <div>
                 <h3
                   class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors">
-                  BTP &amp; Manutention</h3>
+                  BTP & Manutention</h3>
                 <p class="font-body-sm text-body-sm text-secondary mt-1 line-clamp-2">Mini-pelles, transpalettes haute
                   levée, dumpers de chantier.</p>
               </div>
@@ -412,7 +549,7 @@
               <div>
                 <h3
                   class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors">
-                  Garage &amp; Atelier</h3>
+                  Garage & Atelier</h3>
                 <p class="font-body-sm text-body-sm text-secondary mt-1 line-clamp-2">Ponts élévateurs, presses
                   d'atelier 30T, compresseurs.</p>
               </div>
@@ -589,7 +726,7 @@
               </div>
               <div class="mt-space-sm">
                 <div class="flex items-center justify-between text-secondary font-label-caps text-label-caps uppercase">
-                  <span>FORGE &amp; ARBOR</span><span class="text-tertiary flex items-center gap-0.5"><span
+                  <span>FORGE & ARBOR</span><span class="text-tertiary flex items-center gap-0.5"><span
                       class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Port offert</span></div>
                 <h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mt-1 leading-snug">Broyeur de
                   branches forestier moteur 15 CV remorquable</h3>
@@ -936,7 +1073,7 @@
               <div class="w-2.5 h-2.5 rounded-full bg-tertiary animate-pulse"></div>
               <div class="text-left font-label-caps text-[11px] leading-tight text-on-surface">
                 <span class="font-bold block">12 400+ ÉQUIPEMENTS LIVRÉS</span>
-                <span class="text-secondary">Assistance technique certifiée en France &amp; UE</span>
+                <span class="text-secondary">Assistance technique certifiée en France & UE</span>
               </div>
             </div>
           </div>
@@ -1226,7 +1363,7 @@
             <div
               class="inline-flex items-center gap-2 px-2.5 py-1 bg-surface-container-highest rounded text-primary font-label-caps text-label-caps uppercase tracking-wider">
               <span class="material-symbols-outlined text-[16px]">support_agent</span>
-              SERVICE MARCHÉS PUBLICS &amp; GRANDES FLOTTES
+              SERVICE MARCHÉS PUBLICS & GRANDES FLOTTES
             </div>
             <h2 class="font-headline-lg text-headline-lg text-on-surface font-bold leading-tight">
               Un projet d'équipement ou un besoin spécifique ?
@@ -1268,9 +1405,9 @@
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center">
             <div class="lg:col-span-6 space-y-space-xs">
               <span class="font-label-caps text-label-caps text-primary uppercase tracking-wider">VEILLE SECTORIELLE
-                &amp; B2B</span>
+                & B2B</span>
               <h2 class="font-headline-md text-headline-md text-on-surface font-bold">
-                Restez informé des innovations &amp; opportunités
+                Restez informé des innovations & opportunités
               </h2>
               <p class="font-body-md text-body-md text-secondary">
                 Recevez chaque mois les actualités techniques, guides réglementaires d'exploitation et offres de
@@ -1312,6 +1449,7 @@
       </section>
 
     </div>
+    </div> <!-- end desktop main wrapper -->
 
     <!-- ============ CATEGORY DRAWER ============ -->
     <div class="fixed inset-0 bg-on-surface/50 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"
@@ -1326,7 +1464,7 @@
             class="w-8 h-8 rounded bg-primary text-on-primary font-bold flex items-center justify-center font-headline-sm">
             S</div>
           <div><span class="font-headline-sm text-headline-sm font-bold text-on-surface block leading-tight">Rayons
-              &amp; Univers</span><span
+              & Univers</span><span
               class="font-label-caps text-[10px] text-secondary tracking-wider uppercase">Catalogue Strand</span></div>
         </div>
         <button class="w-8 h-8 rounded-full hover:bg-surface-container flex items-center justify-center text-secondary"
@@ -1337,31 +1475,31 @@
         <a class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low" href="category.html">
           <div class="flex items-center gap-3"><span
               class="material-symbols-outlined text-primary text-[22px]">agriculture</span><span
-              class="font-label-md text-label-md font-semibold text-on-surface">Agricole &amp; Élevage</span></div><span
+              class="font-label-md text-label-md font-semibold text-on-surface">Agricole & Élevage</span></div><span
             class="material-symbols-outlined text-[18px] text-secondary">chevron_right</span>
         </a>
         <a class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low" href="category.html">
           <div class="flex items-center gap-3"><span
               class="material-symbols-outlined text-tertiary text-[22px]">yard</span><span
-              class="font-label-md text-label-md font-semibold text-on-surface">Jardin &amp; Espaces Verts</span></div>
+              class="font-label-md text-label-md font-semibold text-on-surface">Jardin & Espaces Verts</span></div>
           <span class="material-symbols-outlined text-[18px] text-secondary">chevron_right</span>
         </a>
         <a class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low" href="category.html">
           <div class="flex items-center gap-3"><span
               class="material-symbols-outlined text-primary text-[22px]">thermostat</span><span
-              class="font-label-md text-label-md font-semibold text-on-surface">Chauffage &amp; Énergie</span></div>
+              class="font-label-md text-label-md font-semibold text-on-surface">Chauffage & Énergie</span></div>
           <span class="material-symbols-outlined text-[18px] text-secondary">chevron_right</span>
         </a>
         <a class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low" href="category.html">
           <div class="flex items-center gap-3"><span
               class="material-symbols-outlined text-secondary text-[22px]">construction</span><span
-              class="font-label-md text-label-md font-semibold text-on-surface">BTP &amp; Manutention</span></div><span
+              class="font-label-md text-label-md font-semibold text-on-surface">BTP & Manutention</span></div><span
             class="material-symbols-outlined text-[18px] text-secondary">chevron_right</span>
         </a>
         <a class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low" href="category.html">
           <div class="flex items-center gap-3"><span
               class="material-symbols-outlined text-primary text-[22px]">car_repair</span><span
-              class="font-label-md text-label-md font-semibold text-on-surface">Garage &amp; Atelier</span></div><span
+              class="font-label-md text-label-md font-semibold text-on-surface">Garage & Atelier</span></div><span
             class="material-symbols-outlined text-[18px] text-secondary">chevron_right</span>
         </a>
       </div>
@@ -1460,55 +1598,55 @@
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
                 data-path="catalogue-materiel" href="category.html">Toutes les catégories</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                data-path="catalogue-materiel" href="category.html">Matériel Agricole &amp; Espaces verts</a></li>
+                data-path="catalogue-materiel" href="category.html">Matériel Agricole & Espaces verts</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                data-path="catalogue-materiel" href="category.html">Chauffage Pro &amp; Énergie</a></li>
+                data-path="catalogue-materiel" href="category.html">Chauffage Pro & Énergie</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                data-path="catalogue-materiel" href="category.html">BTP &amp; Manutention industrielle</a></li>
+                data-path="catalogue-materiel" href="category.html">BTP & Manutention industrielle</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                data-path="catalogue-materiel" href="category.html">Atelier &amp; Outillage mécanique</a></li>
+                data-path="catalogue-materiel" href="category.html">Atelier & Outillage mécanique</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a data-path="nouveautes"
                 href="nouveautes.html">Nouveautés machines 2025</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a data-path="promotions"
-                href="promotions.html">Déstockage &amp; Flottes récentes</a></li>
+                href="promotions.html">Déstockage & Flottes récentes</a></li>
           </ul>
         </div>
         <div>
           <h4
             class="font-label-caps text-label-caps text-surface-container-lowest uppercase tracking-wider pb-space-sm mb-space-sm">
-            Service Client &amp; Pro</h4>
+            Service Client & Pro</h4>
           <ul class="space-y-2 font-body-sm text-body-sm text-secondary-fixed-dim">
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
                 data-path="demande-devis" href="demande-devis.html">Demande de cotation grand compte</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
                 data-path="experts-techniques" href="experts-techniques.html">Parler à un conseiller technique</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                data-path="livraison-dechargement" href="livraison-dechargement.html">Conditions de livraison &amp; déchargement hayon</a></li>
+                data-path="livraison-dechargement" href="livraison-dechargement.html">Conditions de livraison & déchargement hayon</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                data-path="espace-client" href="espace-client.html">Suivi de commande &amp; BL numérique</a></li>
+                data-path="espace-client" href="espace-client.html">Suivi de commande & BL numérique</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                data-path="espace-client" href="espace-client.html">Retours professionnels &amp; SAV fabricant</a></li>
+                data-path="espace-client" href="espace-client.html">Retours professionnels & SAV fabricant</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                data-path="guide-achat-financement" href="guide-achat-financement.html">FAQ &amp; Guides de financement leasing</a></li>
+                data-path="guide-achat-financement" href="guide-achat-financement.html">FAQ & Guides de financement leasing</a></li>
           </ul>
         </div>
         <div>
           <h4
             class="font-label-caps text-label-caps text-surface-container-lowest uppercase tracking-wider pb-space-sm mb-space-sm">
-            Entreprise &amp; Légal</h4>
+            Entreprise & Légal</h4>
           <ul class="space-y-2 font-body-sm text-body-sm text-secondary-fixed-dim">
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a data-path="a-propos"
                 href="a-propos.html">À propos de Strand SAS</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
                 data-path="mentions-legales" href="mentions-legales.html">Mentions légales</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
-                data-path="conditions-generales-vente" href="conditions-generales-vente.html">CGV Professionnels &amp; Particuliers</a></li>
+                data-path="conditions-generales-vente" href="conditions-generales-vente.html">CGV Professionnels & Particuliers</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
                 data-path="politique-confidentialite" href="politique-confidentialite.html">Politique de confidentialité RGPD</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a
                 data-path="gestion-cookies" href="gestion-cookies.html">Gestion des cookies de traçage</a></li>
             <li class="hover:text-surface-container-lowest transition-colors cursor-pointer"><a data-path="recrutement"
-                href="recrutement.html">Recrutement ingénieurs &amp; commerce</a></li>
+                href="recrutement.html">Recrutement ingénieurs & commerce</a></li>
           </ul>
         </div>
       </div>
@@ -1516,7 +1654,7 @@
         class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md text-secondary-fixed-dim font-body-sm text-[12px]">
         <div class="flex flex-col sm:flex-row items-center gap-space-sm text-center sm:text-left"><span>© 2025 Strand
             SAS — Tous droits réservés.</span><span class="hidden sm:inline text-secondary">•</span><span>Facturation
-            conforme réglementation française &amp; TVA intracommunautaire.</span></div>
+            conforme réglementation française & TVA intracommunautaire.</span></div>
         <div
           class="flex items-center flex-wrap justify-center gap-space-sm font-label-caps text-[10px] text-surface-container-lowest">
           <span class="px-2 py-1 bg-surface-container-highest/10 rounded">CB SÉCURISÉE</span><span
