@@ -1,6 +1,6 @@
 // Floating WhatsApp + dynamic category drawer
 (function () {
-  const WA_NUMBER = '33189402210'; // change to the real number
+  const WA_NUMBER = '+33 6-44-67-87-24'; // change to the real number
   const WA_TEXT = encodeURIComponent('Bonjour, je souhaite des informations.');
 
   function addWhatsApp() {
