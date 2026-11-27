@@ -96,6 +96,18 @@
       display: block;
     }
   </style>
+  <style>
+  body, body * {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+  }
+  input, textarea, [contenteditable] {
+    -webkit-user-select: text !important;
+    user-select: text !important;
+  }
+</style>
   <script src="https://cdn.tailwindcss.com"></script>
   <script id="tailwind-config">tailwind.config = {
       darkMode: "class",
@@ -112,7 +124,16 @@
       }
     }</script>
 </head>
-
+<script>
+  document.addEventListener('copy', e => e.preventDefault());
+  document.addEventListener('cut', e => e.preventDefault());
+  document.addEventListener('contextmenu', e => e.preventDefault());
+  document.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && ['c','x','a','u'].includes(e.key.toLowerCase())) {
+      e.preventDefault();
+    }
+  });
+</script>
 <body class="bg-background font-body-md text-body-md text-on-surface antialiased">
 
   <!-- ===================== MOBILE HEADER ===================== -->
